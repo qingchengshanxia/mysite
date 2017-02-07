@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>JS实现继承的5种方式</title>
+	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../responsive.css">
+	<link rel="stylesheet" href="artstyle.css">
+	<style>
+		.art-wrap .left .art-middle ol li {
+			color: gray;
+			font-size: 12px;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1 style="display: none;"><a href="http://www.qingchengshanxia.com/">san gong</a></h1>
+			<div class="myhead">
+				<a href="../index.html">
+					<img src="../images/headimg.jpg" alt="我的头像">
+				</a>
+				<div>
+					<h2>青城山下</h2>
+					<p>初级前端工程师</p>
+				</div>
+			</div>
+			<nav class="headnav">
+				<ul class="navshow">
+					<li><a href="../about.html">about</a><span>·</span></li>
+					<li><a href="../profile.html">profile</a><span>·</span></li>
+					<li><a href="../demo.html">demo</a><span>·</span></li>
+					<li><a href="../note.html">note</a><span>·</span></li>
+					<li><a href="../code.html">code</a><span>·</span></li>
+					<li><a href="../links.html">links</a><span>·</span></li>
+					<li><a href="../chat.html">chat</a><span>·</span></li>
+					<li><a href="../contact.html">contact</a></li>
+				</ul>
+			</nav>
+			<div class="navhide" id="navhide">
+				<div>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<ul class="navhide-sub">
+					<li><a href="../about.html">about</a></li>
+					<li><a href="../profile.html">profile</a></li>
+					<li><a href="../demo.html">demo</a></li>
+					<li><a href="../note.html">note</a></li>
+					<li><a href="../code.html">code</a></li>
+					<li><a href="../links.html">links</a></li>
+					<li><a href="../chat.html">chat</a></li>
+					<li><a href="../contact.html">contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<section class="art-wrap">
+		<div class="container clearfix">
+			<div class="left">
+				<div class="art-top">
+					<h1>JS实现继承的6种方式</h1>
+					<div class="art-meta">
+						<span class="shijian">2016-11-13</span>
+						<span class="biaoqian">标签：<a href="javascript:void(0)" class="js">js</a></span>
+						<span>阅读<i class="count" id="count1">(0)</i></span>
+						<span class="comnum">评论<i>(0)</i></span>
+					</div>
+				</div>
+				<div class="art-middle clearfix" id="art-middle">
+					<div class="art-index">
+						<h2 id="art-index-title">文章目录 <span class="bottom-icon"></h2>
+						<ul id="art-menu"></ul>
+					</div>
+					<p>由于js不像java那样是真正面向对象的语言，js是基于对象的，它没有类的概念。所以，要想实现继承，可以用js的原型prototype机制或者用apply和call方法去实现。</p>
+					<p>在面向对象的语言中，我们使用类来创建一个自定义对象。然而js中所有事物都是对象，那么用什么办法来创建自定义对象呢？这就需要用到js的原型：</p>
+					<p>我们可以简单的把prototype看做是一个模版，新创建的自定义对象都是这个模版（prototype）的一个拷贝 （实际上不是拷贝而是链接，只不过这种链接是不可见，新实例化的对象内部有一个看不见的__Proto__指针，指向原型对象）。</p>
+					<p>js可以通过构造函数和原型的方式模拟实现类的功能。另外，js类式继承的实现也是依靠原型链来实现的。下面，来看看JS实现继承的5种方式:</p><br>
+					<p>定义一个父类，如下：</p>
+					<div class="code">
+						<pre>
+	// 定义一个动物类
+	function Animal (name) {
+	  // 属性
+	  this.name = name || 'Animal';
+	  // 实例方法
+	  this.sleep = function(){
+	    console.log(this.name + '正在睡觉！');
+	  }
+	}
+	// 原型方法
+	Animal.prototype.eat = function(food) {
+	  console.log(this.name + '正在吃：' + food);
+	};</pre>
+					</div>
+					<h3><span>原型链继承</span></h3>
+					<p>核心： 将父类的实例作为子类的原型</p>
+					<div class="code">
+						<pre>
+	function Cat(){ }
+	Cat.prototype = new Animal();
+	Cat.prototype.name = 'cat';
+	//　Test Code
+	var cat = new Cat();
+
+	console.log(cat.name);
+	console.log(cat.eat('fish'));
+	console.log(cat.sleep());
+	console.log(cat instanceof Animal); //true 
+	console.log(cat instanceof Cat); //true </pre>
+					</div>
+					<p>特点：</p>
+					<ol>
+						<li>非常纯粹的继承关系，实例是子类的实例，也是父类的实例</li>
+						<li>父类新增原型方法/原型属性，子类都能访问到</li>
+						<li>简单，易于实现</li>
+					</ol>
+					<p>缺点：</p>
+					<ol>
+						<li>要想为子类新增属性和方法，必须要在new Animal()这样的语句之后执行，不能放到构造器中</li>
+						<li>无法实现多继承</li>
+						<li>来自原型对象的引用属性是所有实例共享的</li>
+						<li>创建子类实例时，无法向父类构造函数传参</li>
+					</ol>
+					<p>推荐指数：★★（3、4两大致命缺陷）</p>
+					<h3><span>构造继承</span></h3>
+					<p>核心：使用父类的构造函数来增强子类实例，等于是复制父类的实例属性给子类（没用到原型）</p>
+					<div class="code">
+						<pre>
+	function Cat(name){
+	  	Animal.call(this);
+	  	this.name = name || 'Tom';
+	}
+
+	// Test Code
+	var cat = new Cat();
+
+	console.log(cat.name);
+	console.log(cat.sleep());
+	console.log(cat instanceof Animal); // false
+	console.log(cat instanceof Cat); // true
+						</pre>
+					</div>
+					<p>特点：</p>
+					<ol>
+						<li>解决了1中，子类实例共享父类引用属性的问题</li>
+						<li>创建子类实例时，可以向父类传递参数</li>
+						<li>可以实现多继承（call多个父类对象）</li>
+					</ol>
+					<p>缺点：</p>
+					<ol>
+						<li>实例并不是父类的实例，只是子类的实例</li>
+						<li>只能继承父类的实例属性和方法，不能继承原型属性/方法</li>
+						<li>无法实现函数复用，每个子类都有父类实例函数的副本，影响性能</li>
+					</ol>
+					<p>推荐指数：★★（缺点3）</p>
+					<h3><span>实例继承(工厂模式)</span></h3>
+					<p>核心：为父类实例添加新特性，作为子类实例返回</p>
+					<div class="code">
+						<pre>
+	function Cat(name){
+	  	var instance = new Animal();
+	  	instance.name = name || 'Tom';
+	  	return instance;
+	}
+
+	// Test Code
+	var cat = new Cat();
+
+	console.log(cat.name);
+	console.log(cat.sleep());
+	console.log(cat instanceof Animal); // true
+	console.log(cat instanceof Cat); // false
+						</pre>
+					</div>
+					<p>特点：</p>
+					<ol>
+						<li>不限制调用方式，不管是new 子类()还是子类(),返回的对象具有相同的效果</li>
+					</ol>
+					<p>缺点：</p>
+					<ol>
+						<li>实例是父类的实例，不是子类的实例</li>
+						<li>不支持多继承</li>
+					</ol>
+					<p>推荐指数：★★</p>
+					<h3><span>拷贝继承</span></h3>
+					<div class="code">
+						<pre>
+	function Cat(name){
+	  	var animal = new Animal();
+	  	for(var p in animal){
+	    	Cat.prototype[p] = animal[p];
+	  	}
+	  	Cat.prototype.name = name || 'Tom';
+	}
+
+	// Test Code
+	var cat = new Cat();
+
+	console.log(cat.name);
+	console.log(cat.sleep());
+	console.log(cat instanceof Animal); // false
+	console.log(cat instanceof Cat); // true
+						</pre>
+					</div>
+					<p>特点：</p>
+					<ol>
+						<li>支持多继承</li>
+					</ol>
+					<p>缺点：</p>
+					<ol>
+						<li>效率较低，内存占用高（因为要拷贝父类的属性）</li>
+						<li>无法获取父类不可枚举的方法（不可枚举方法，不能使用for in 访问到）</li>
+					</ol>
+					<p>推荐指数：★（缺点1）</p>
+					<h3><span>组合继承</span></h3>
+					<p>核心：通过调用父类构造，继承父类的属性并保留传参的优点，然后通过将父类实例作为子类原型，实现函数复用</p>
+					<div class="code">
+						<pre>
+	function Cat(name){
+	  	Animal.call(this);
+	  	this.name = name || 'Tom';
+	}
+	Cat.prototype = new Animal();
+
+	// Test Code
+	var cat = new Cat();
+
+	console.log(cat.name);
+	console.log(cat.sleep());
+	console.log(cat instanceof Animal); // true
+	console.log(cat instanceof Cat); // true
+						</pre>
+					</div>
+					<p>特点：</p>
+					<ol>
+						<li>弥补了方式2的缺陷，可以继承实例属性/方法，也可以继承原型属性/方法</li>
+						<li>既是子类的实例，也是父类的实例</li>
+						<li>不存在引用属性共享问题</li>
+						<li>可传参</li>
+						<li>函数可复用</li>
+					</ol>
+					<p>缺点：</p>
+					<ol>
+						<li>调用了两次父类构造函数，生成了两份实例（子类实例将子类原型上的那份屏蔽了）</li>
+					</ol>
+					<p>推荐指数：★★★★（仅仅多消耗了一点内存）</p>
+					<h3><span>寄生组合继承(完美)</span></h3>
+					<p>核心：通过寄生方式，砍掉父类的实例属性，这样，在调用两次父类的构造的时候，就不会初始化两次实例方法/属性，避免的组合继承的缺点</p>
+					<div class="code">
+						<pre>
+	function Cat(name){
+	  	Animal.call(this);
+	  	this.name = name || 'Tom';
+	}
+	(function(){
+	  // 创建一个没有实例方法的类
+	  var Super = function(){};
+	  Super.prototype = Animal.prototype;
+	  //将实例作为子类的原型
+	  Cat.prototype = new Super();
+	  Cat.prototype.constructor = Cat;
+	})();
+
+	var cat = new Cat();
+
+	console.log(cat.name);
+	console.log(cat.sleep());
+	console.log(cat instanceof Animal); // true
+	console.log(cat instanceof Cat); //true
+						</pre>
+					</div>
+					<p>特点：</p>
+					<ol>
+						<li>堪称完美</li>
+					</ol>
+					<p>缺点：</p>
+					<ol>
+						<li>实现较为复杂</li>
+					</ol>
+					<p>推荐指数：★★★★（实现复杂，扣掉一颗星）</p>
+				</div>
+				<div class="art-bottom">
+					<div class="declaration">
+						<p>本文内容转载自网络，如有侵权需删除，请在<a href="../chat.html" class="chat">Chat栏</a>留言或加我QQ联系！</p>
+					</div>
+					<div class="art-zan clearfix">
+						<p class="art-dianzan" id="art-dianzan"><span class="zan" id="zan1">0</span></p>
+						<div class="art-share">
+							<div class="bdsharebuttonbox">
+								<a href="#" class="bds_more" data-cmd="more"></a>
+								<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+								<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+								<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+								<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+								<a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a>
+							</div>
+							<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","weixin","sqq","mshare"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","weixin","sqq","mshare"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+							</script>
+						</div>
+					</div>
+					<div class="art-related">
+						<h4>相关文章</h4>
+						<div>
+							<ul class="clearfix">
+								<li><a href="../links.html">前端网址导航</a></li>
+								<li><a href="article3.html">前端完整学习路线参考</a></li>
+								<li><a href="article2.html">HTML规范精要整理大全</a></li>
+								<li><a href="article4.html">Web前端浏览器兼容处理大全</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<div class="clock">
+					<div class="clockwrap">
+						<canvas width="190" height="190" id="myclock">您的浏览器不支持canvas。</canvas>
+					</div>
+				</div>
+				<div class="calendar">
+					<div class="calendar-wrap">
+						<div class="datetitle clearfix">
+							<dl class="dateyear" id="dateyear">
+								<dt>2012年</dt>
+								<dd>
+									<ul>
+										<li>2012年</li>
+										<li>2013年</li>
+										<li>2014年</li>
+										<li>2015年</li>
+										<li>2016年</li>
+										<li>2017年</li>
+										<li>2018年</li>
+										<li>2019年</li>
+										<li>2020年</li>
+										<li>2021年</li>
+										<li>2022年</li>
+									</ul>
+								</dd>
+							</dl>
+							<dl class="datemonth" id="datemonth">
+								<dt>1月</dt>
+								<dd>
+									<ul>
+										<li>1月</li>
+										<li>2月</li>
+										<li>3月</li>
+										<li>4月</li>
+										<li>5月</li>
+										<li>6月</li>
+										<li>7月</li>
+										<li>8月</li>
+										<li>9月</li>
+										<li>10月</li>
+										<li>11月</li>
+										<li>12月</li>
+									</ul>
+								</dd>
+							</dl>
+							<p class="dateday" id="dateday">1日</p>
+							<p class="curweek" id="curweek"><span>星期一</span></p>
+						</div>
+						<div class="datebox">
+							<table>
+								<thead class="dateweek" id="dateweek">
+									<tr>
+										<td id="week1">一</td>
+										<td id="week2">二</td>
+										<td id="week3">三</td>
+										<td id="week4">四</td>
+										<td id="week5">五</td>
+										<td id="week6">六</td>
+										<td id="week7">日</td>
+									</tr>
+								</thead>
+								<tbody id="dateday">
+									<tr>
+										<td></td>
+										<td></td>
+										<td><span class="choiceday">1</span></td>
+										<td><span>2</span></td>
+										<td><span>3</span></td>
+										<td><span>4</span></td>
+										<td><span>5</span></td>
+									</tr>
+									<tr>
+										<td><span>6</span></td>
+										<td><span>7</span></td>
+										<td><span>8</span></td>
+										<td><span>9</span></td>
+										<td><span>10</span></td>
+										<td><span>11</span></td>
+										<td><span>12</span></td>
+									</tr>
+									<tr>
+										<td><span>13</span></td>
+										<td><span>14</span></td>
+										<td><span>15</span></td>
+										<td><span>16</span></td>
+										<td><span>17</span></td>
+										<td><span>18</span></td>
+										<td><span>19</span></td>
+									</tr>
+									<tr>
+										<td><span>20</span></td>
+										<td><span>21</span></td>
+										<td><span>22</span></td>
+										<td><span>23</span></td>
+										<td><span>24</span></td>
+										<td><span>25</span></td>
+										<td><span>26</span></td>
+									</tr>
+									<tr>
+										<td><span>27</span></td>
+										<td><span>28</span></td>
+										<td><span>29</span></td>
+										<td><span>30</span></td>
+										<td><span>31</span></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="totop" id="totop"><a href="javascript:void(0)"></a></div>
+		</div>
+	</footer>
+	<script src="../jquery-3.1.1.min.js"></script>
+	<script src="../script.js"></script>
+	<script src="artscript.js"></script>
+</body>
+</html>

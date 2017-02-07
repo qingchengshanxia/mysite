@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>20个原生JavaScript技巧</title>
+	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../responsive.css">
+	<link rel="stylesheet" href="artstyle.css">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1 style="display: none;"><a href="http://www.qingchengshanxia.com/">san gong</a></h1>
+			<div class="myhead">
+				<a href="../index.html">
+					<img src="../images/headimg.jpg" alt="我的头像">
+				</a>
+				<div>
+					<h2>青城山下</h2>
+					<p>初级前端工程师</p>
+				</div>
+			</div>
+			<nav class="headnav">
+				<ul class="navshow">
+					<li><a href="../about.html">about</a><span>·</span></li>
+					<li><a href="../profile.html">profile</a><span>·</span></li>
+					<li><a href="../demo.html">demo</a><span>·</span></li>
+					<li><a href="../note.html">note</a><span>·</span></li>
+					<li><a href="../code.html">code</a><span>·</span></li>
+					<li><a href="../links.html">links</a><span>·</span></li>
+					<li><a href="../chat.html">chat</a><span>·</span></li>
+					<li><a href="../contact.html">contact</a></li>
+				</ul>
+			</nav>
+			<div class="navhide" id="navhide">
+				<div>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<ul class="navhide-sub">
+					<li><a href="../about.html">about</a></li>
+					<li><a href="../profile.html">profile</a></li>
+					<li><a href="../demo.html">demo</a></li>
+					<li><a href="../note.html">note</a></li>
+					<li><a href="../code.html">code</a></li>
+					<li><a href="../links.html">links</a></li>
+					<li><a href="../chat.html">chat</a></li>
+					<li><a href="../contact.html">contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<section class="art-wrap">
+		<div class="container clearfix">
+			<div class="left">
+				<div class="art-top">
+					<h1>20个原生JavaScript技巧</h1>
+					<div class="art-meta">
+						<span class="shijian">2016-11-13</span>
+						<span class="biaoqian">标签：<a href="javascript:void(0)" class="js">js</a></span>
+						<span>阅读<i class="count" id="count1">(0)</i></span>
+						<span class="comnum">评论<i>(0)</i></span>
+					</div>
+				</div>
+				<div class="art-middle clearfix" id="art-middle">
+					<div class="art-index">
+						<h2 id="art-index-title">文章目录 <span class="bottom-icon"></h2>
+						<ul id="art-menu"></ul>
+					</div>
+					<p>熟悉和掌握一些基本的原生js功能函数，对写业务的速度提高有很大的方便性，同时，也便于我们在写的过程中慢慢的深入到函数中，去理解功能函数的原理，以及设计思路。下面是一些老程序员总结的常用的20个功能函数。</p>
+					<h3><span>原生JS实现字符串长度截取</span></h3>
+					<div class="code">
+						<pre>
+function cutstr(str, len) { 
+    var temp; 
+    var icount = 0; 
+    var pattern = /[^\x00-\xff]/;  //非单字节的ASCII字符，也就是汉字和其他文字；
+    var result = ""; 	//一个汉字的字符串长度为1,字节数为2；
+    for (var i = 0; i < str.length; i++) { 
+        if (icount < len - 1) {  
+        //这条判断语句的作用，是找到既停止，防止遍历整个字符串造成的性能损耗；
+            temp = str.substr(i, 1); 
+            if (pattern.exec(temp) == null) { 
+                icount = icount + 1; 
+            } else { 
+                icount = icount + 2;  //汉字是两个字节，所以加2；
+            } 
+            result += temp;
+        } else { 
+            break; 
+        } 
+    } 
+    return strre + "..." ;
+} 
+						</pre>
+					</div>
+					<h3><span>原生JS获取域名主机</span></h3>
+					<div class="code">
+						<pre>
+function getHost(url) { 
+    var host = "null"; 
+    if(typeof url == "undefined"|| null == url) { 
+        url = window.location.href; 
+    } 
+    var regex = /^\w+\:\/\/([^\/]*).*/; 
+    var match = url.match(regex); 
+    if(typeof match != "undefined" && null != match) { 
+        host = match[1]; 
+    } 
+    return host; 
+} 
+						</pre>
+					</div>
+					<h3><span>原生JS清除空格</span></h3>
+					<div class="code">
+						<pre>
+String.prototype.trim = function() { 
+    var reExtraSpace = /^\s*(.*?)\s+$/; 
+    return this.replace(reExtraSpace, "$1")
+} 
+						</pre>
+					</div>
+					<h3><span>原生JS替换全部</span></h3>
+					<div class="code">
+						<pre>
+String.prototype.replaceAll = function(s1, s2) { 
+    return this.replace(new RegExp(s1, "gm"), s2) 
+} 
+						</pre>
+					</div>
+					<h3><span>原生JS转义html标签</span></h3>
+					<div class="code">
+						<pre>
+function HtmlEncode(text) {
+    return text.replace(/&/g, '& amp').replace(/\"/g, '& quot;').replace(/&lt;/g, 'lt;').replace(/&gt;/g, '& gt;') 
+}
+						</pre>
+					</div>
+					<h3><span>原生JS时间日期格式转换</span></h3>
+					<div class="code">
+						<pre>
+Date.prototype.Format = function(formatStr) { 
+    var str = formatStr; 
+    var Week = ['日', '一', '二', '三', '四', '五', '六']; 
+    str = str.replace(/yyyy|YYYY/, this.getFullYear()); 
+    str = str.replace(/yy|YY/, (this.getYear() % 100) > 9 ? (this.getYear() % 100).toString() : '0' + (this.getYear() % 100)); 
+    str = str.replace(/MM/, (this.getMonth() + 1) > 9 ? (this.getMonth() + 1).toString() : '0' + (this.getMonth() + 1)); 
+    str = str.replace(/M/g, (this.getMonth() + 1)); 
+    str = str.replace(/w|W/g, Week[this.getDay()]); 
+    str = str.replace(/dd|DD/, this.getDate() > 9 ? this.getDate().toString() : '0' + this.getDate()); 
+    str = str.replace(/d|D/g, this.getDate()); 
+    str = str.replace(/hh|HH/, this.getHours() > 9 ? this.getHours().toString() : '0' + this.getHours()); 
+    str = str.replace(/h|H/g, this.getHours()); 
+    str = str.replace(/mm/, this.getMinutes() > 9 ? this.getMinutes().toString() : '0' + this.getMinutes()); 
+    str = str.replace(/m/g, this.getMinutes()); 
+    str = str.replace(/ss|SS/, this.getSeconds() > 9 ? this.getSeconds().toString() : '0' + this.getSeconds()); 
+    str = str.replace(/s|S/g, this.getSeconds()); 
+    return str ;
+} 
+						</pre>
+					</div>
+					<h3><span>原生JS判断是否为数字类型</span></h3>
+					<div class="code">
+						<pre>
+function isDigit(value) { 
+    var patrn = /^[0-9]*$/; 
+    if (patrn.exec(value) == null || value == "") { 
+        return false 
+    } else { 
+        return true 
+    } 
+} 
+						</pre>
+					</div>
+					<h3><span>原生JS设置cookie值</span></h3>
+					<div class="code">
+						<pre>
+function setCookie(name, value, Hours) { 
+    var d = new Date(); 
+    var offset = 8; 
+    var utc = d.getTime() + (d.getTimezoneOffset() * 60000); 
+    var nd = utc + (3600000 * offset); 
+    var exp = new Date(nd); 
+    exp.setTime(exp.getTime() + Hours * 60 * 60 * 1000); 
+    document.cookie = name + "=" + escape(value) + ";path=/;expires=" + exp.toGMTString() + ";domain=360doc.com;" 
+} 
+						</pre>
+					</div>
+					<h3><span>原生JS加入收藏夹</span></h3>
+					<div class="code">
+						<pre>
+function AddFavorite(sURL, sTitle) { 
+    try { 
+        window.external.addFavorite(sURL, sTitle) 
+    } catch(e) { 
+        try { 
+            window.sidebar.addPanel(sTitle, sURL, "") 
+        } catch(e) { 
+            alert("加入收藏失败，请使用Ctrl+D进行添加") 
+        } 
+    } 
+} 
+						</pre>
+					</div>
+					<h3><span>原生JS设为首页</span></h3>
+					<div class="code">
+						<pre>
+function setHomepage() { 
+    if (document.all) { 
+        document.body.style.behavior = 'url(#default#homepage)'; 
+        document.body.setHomePage('http://www.jq-school.com') 
+    } else if (window.sidebar) { 
+        if (window.netscape) { 
+            try { 
+                netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect") 
+            } catch(e) { 
+                alert("该操作被浏览器拒绝，如果想启用该功能，请在地址栏内输入 about:config,然后将项 signed.applets.codebase_principal_support 值该为true") 
+            } 
+        } 
+        var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch); 
+        prefs.setCharPref('browser.startup.homepage', 'http://www.jq-school.com') 
+    } 
+} 
+						</pre>
+					</div>
+					<h3><span>原生JS判断IE6</span></h3>
+					<div class="code">
+						<pre>
+var ua = navigator.userAgent.toLowerCase(); 
+var isIE6 = ua.indexOf("msie 6") > -1; 
+if (isIE6) { 
+    try { 
+        document.execCommand("BackgroundImageCache", false, true) 
+    } catch(e) {} 
+} 
+						</pre>
+					</div>
+					<h3><span>原生JS加载样式文件</span></h3>
+					<div class="code">
+						<pre>
+function LoadStyle(url) { 
+    try { 
+        document.createStyleSheet(url); //只支持IE
+    } catch(e) { 
+        var cssLink = document.createElement('link'); 
+        cssLink.rel = 'stylesheet'; 
+        cssLink.type = 'text/css'; 
+        cssLink.href = url; 
+        var head = document.getElementsByTagName('head')[0]; 
+        head.appendChild(cssLink) 
+    }
+ } 
+						</pre>
+					</div>
+					<h3><span>原生JS返回脚本内容</span></h3>
+					<div class="code">
+						<pre>
+function evalscript(s) { 
+        if(s.indexOf('&lt;script') == -1) return s; 
+        var p = /&lt;script[^\&gt;]*?&gt;([^\x00]*?)&lt;\/script&gt;/ig; 
+        var arr = []; 
+        while(arr = p.exec(s)) { 
+                var p1 = /&lt;script[^\&gt;]*?src=\"([^\&gt;]*?)\"[^\&gt;]*?(reload=\"1\")?(?:charset=\"([\w\-]+?)\")?&gt;&lt;\/script&gt;/i; 
+                var arr1 = []; 
+                arr1 = p1.exec(arr[0]); 
+                if(arr1) { 
+                        appendscript(arr1[1], '', arr1[2], arr1[3]); 
+                } else { 
+                        p1 = /&lt;script(.*?)&gt;([^\x00]+?)&lt;\/script>/i; 
+                        arr1 = p1.exec(arr[0]); 
+                        appendscript('', arr1[2], arr1[1].indexOf('reload=') != -1); 
+                } 
+        } 
+        return s; 
+} 
+						</pre>
+					</div>
+					<h3><span>原生JS清除脚本内容</span></h3>
+					<div class="code">
+						<pre>
+function stripscript(s) { 
+        return s.replace(/&lt;script.*?&gt;.*?&lt;\/script&gt;/ig, ''); 
+} 
+						</pre>
+					</div>
+					<h3><span>原生JS动态加载脚本文件</span></h3>
+					<div class="code">
+						<pre>
+function appendscript(src, text, reload, charset) { 
+        var id = hash(src + text); 
+        if(!reload && in_array(id, evalscripts)) return; 
+        if(reload && $(id)) { 
+                $(id).parentNode.removeChild($(id)); 
+        } 
+        evalscripts.push(id); 
+        var scriptNode = document.createElement("script"); 
+        scriptNode.type = "text/javascript"; 
+        scriptNode.id = id; 
+        scriptNode.charset = charset ? charset : (BROWSER.firefox ? document.characterSet : document.charset); 
+        try { 
+                if(src) { 
+                        scriptNode.src = src; 
+                        scriptNode.onloadDone = false; 
+                        scriptNode.onload = function () { 
+                                scriptNode.onloadDone = true; 
+                                JSLOADED[src] = 1; 
+                        }; 
+                        scriptNode.onreadystatechange = function () { 
+                                if((scriptNode.readyState == 'loaded' || scriptNode.readyState == 'complete') && !scriptNode.onloadDone) { 
+                                        scriptNode.onloadDone = true; 
+                                        JSLOADED[src] = 1; 
+                                } 
+                        }; 
+                } else if(text){ 
+                        scriptNode.text = text; 
+                } 
+                document.getElementsByTagName('head')[0].appendChild(scriptNode); 
+        } catch(e) {} 
+} 
+						</pre>
+					</div>
+					<h3><span>原生JS返回按ID检索的元素对象</span></h3>
+					<div class="code">
+						<pre>
+function getId(id) { 
+        return !id ? null : document.getElementById(id);
+ } 
+						</pre>
+					</div>
+					<h3><span>原生JS返回浏览器版本内容</span></h3>
+					<div class="code">
+						<pre>
+function browserVersion(types) { 
+        var other = 1; 
+        for(i in types) { 
+                var v = types[i] ? types[i] : i; 
+                if(USERAGENT.indexOf(v) != -1) { 
+                        var re = new RegExp(v + '(\\/|\\s)([\\d\\.]+)', 'ig'); 
+                        var matches = re.exec(USERAGENT); 
+                        var ver = matches != null ? matches[2] : 0; 
+                        other = ver !== 0 && v != 'mozilla' ? 0 : other; 
+                }else { 
+                        var ver = 0; 
+                } 
+                eval('BROWSER.' + i + '= ver'); 
+        } 
+        BROWSER.other = other; 
+} 
+						</pre>
+					</div>
+					<h3><span>原生JS元素显示的通用方法</span></h3>
+					<div class="code">
+						<pre>
+function $(id) { 
+        return !id ? null : document.getElementById(id); 
+} 
+function display(id) { 
+        var obj = $(id); 
+        if(obj.style.visibility) { 
+                obj.style.visibility = obj.style.visibility == 'visible' ? 'hidden' : 'visible'; 
+        } else { 
+                obj.style.display = obj.style.display == '' ? 'none' : ''; 
+        } 
+}
+						</pre>
+					</div>
+				</div>
+				<div class="art-bottom">
+					<div class="declaration">
+						<p>本文内容转载自网络，如有侵权需删除，请在<a href="../chat.html" class="chat">Chat栏</a>留言或加我QQ联系！</p>
+					</div>
+					<div class="art-zan clearfix">
+						<p class="art-dianzan" id="art-dianzan"><span class="zan" id="zan1">0</span></p>
+						<div class="art-share">
+							<div class="bdsharebuttonbox">
+								<a href="#" class="bds_more" data-cmd="more"></a>
+								<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+								<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+								<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+								<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+								<a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a>
+							</div>
+							<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","weixin","sqq","mshare"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","weixin","sqq","mshare"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+							</script>
+						</div>
+					</div>
+					<div class="art-related">
+						<h4>相关文章</h4>
+						<div>
+							<ul class="clearfix">
+								<li><a href="../links.html">前端网址导航</a></li>
+								<li><a href="article3.html">前端完整学习路线参考</a></li>
+								<li><a href="article7.html">JS实现继承的6种方式</a></li>
+								<li><a href="article4.html">Web前端浏览器兼容处理大全</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<div class="clock">
+					<div class="clockwrap">
+						<canvas width="190" height="190" id="myclock">您的浏览器不支持canvas。</canvas>
+					</div>
+				</div>
+				<div class="calendar">
+					<div class="calendar-wrap">
+						<div class="datetitle clearfix">
+							<dl class="dateyear" id="dateyear">
+								<dt>2012年</dt>
+								<dd>
+									<ul>
+										<li>2012年</li>
+										<li>2013年</li>
+										<li>2014年</li>
+										<li>2015年</li>
+										<li>2016年</li>
+										<li>2017年</li>
+										<li>2018年</li>
+										<li>2019年</li>
+										<li>2020年</li>
+										<li>2021年</li>
+										<li>2022年</li>
+									</ul>
+								</dd>
+							</dl>
+							<dl class="datemonth" id="datemonth">
+								<dt>1月</dt>
+								<dd>
+									<ul>
+										<li>1月</li>
+										<li>2月</li>
+										<li>3月</li>
+										<li>4月</li>
+										<li>5月</li>
+										<li>6月</li>
+										<li>7月</li>
+										<li>8月</li>
+										<li>9月</li>
+										<li>10月</li>
+										<li>11月</li>
+										<li>12月</li>
+									</ul>
+								</dd>
+							</dl>
+							<p class="dateday" id="dateday">1日</p>
+							<p class="curweek" id="curweek"><span>星期一</span></p>
+						</div>
+						<div class="datebox">
+							<table>
+								<thead class="dateweek" id="dateweek">
+									<tr>
+										<td id="week1">一</td>
+										<td id="week2">二</td>
+										<td id="week3">三</td>
+										<td id="week4">四</td>
+										<td id="week5">五</td>
+										<td id="week6">六</td>
+										<td id="week7">日</td>
+									</tr>
+								</thead>
+								<tbody id="dateday">
+									<tr>
+										<td></td>
+										<td></td>
+										<td><span class="choiceday">1</span></td>
+										<td><span>2</span></td>
+										<td><span>3</span></td>
+										<td><span>4</span></td>
+										<td><span>5</span></td>
+									</tr>
+									<tr>
+										<td><span>6</span></td>
+										<td><span>7</span></td>
+										<td><span>8</span></td>
+										<td><span>9</span></td>
+										<td><span>10</span></td>
+										<td><span>11</span></td>
+										<td><span>12</span></td>
+									</tr>
+									<tr>
+										<td><span>13</span></td>
+										<td><span>14</span></td>
+										<td><span>15</span></td>
+										<td><span>16</span></td>
+										<td><span>17</span></td>
+										<td><span>18</span></td>
+										<td><span>19</span></td>
+									</tr>
+									<tr>
+										<td><span>20</span></td>
+										<td><span>21</span></td>
+										<td><span>22</span></td>
+										<td><span>23</span></td>
+										<td><span>24</span></td>
+										<td><span>25</span></td>
+										<td><span>26</span></td>
+									</tr>
+									<tr>
+										<td><span>27</span></td>
+										<td><span>28</span></td>
+										<td><span>29</span></td>
+										<td><span>30</span></td>
+										<td><span>31</span></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="totop" id="totop"><a href="javascript:void(0)"></a></div>
+		</div>
+	</footer>
+	<script src="../jquery-3.1.1.min.js"></script>
+	<script src="../script.js"></script>
+	<script src="artscript.js"></script>
+</body>
+</html>

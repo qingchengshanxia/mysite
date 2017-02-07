@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>css3多列布局：column</title>
+	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../responsive.css">
+	<link rel="stylesheet" href="artstyle.css">
+	<style>
+		.art-subtitle {
+			font-family: 'Microsoft Yahei';
+		}
+		ol li {
+			color: gray;
+			font-size: 12px;
+			padding-bottom: 5px;
+		}
+		.art-middle dl dd {
+			color: gray;
+		}
+		.art-middle dl{
+			text-indent: 2em;
+			margin-bottom: 16px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1 style="display: none;"><a href="http://www.qingchengshanxia.com/">san gong</a></h1>
+			<div class="myhead">
+				<a href="../index.html">
+					<img src="../images/headimg.jpg" alt="我的头像">
+				</a>
+				<div>
+					<h2>青城山下</h2>
+					<p>初级前端工程师</p>
+				</div>
+			</div>
+			<nav class="headnav">
+				<ul class="navshow">
+					<li><a href="../about.html">about</a><span>·</span></li>
+					<li><a href="../profile.html">profile</a><span>·</span></li>
+					<li><a href="../demo.html">demo</a><span>·</span></li>
+					<li><a href="../note.html">note</a><span>·</span></li>
+					<li><a href="../code.html">code</a><span>·</span></li>
+					<li><a href="../links.html">links</a><span>·</span></li>
+					<li><a href="../chat.html">chat</a><span>·</span></li>
+					<li><a href="../contact.html">contact</a></li>
+				</ul>
+			</nav>
+			<div class="navhide" id="navhide">
+				<div>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<ul class="navhide-sub">
+					<li><a href="../about.html">about</a></li>
+					<li><a href="../profile.html">profile</a></li>
+					<li><a href="../demo.html">demo</a></li>
+					<li><a href="../note.html">note</a></li>
+					<li><a href="../code.html">code</a></li>
+					<li><a href="../links.html">links</a></li>
+					<li><a href="../chat.html">chat</a></li>
+					<li><a href="../contact.html">contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<section class="art-wrap">
+		<div class="container clearfix">
+			<div class="left">
+				<div class="art-top">
+					<h1>css3多列布局：column</h1>
+					<div class="art-meta">
+						<span class="shijian">2016-12-01</span>
+						<span class="biaoqian">标签：<a href="javascript:void(0)">css</a></span>
+						<span>阅读<i class="count" id="count1">(0)</i></span>
+						<span class="comnum">评论<i>(0)</i></span>
+					</div>
+				</div>
+				<div class="art-middle clearfix" id="art-middle">
+					<div class="art-index">
+						<h2 id="art-index-title">文章目录 <span class="bottom-icon"></span></h2>
+						<ul id="art-menu"></ul>
+					</div>
+					<p>CSS3中新出现的多列布局(multi-column)是传统HTML网页中块状布局模式的有力扩充。这种新语法能够让WEB开发人员轻松的让文本呈现多列显示。我们知道，当一行文字太长时，读者读起来就比较费劲，有可能读错行或读串行；人们的视点从文本的一端移到另一端、然后换到下一行的行首，如果眼球移动浮动过大，他们的注意力就会减退，容易读不下去。所以，为了最大效率的使用大屏幕显示器，页面设计中需要限制文本的宽度，让文本按多列呈现，就像报纸上的新闻排版一样。</p>
+					<p>但是在CSS3的多列布局(columns)语法功能出现之前，人们如果想让文本呈多列显示，要么使用绝对定位，手动给文本分段落，或者使用JS脚本等，而新语法的出现，彻底改变了这样的局面。</p>
+					<h3><span>浏览器支持</span></h3>
+					<ul>
+						<li>在Firefox浏览器中，要加(-moz-)前缀。</li>
+						<li>在Chrome和Safari浏览器中，要加(-webkit-)前缀。</li>
+						<li>对于IE浏览器，只支持IE10以及以上版本。</li>
+					</ul><br>
+					<p>表格中的数字表示支持该方法的第一个浏览器的版本号。</p>
+					<p>紧跟在数字后面的 -webkit- 或 -moz- 为指定浏览器的前缀。</p>
+					<div class="art-img"><img src="img/art15-1.jpg" alt="css3多列布局：column"></div>
+					<h3><span>CSS3 多列属性</span></h3>
+					<ul>
+						<li>column-count</li>
+						<li>column-gap</li>
+						<li>column-rule-style</li>
+						<li>column-rule-width</li>
+						<li>column-rule-color</li>
+						<li>column-rule</li>
+						<li>column-span</li>
+						<li>column-width</li>
+					</ul>
+					<div class="art-img"><img src="img/art15-2.jpg" alt="css3多列布局：column"></div><br>
+					<dl>
+						<dt><b>1.column-width：</b>&lt;length&gt; | auto 设置或检索对象每列的宽度 </dt>
+						<dd>如：-moz-column-width:200px;</dd>
+					</dl>
+					<dl>
+						<dt><b>2.column-count：</b>&lt;integer&gt; | auto 设置或检索对象的列数</dt>
+						<dd>如：-webkit-column-count:3;</dd>
+					</dl>
+					<dl>
+						<dt><b>3.column-gap：</b>&lt;length&gt; | normal 设置或检索对象的列与列之间的间隙</dt>
+						<dd>如：column-gap:normal;column-gap:40px;</dd>
+					</dl>
+					<dl>
+						<dt><b>4.column-rule：</b>[ column-rule-width ] || [ column-rule-style ] || [ column-rule-color ]设置或检索对象的列与列之间的边框。复合属性。相当于border属性</dt>
+						<dd>如：column-rule:10px solid #090;</dd>
+					</dl>
+					<dl>
+						<dt><b>5.column-span：</b>none | all 设置或检索对象元素是否横跨所有列。</dt>
+						<dd>如：column-span:all;</dd>
+					</dl>
+					<dl>
+						<dt>6.column-fill：auto | balance 设置或检索对象所有列的高度是否统一。</dt>
+						<dd>auto：列高度自适应内容</dd>
+						<dd>balance：所有列的高度以其中最高的一列统一</dd>
+						<dd>如：column-fill:balance;</dd>
+					</dl>
+					<dl>
+						<dt>7.column-break-before：auto | always | avoid | left | right | page | column | avoid-page | avoid-column 设置或检索对象之前是否断行。</dt>
+						<dd>auto：既不强迫也不禁止在元素之前断行并产生新列</dd>
+						<dd>always：总是在元素之前断行并产生新列</dd>
+						<dd>avoid：避免在元素之前断行并产生新列</dd>
+					</dl>
+					<dl>
+						<dt>8.column-break-after：auto | always | avoid | left | right | page | column | avoid-page | avoid-column 设置或检索对象之后是否断行。</dt>
+						<dd>auto：既不强迫也不禁止在元素之后断行并产生新列</dd>
+						<dd>always：总是在元素之后断行并产生新列</dd>
+						<dd>avoid：避免在元素之后断行并产生新列</dd>
+					</dl>
+					<dl>
+						<dt>9.column-break-inside：auto | avoid | avoid-page | avoid-column 设置或检索对象内部是否断行。</dt>
+						<dd>auto：既不强迫也不禁止在元素内部断行并产生新列</dd>
+						<dd>avoid：避免在元素内部断行并产生新列</dd>
+					</dl>
+					<p><b>其实常用的也就前面5条。</b></p>
+
+
+
+
+
+
+				</div>
+				<div class="art-bottom">
+					<div class="declaration">
+						<p>本文内容转载自网络，如有侵权需删除，请在<a href="../chat.html" class="chat">Chat栏</a>留言或加我QQ联系！</p>
+					</div>
+					<div class="art-zan clearfix">
+						<p class="art-dianzan" id="art-dianzan"><span class="zan" id="zan1">0</span></p>
+						<div class="art-share">
+							<div class="bdsharebuttonbox">
+								<a href="#" class="bds_more" data-cmd="more"></a>
+								<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+								<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+								<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+								<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+								<a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a>
+							</div>
+							<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","weixin","sqq","mshare"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","weixin","sqq","mshare"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+							</script>
+						</div>
+					</div>
+					<div class="art-related">
+						<h4>相关文章</h4>
+						<div>
+							<ul class="clearfix">
+								<li><a href="../links.html">前端网址导航</a></li>
+								<li><a href="article3.html">前端完整学习路线参考</a></li>
+								<li><a href="article2.html">HTML规范精要整理大全</a></li>
+								<li><a href="article4.html">Web前端浏览器兼容处理大全</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<div class="clock">
+					<div class="clockwrap">
+						<canvas width="190" height="190" id="myclock">您的浏览器不支持canvas。</canvas>
+					</div>
+				</div>
+				<div class="calendar">
+					<div class="calendar-wrap">
+						<div class="datetitle clearfix">
+							<dl class="dateyear" id="dateyear">
+								<dt>2012年</dt>
+								<dd>
+									<ul>
+										<li>2012年</li>
+										<li>2013年</li>
+										<li>2014年</li>
+										<li>2015年</li>
+										<li>2016年</li>
+										<li>2017年</li>
+										<li>2018年</li>
+										<li>2019年</li>
+										<li>2020年</li>
+										<li>2021年</li>
+										<li>2022年</li>
+									</ul>
+								</dd>
+							</dl>
+							<dl class="datemonth" id="datemonth">
+								<dt>1月</dt>
+								<dd>
+									<ul>
+										<li>1月</li>
+										<li>2月</li>
+										<li>3月</li>
+										<li>4月</li>
+										<li>5月</li>
+										<li>6月</li>
+										<li>7月</li>
+										<li>8月</li>
+										<li>9月</li>
+										<li>10月</li>
+										<li>11月</li>
+										<li>12月</li>
+									</ul>
+								</dd>
+							</dl>
+							<p class="dateday" id="dateday">1日</p>
+							<p class="curweek" id="curweek"><span>星期一</span></p>
+						</div>
+						<div class="datebox">
+							<table>
+								<thead class="dateweek" id="dateweek">
+									<tr>
+										<td id="week1">一</td>
+										<td id="week2">二</td>
+										<td id="week3">三</td>
+										<td id="week4">四</td>
+										<td id="week5">五</td>
+										<td id="week6">六</td>
+										<td id="week7">日</td>
+									</tr>
+								</thead>
+								<tbody id="dateday">
+									<tr>
+										<td></td>
+										<td></td>
+										<td><span class="choiceday">1</span></td>
+										<td><span>2</span></td>
+										<td><span>3</span></td>
+										<td><span>4</span></td>
+										<td><span>5</span></td>
+									</tr>
+									<tr>
+										<td><span>6</span></td>
+										<td><span>7</span></td>
+										<td><span>8</span></td>
+										<td><span>9</span></td>
+										<td><span>10</span></td>
+										<td><span>11</span></td>
+										<td><span>12</span></td>
+									</tr>
+									<tr>
+										<td><span>13</span></td>
+										<td><span>14</span></td>
+										<td><span>15</span></td>
+										<td><span>16</span></td>
+										<td><span>17</span></td>
+										<td><span>18</span></td>
+										<td><span>19</span></td>
+									</tr>
+									<tr>
+										<td><span>20</span></td>
+										<td><span>21</span></td>
+										<td><span>22</span></td>
+										<td><span>23</span></td>
+										<td><span>24</span></td>
+										<td><span>25</span></td>
+										<td><span>26</span></td>
+									</tr>
+									<tr>
+										<td><span>27</span></td>
+										<td><span>28</span></td>
+										<td><span>29</span></td>
+										<td><span>30</span></td>
+										<td><span>31</span></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="totop" id="totop"><a href="javascript:void(0)"></a></div>
+		</div>
+	</footer>
+	<script src="../jquery-3.1.1.min.js"></script>
+	<script src="../script.js"></script>
+	<script src="artscript.js"></script>
+</body>
+</html>

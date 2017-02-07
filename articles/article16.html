@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>iframe父页面与子页面之间的调用</title>
+	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../responsive.css">
+	<link rel="stylesheet" href="artstyle.css">
+	<style>
+		.small-title {
+			margin:10px 0;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1 style="display: none;"><a href="http://www.qingchengshanxia.com/">san gong</a></h1>
+			<div class="myhead">
+				<a href="../index.html">
+					<img src="../images/headimg.jpg" alt="我的头像">
+				</a>
+				<div>
+					<h2>青城山下</h2>
+					<p>初级前端工程师</p>
+				</div>
+			</div>
+			<nav class="headnav">
+				<ul class="navshow">
+					<li><a href="../about.html">about</a><span>·</span></li>
+					<li><a href="../profile.html">profile</a><span>·</span></li>
+					<li><a href="../demo.html">demo</a><span>·</span></li>
+					<li><a href="../note.html">note</a><span>·</span></li>
+					<li><a href="../code.html">code</a><span>·</span></li>
+					<li><a href="../links.html">links</a><span>·</span></li>
+					<li><a href="../chat.html">chat</a><span>·</span></li>
+					<li><a href="../contact.html">contact</a></li>
+				</ul>
+			</nav>
+			<div class="navhide" id="navhide">
+				<div>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<ul class="navhide-sub">
+					<li><a href="../about.html">about</a></li>
+					<li><a href="../profile.html">profile</a></li>
+					<li><a href="../demo.html">demo</a></li>
+					<li><a href="../note.html">note</a></li>
+					<li><a href="../code.html">code</a></li>
+					<li><a href="../links.html">links</a></li>
+					<li><a href="../chat.html">chat</a></li>
+					<li><a href="../contact.html">contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<section class="art-wrap">
+		<div class="container clearfix">
+			<div class="left">
+				<div class="art-top">
+					<h1>iframe父页面与子页面之间的调用</h1>
+					<div class="art-meta">
+						<span class="shijian">2016-12-9</span>
+						<span class="biaoqian">标签：<a href="javascript:void(0)" class="js">js</a><a href="javascript:void(0)" class="html">html</a></span>
+						<span>阅读<i class="count" id="count1">(0)</i></span>
+						<span class="comnum">评论<i>(0)</i></span>
+					</div>
+				</div>
+				<div class="art-middle clearfix" id="art-middle">
+					<div class="art-index">
+						<h2 id="art-index-title">文章目录 <span class="bottom-icon"></h2>
+						<ul id="art-menu"></ul>
+					</div>
+					<p>当你打开本页时，我猜你一定十分熟悉如何在页面上添加一段javascript代码，知道如何调用它让它正常地工作，也许你也能立即想出如何在页面上使用iframe来嵌套另一个页面，但真要让你一下子说出来如何在当前页面中调用iframe页面中的javascript代码或者修改iframe页面中的某些元素，可能你就得稍微思考一下了~</p>
+					<h3><span>iframe父页面与子页面之间的调用</span></h3>
+					<p>专业词语解释如下：</p>
+					<p>Iframe： iframe元素是文档中的文档。</p>
+					<p> window对象:  浏览器会在其打开一个HTML文档时创建一个对应的window对象。但是，如果一个文档定义了一个或者多个框架(即：包含一个或者多个frame或者iframe标签)，浏览器就会为原始文档创建一个window对象，再为每个iframe创建额外的window对象，这些额外的window对象是原始窗口的子窗口。</p>
+					<p>contentWindow:  是指指定的iframe或者iframe所在的window对象。</p>
+					<p class="small-title"><b> 1. 父页面与子页面之间的调用。</b></p>
+					<p>现在我们可以慢慢做demo来分别讲解下，假如有iframe父页面为 iframe1.html, 父页面上有2个子页面 分别为iframe2.html 和 iframe3.html。</p>
+					<p>父页面iframe1.html代码如下：</p>
+					<div class="code">
+						<pre>
+&lt;!doctype html&gt;
+	&lt;html lang="en"&gt;
+	&lt;head&gt;
+	    &lt;meta charset="UTF-8"&gt;
+	    &lt;title&gt;Document&lt;/title&gt;
+	    &lt;script src="jquery1.7.js"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+	    &lt;iframe src="http://localhost/iframe/iframe3.html" id = "iframe3"&gt;&lt;/iframe&gt;
+	    &lt;iframe src="http://localhost/iframe/iframe2.html" id = "iframe2"&gt;&lt;/iframe&gt;
+	    &lt;div class="iframe1"&gt;父页面&lt;/div&gt;
+	    &lt;script&gt;
+	    function test2() {
+	        console.log(1);
+	    }
+	    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+						</pre>
+					</div>
+					<p>子页面iframe2.html代码如下：</p>
+					<div class="code">
+						<pre>
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+ &lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;script src="jquery1.7.js"&gt;&lt;/script&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+    &lt;div id="test"&gt;aaa&lt;/div&gt;
+    &lt;div class="iframe2"&gt;子页面&lt;/div&gt;
+       &lt;script&gt;
+       function b() {
+      	  console.log("我是子页面");
+      	}
+       function iframe3Page() {
+           console.log("iframe3页面调用iframe2页面");
+       }
+      &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+						</pre>
+					</div>
+					<p>1. 子页面iframe2.html调用父页面 iframe1.html的元素如下代码：</p>
+					<div class="code">
+						<pre>
+console.log($('.iframe1',parent.document));
+						</pre>
+					</div>
+					<p>2. 子页面iframe2.html调用父页面iframe1.html的函数如下代码：</p>
+					<div class="code">
+						<pre>
+parent.test2();
+						</pre>
+					</div>
+					<p>注意：父页面iframe1.html页面中test2方法不能放在$(function(){}), 放在里面就调用不到。</p>
+					<p>3. 子页面iframe2.html调用自身的iframe(假如父页面有很多iframe，获取自身iframe不通过id或者name属性).</p>
+					<p>1.首先我们可以在父页面上写一个函数 用来获取页面所有的iframe，之后进行遍历，进行判断当前的window对象是否相同。如下代码：</p>
+					<div class="code">
+						<pre>
+function getFrame(f){
+    var frames = document.getElementsByTagName("iframe");
+    for(i=0;i&lt;frames.length;i++){
+         if(frames[i].contentWindow == f){
+              return(frames[i])
+          }
+      }
+  }
+						</pre>
+					</div>
+					<p> 2. 在子页面iframe2.html中如下调用父页面的方法 getFrame.</p>
+					<div class="code">
+						<pre>
+/* 获取自身的iframe */
+var aa = parent.getFrame(this);
+console.log(aa);
+$(aa).attr("flag",true);
+						</pre>
+					</div>
+					<p>给iframe2设置属性 flag: true, 如下截图：</p>
+					<div class="art-img"><img src="img/art16-1.jpg" alt="iframe父页面与子页面之间的调用"></div>
+					<p>4. 父页面iframe1.html调用子页面 iframe2.html的元素及函数.</p>
+					<p>如下调用有误的：</p>
+					<div class="code">
+						<pre>
+console.log(document.getElementById("iframe2").contentWindow.b());
+						</pre>
+					</div>
+					<p>因为iframe2.html 有可能未加载完成，所以要等iframe2加载完成后再进行调用，所以我们需要 iframe2.onload = function(){}; 这样再进行调用。为了兼容IE，我们可以如下封装一个方法：</p>
+					<div class="code">
+						<pre>
+function iframeIsLoad(iframe,callback){
+    if(iframe.attachEvent) {  
+         iframe.attachEvent('onload',function(){
+             callback && callback();
+         });
+
+    }else {
+         iframe.onload = function(){
+              callback && callback();
+         }
+    }
+}
+// 调用方式如下：
+// 父页面调用子页面iframe2的方法
+var iframe2 = document.getElementById("iframe2");
+iframeIsLoad(iframe2, function(){
+    iframe2.contentWindow.b(); // 打印出 我是子页面   
+    // 父页面获取子页面iframe2的元素
+    var iframeDom = $(".iframe2",iframe2.contentWindow.document);
+    console.log(iframeDom);
+});
+						</pre>
+					</div>
+					<h3><span>iframe之间通信问题</span></h3>
+					<p>iframe通信分为：同域通信 和 跨域通信。</p>
+					<p class="small-title"><b>一： iframe同域通信。</b></p>
+					<p>所谓同域通信是指 http://localhost/demo/iframe/iframeA.html  下的a.html页面嵌套 iframe 比如： &lt;iframe src="http://localhost/demo/iframe/iframeB.html" id="iframeA" name="iframeA"&gt;的B.html页面，这两个页面数据进行通信，比如我想在父页面A.html 调用子页面当中的函数 我们很容易想到或者google下 ；document.getElementById('iframeA').contentWindow.b(); 这种方法，其中b 是子页面B.html中的一个函数。但是这样调用下有个问题我纠结了很久，就是既然在火狐下报这样的错误, 如下图所示：</p>
+					<div class="art-img"><img src="img/art16-2.png" alt="iframe父页面与子页面之间的调用"></div>
+					<p>b不是个函数 但是我在子页面明明定义了这么一个函数，那么为什么会报这样的错误呢？经过仔细分析及google，发现有这么一个问题需要理解，当iframe没有加载完成后 我就去执行这个js会报这样的错误，所以就试着在火狐下 用iframe.onload 这个函数 进行测试，果然没有报错，是正确的 所以就确定是这个问题。所以就想写个兼容IE和火狐 google写个函数 来确定iframe已经加载完成！，其实给个回调函数来调用我们上面的方法。</p>
+					<p>综合上面的思路 A.html 就可以写个这样的代码：</p>
+					<div class="code">
+						<pre>
+&lt;iframe src="http://localhost/demo/iframe/iframeB.html" id="iframeA" name="iframeA"&gt;&lt;/iframe&gt;
+&lt;div id="topName"&gt;topNddddddddddddddddame&lt;/div&gt;
+&lt;script&gt;
+    function A(){
+        alert("A");
+    }
+    var iframe = document.getElementById('iframeA');
+    iframeIsLoad(iframe,function(){
+        var obj = document.getElementById('iframeA').contentWindow;
+        obj.b();
+    });
+     function iframeIsLoad(iframe,callback){
+        if(iframe.attachEvent) {
+            iframe.attachEvent('onload',function(){
+                callback && callback();
+            });
+        }else {
+            iframe.onload = function(){
+                callback && callback();
+            }
+        }
+     }
+&lt;/script&gt;
+B.html 代码如下：
+var b = function(){
+    alert("B");
+};
+						</pre>
+					</div>
+					<p>2.子页面调用父页面的函数很简单，只要这样搞下就ok了，window.parent.A();</p>
+					<p>3. 子页面取父页面元素的值： window.parent.document.getElementById("topName").innerHTML等方法。</p>
+					<p class="small-title"><b>二： iframe跨域通信。</b></p>
+					<p>iframe跨域访问一般分为2种情况，第一种是同主域，不同子域的跨域。 第二种是：不同主域跨域。</p>
+					<p>1、是同主域下面</p>
+					<p>不同子域之间的跨域；可以通过document.domain 来设置相同的主域来解决。</p>
+					<p>假如现在我有个域 abc.example.com 下有个页面叫abc.html, 页面上嵌套了一个iframe 如下：</p>
+					<div class="code">
+						<pre>
+&lt;iframe src="http://def.example.com/demo/def.html"  id="iframe2" style="display:none;"&gt;&lt;/iframe&gt;
+						</pre>
+					</div>
+					<p>我想在abc域下的页面abc.html 访问 def域下的def.html  我们都知道由于安全性 游览器的同源策略的限制，js不能操作页面不同域下不同协议下不同端口的页面，所以就要解决跨域访问了，假如父页面abc.html 页面有个js函数：</p>
+					<div class="code">
+						<pre>
+function test(){console.log(1);};
+						</pre>
+					</div>
+					<p>我想在子页面调用这个函数 还是按照上面的同域方式调用 parent.test();这样，通过在火狐下看 已经跨域了 解决的办法是 在各个js函数顶部 加一句 document.domain = 'example.com'，就可以解决了。</p>
+					<p> abc.html代码如下：</p>
+					<div class="code">
+						<pre>
+&lt;iframe src="http://def.example.com/demo/def.html"  id="iframe2" style="display:none;"&gt;&lt;/iframe&gt;
+  // 跨域 子页调用父页的 函数 （假设是下面test函数）
+  document.domain = 'example.com';
+  function test(){console.log(1);};
+						</pre>
+					</div>
+					<p>def.html代码如下：</p>
+					<div class="code">
+						<pre>
+/*
+ * 子页调用父页的方法
+ */
+document.domain = 'example.com';
+//window.top.test();
+window.parent.test();
+						</pre>
+					</div>
+					<p>还是这两个页面 我想父页调用子页 如下方法：</p>
+					<p>a.html代码如下：</p>
+					<div class="code">
+						<pre>
+/*
+ * 跨域 父页想调用子页的的函数
+ */
+document.domain = 'example.com';
+var iframe = document.getElementById('iframe2');
+iframeIsLoad(iframe,function(){
+    var obj = iframe.contentWindow;
+         obj.child();
+});
+function iframeIsLoad(iframe,callback){
+        if(iframe.attachEvent) {
+            iframe.attachEvent('onload',function(){
+                callback && callback();
+            });
+        }else {
+            iframe.onload = function(){
+                callback && callback();
+            }
+        }
+ }
+						</pre>
+					</div>
+					<p>假如现在def.html页面有个child函数 代码如下：</p>
+					<div class="code">
+						<pre>
+document.domain = 'example.com';
+function child(){console.log('我是子页');}
+						</pre>
+					</div>
+					<p>就可以跨域调用了 不管是子页面调用父页面 还是父页面调用子页面。一切ok！</p><br>
+					<p>2、不同主域跨域</p>
+					<p>虽然google有几种方法关于不同主域上的跨域问题 有通过location.hash方法或者window.name方法或者html5及flash等等，但是我觉得下面iframe这种方法值得学习下，如下图所示：</p>
+					<div class="art-img"><img src="img/art16-3.png" alt="h5本地存储"></div>
+					<p>域a.com的页面request.html（即http://a.com/demo/ajax/ajaxproxy/request.html）里面嵌套了一个iframe指向域b.com</p>
+					<p>（http://b.com/demo/ajax/ajaxproxy/response.html）的response.html，而response.html里又嵌套了域a.com的proxy.html。</p>
+					<p>思路：要实现a.com域下的request.html页面请求域b.com下的process.php,可以将请求参数通过url传给response.html,由response.html向process.php发起真正的ajax请求（response.html与process.php都属于域b.com），然后将返回的结果通过url传给proxy.html，最后由于proxy.html和request.html是在同个域下，所以可以在proxy.html利用window.top 将结果返回在request.html完成真正的跨域。</p>
+					<p>ok, 先看看页面结构</p>
+					<p>a.com域下有：</p>
+					<p>   request.html</p>
+					<p>    proxy.html</p>
+					<p>b.com域下有：</p>
+					<p> response.html</p>
+					<p>Process.php</p>
+					<p>先来看看request.html页面如下：</p>
+					<div class="code">
+						<pre>
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt; New Document &lt;/title&gt;
+ &lt;/head&gt; 
+ &lt;body&gt;
+    &lt;p id="result"&gt;这里将会填上响应的结果&lt;/p&gt;
+    &lt;a id="sendBtn" href="javascript:void(0)"&gt;点击，发送跨域请求&lt;/a&gt;
+    &lt;iframe id="serverIf" style="display:none"&gt;&lt;/iframe&gt;
+ 
+    &lt;script&gt;
+        document.getElementById('sendBtn').onclick = function() {
+            var url = 'http://b.com/demo/ajax/ajaxproxy/reponse.html',
+                fn = 'GetPerson',          //这是定义在response.html的方法
+                reqdata = '{"id" : 24}',   //这是请求的参数
+                callback = "CallBack";     //这是请求全过程完成后执行的回调函数，执行最后的动作
+ 
+            CrossRequest(url, fn, reqdata, callback);  //发送请求
+        }
+ 
+        function CrossRequest(url,fn,reqdata,callback) {
+            var server = document.getElementById('serverIf');
+            server.src = url + '?fn=' +encodeURIComponent(fn) + "&data=" +encodeURIComponent(reqdata) + "&callback="+encodeURIComponent(callback);
+        }
+        //回调函数
+        function CallBack(data) {
+            var str = "My name is " + data.name + ". I am a " + data.sex + ". I am " + data.age + " years old.";
+             document.getElementById("result").innerHTML = str;
+        }
+    &lt;/script&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+						</pre>
+					</div>
+					<p>这个页面其实就是要告诉response.html：我要让你执行你定义好的方法GetPerson，并且要用我给你的参数'{"id" : 24}'。</p>
+					<p>response.html纯粹是负责将CallBack这个方法名传递给下一位仁兄proxy.html，而proxy.html拿到了CallBack这个方法名就可以执行了</p>
+					<p>因为proxy.html和request.html是同域的。</p>
+					<p>response.html代码如下：</p>
+					<div class="code">
+						<pre>
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt; New Document &lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+     &lt;iframe id="proxy"&gt;&lt;/iframe&gt;
+    &lt;script&gt;
+        // 通用方法 ajax请求
+        function _request (reqdata,url,callback) {
+            var xmlhttp;
+            if(window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            }else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+ 
+            xmlhttp.onreadystatechange = function(){
+                if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var data = xmlhttp.responseText;
+                    callback(data);
+                }
+            }
+            xmlhttp.open('POST',url);
+            xmlhttp.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+            xmlhttp.send(reqdata);
+        }
+ 
+        // 通用方法 获取url参数
+        function _getQuery(key) {
+            var query = location.href.split('?')[1],
+                value = decodeURIComponent(query.split(key + "=")[1].split("&")[0]);
+            return value;
+        }
+ 
+        //向process.php发送ajax请求
+        function GetPerson(reqdata,callback) {
+            var url = 'http://b.com/demo/ajax/ajaxproxy/process.php';
+            var fn = function(data) {
+                var proxy = document.getElementById('proxy');
+                proxy.src = "http://a.com/demo/ajax/ajaxproxy/Proxy.html?data=" + encodeURIComponent(data) + "&callback=" + encodeURIComponent(callback);
+            };
+            _request(reqdata, url, fn);
+        }
+ 
+        (function(){
+            var fn = _getQuery('fn'),
+                reqdata = _getQuery("data"),
+                callback = _getQuery("callback");
+           eval(fn + "('" + reqdata +"', '" + callback + "')");
+        })();
+    &lt;/script&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+						</pre>
+					</div>
+					<p>这里其实就是接收来自request.html的请求得到请求参数和方法后向服务器process.php发出真正的ajax请求，然后将从服务器返回的数据以及从request.html传过来的回调函数名传递给proxy.html。　</p>
+					<p>接下来看看php代码如下，其实就是想返回一个json数据：</p>
+					<div class="code">
+						<pre>
+&lt;?php 
+    $data = json_decode(file_get_contents("php://input"));
+    header("Content-Type: application/json; charset=utf-8");
+    echo ('{"id" : ' . $data->id . ', "age" : 24, "sex" : "boy", "name" : "huangxueming"}');
+?&gt;
+						</pre>
+					</div>
+					<p>最后就是proxy.html代码：</p>
+					<div class="code">
+						<pre>
+&lt;!DOCTYPE HTML^gt;
+&lt;html^gt;
+ &lt;head^gt;
+  &lt;title^gt; New Document &lt;/title^gt;
+ &lt;/head^gt;
+ &lt;body^gt;
+    &lt;script^gt;
+         function _getUrl(key) {//通用方法，获取URL参数
+                       var query = location.href.split("?")[1],
+                value = decodeURIComponent(query.split(key + "=")[1].split("&")[0]);
+                    return value;
+               }
+         (function() {
+             var callback = _getUrl("callback"),
+                 data = _getUrl("data");
+             eval("window.top." + decodeURIComponent(callback) + "(" + decodeURIComponent(data) + ")");
+         })();
+    &lt;/script^gt;
+ &lt;/body^gt;
+&lt;/html^gt;
+						</pre>
+					</div>
+					<p>这里也是最后一步了，proxy终于拿到了request.html透过response.html传过来的回调函数名以及从response.html直接传过来的响应数据，利用window.top执行request.html里定义的回调函数。</p>
+					<h3><span>iframe高度自适应的问题</span></h3>
+					<p>iframe高度自适应分为2种，一种是同域下自适应  另外一种是跨域下自适应，下面我们来看看同域下iframe高度自适应的问题。</p>
+					<p class="small-title"><b>   1. 同域下iframe高度自适应的问题：</b></p>
+					<p>  思路：获取被嵌套iframe元素，通过JavaScript取得被嵌套页面最终高度，然后在主页面进行设置来实现。</p>
+					<p>  假如我们demo有iframe1.html和iframe2.html 下面贴上iframe1.html代码如下：</p>
+					<div class="code">
+						<pre>
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt; New Document &lt;/title&gt;
+  &lt;style&gt;
+    *{margin:0;padding:0;}
+  &lt;/style&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+    &lt;iframe src="http://a.com/demo/ajax/iframeheight/iframe2.html" style="width:100%;border:1px solid #333;" frameborder="0" id="iframe"&gt;&lt;/iframe&gt;
+    &lt;script&gt;
+        window.onload = function() {
+            var iframeid = document.getElementById('iframe');
+            if(iframeid && !window.opera) {
+                if(iframeid.contentDocument && iframeid.contentDocument.body.offsetHeight) {
+                    iframeid.height = iframeid.contentDocument.body.offsetHeight;
+                }else if(iframeid.Document && iframeid.Document.body.scrollHeight){ 
+                    iframeid.height = iframeid.Document.body.scrollHeight;
+                }
+            }
+        }
+    &lt;/script&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+						</pre>
+					</div>
+					<p>iframe2.html代码如下：</p>
+					<div class="code">
+						<pre>
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt; New Document &lt;/title&gt;
+  &lt;style&gt;
+    *{margin:0;padding:0;}
+  &lt;/style&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+    &lt;div style="height:500px;"&gt;&lt;/div&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+						</pre>
+					</div>
+					<p>就可以动态设置iframe1页面的高度为iframe2的高度了。</p>
+					<p class="small-title"><b>2. 跨域下iframe高度自适应的问题。</b></p>
+					<p>首先我们知道iframe跨域我们是不能用上面js方式来控制了，所以我们只能用个中间键，我们可以在a.com域下iframe1.html页面嵌套一个b.com域下的iframe2.html页面，然后我在iframe2.html页面嵌套个和iframe1.html相同域的iframe3.html页面了，这样的话 iframe1.html和iframe3.html就可以无障碍的进行通信了，因为页面iframe2.html嵌套iframe3.html，所以iframe2.html可以改写iframe3.html的href值。</p>
+					<p> iframe1中的内容：</p>
+					<p> iframe1.html内容主要接受iframe3.html页面传过来的内容并且去完成相应的操作。iframe1.html代码如下：</p>
+					<div class="code">
+						<pre>
+&lt;iframe src="http://b.com/demo/ajax/iframeheight/iframe2.html" style="width:400px;height:200px;" id="iframe">&lt;/iframe&gt; 
+&lt;script&gt;
+   var ifr_el = document.getElementById("iframe");
+   function getIfrData(data){
+    ifr_el.style.height = data+"px";
+   }
+&lt;/script&gt;
+						</pre>
+					</div>
+					<p>iframe2.html中的内容：</p>
+					<p>iframe2.html内容是怎么把值传给iframe3.html页面，刚才说了是将值传递到iframe3.html页面的href中，所以只要修改iframe的src就可以，因为不用刷新C页面，所以可以用过hash的方式传递给iframe3.html页面.iframe2.html代码如下：</p>
+					<div class="code">
+						<pre>
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt; New Document &lt;/title&gt;
+  &lt;style&gt;
+    *{margin:0;padding:0;}
+  &lt;/style&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+    &lt;iframe id="iframe" src="http://a.com/demo/ajax/iframeheight/iframe3.html" width="0" height="230px"&gt;&lt;/iframe&gt;
+    &lt;script&gt;
+        var oldHeight = 0,
+              ifr_el = document.getElementById("iframe");
+         
+        t && clearInterval(t);
+        var t = setInterval(function(){
+            var height = document.body.scrollHeight;
+            if(oldHeight != height) {
+                oldHeight = height;
+                ifr_el.src += '#' +oldHeight; 
+            }
+        },200);
+    &lt;/script&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+						</pre>
+					</div>
+					<p>可以看到 默认情况下 iframe1.html 页面我给iframe2.html的高度是200像素， 但是在iframe2.html我给iframe3.html高度是230像素，那么正常情况下是有滚动条的，那么现在我是想在iframe2.html获取滚动条的高度，把高度传给通过iframe3.html的src里面去，然后在iframe3.html页面里获取这个高度值 传给iframe1.html(因为iframe1.html和iframe3.html是同域的)，所以iframe1.html能取到这个高度值，再设置下本身的高度就是这个值就ok了。iframe3.html页面的唯一功能就是接收iframe2.html页面通过href传进来的值并且传递给iframe1.html页面，可到iframe2.html页面传来的值可以通过一个定时器不停去查看location.href是 否被改变，但是这样感觉效率很低，还有个方式就是在新的浏览器中通过onhashchange事件 （IE8+,Chrome5.0+,Firefox3.6+,Safari5.0+,Opera10.6+）来监听href的改变。</p>
+					<p>iframe3.html代码如下：</p>
+					<div class="code">
+						<pre>
+&lt;script&gt;
+    var oldHeight = 0;
+    t && clearInterval(t);
+    var t = setInterval(function(){
+        var height = location.href.split('#')[1];
+        if(height && height != oldHeight) {
+            oldHeight = height;
+            if(window.parent.parent.getIfrData) {
+                window.parent.parent.getIfrData(oldHeight);
+            }
+        }
+    },200);
+&lt;/script&gt;
+						</pre>
+					</div>
+					<p>这样就可以解决通过跨域实现iframe自适应高度的问题了。</p>
+				</div>
+				<div class="art-bottom">
+					<div class="declaration">
+						<p>本文内容转载自网络，如有侵权需删除，请在<a href="../chat.html" class="chat">Chat栏</a>留言或加我QQ联系！</p>
+					</div>
+					<div class="art-zan clearfix">
+						<p class="art-dianzan" id="art-dianzan"><span class="zan" id="zan1">0</span></p>
+						<div class="art-share">
+							<div class="bdsharebuttonbox">
+								<a href="#" class="bds_more" data-cmd="more"></a>
+								<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+								<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+								<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+								<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+								<a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a>
+							</div>
+							<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","weixin","sqq","mshare"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","weixin","sqq","mshare"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+							</script>
+						</div>
+					</div>
+					<div class="art-related">
+						<h4>相关文章</h4>
+						<div>
+							<ul class="clearfix">
+								<li><a href="../links.html">前端网址导航</a></li>
+								<li><a href="article3.html">前端完整学习路线参考</a></li>
+								<li><a href="article7.html">JS实现继承的6种方式</a></li>
+								<li><a href="article4.html">Web前端浏览器兼容处理大全</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<div class="clock">
+					<div class="clockwrap">
+						<canvas width="190" height="190" id="myclock">您的浏览器不支持canvas。</canvas>
+					</div>
+				</div>
+				<div class="calendar">
+					<div class="calendar-wrap">
+						<div class="datetitle clearfix">
+							<dl class="dateyear" id="dateyear">
+								<dt>2012年</dt>
+								<dd>
+									<ul>
+										<li>2012年</li>
+										<li>2013年</li>
+										<li>2014年</li>
+										<li>2015年</li>
+										<li>2016年</li>
+										<li>2017年</li>
+										<li>2018年</li>
+										<li>2019年</li>
+										<li>2020年</li>
+										<li>2021年</li>
+										<li>2022年</li>
+									</ul>
+								</dd>
+							</dl>
+							<dl class="datemonth" id="datemonth">
+								<dt>1月</dt>
+								<dd>
+									<ul>
+										<li>1月</li>
+										<li>2月</li>
+										<li>3月</li>
+										<li>4月</li>
+										<li>5月</li>
+										<li>6月</li>
+										<li>7月</li>
+										<li>8月</li>
+										<li>9月</li>
+										<li>10月</li>
+										<li>11月</li>
+										<li>12月</li>
+									</ul>
+								</dd>
+							</dl>
+							<p class="dateday" id="dateday">1日</p>
+							<p class="curweek" id="curweek"><span>星期一</span></p>
+						</div>
+						<div class="datebox">
+							<table>
+								<thead class="dateweek" id="dateweek">
+									<tr>
+										<td id="week1">一</td>
+										<td id="week2">二</td>
+										<td id="week3">三</td>
+										<td id="week4">四</td>
+										<td id="week5">五</td>
+										<td id="week6">六</td>
+										<td id="week7">日</td>
+									</tr>
+								</thead>
+								<tbody id="dateday">
+									<tr>
+										<td></td>
+										<td></td>
+										<td><span class="choiceday">1</span></td>
+										<td><span>2</span></td>
+										<td><span>3</span></td>
+										<td><span>4</span></td>
+										<td><span>5</span></td>
+									</tr>
+									<tr>
+										<td><span>6</span></td>
+										<td><span>7</span></td>
+										<td><span>8</span></td>
+										<td><span>9</span></td>
+										<td><span>10</span></td>
+										<td><span>11</span></td>
+										<td><span>12</span></td>
+									</tr>
+									<tr>
+										<td><span>13</span></td>
+										<td><span>14</span></td>
+										<td><span>15</span></td>
+										<td><span>16</span></td>
+										<td><span>17</span></td>
+										<td><span>18</span></td>
+										<td><span>19</span></td>
+									</tr>
+									<tr>
+										<td><span>20</span></td>
+										<td><span>21</span></td>
+										<td><span>22</span></td>
+										<td><span>23</span></td>
+										<td><span>24</span></td>
+										<td><span>25</span></td>
+										<td><span>26</span></td>
+									</tr>
+									<tr>
+										<td><span>27</span></td>
+										<td><span>28</span></td>
+										<td><span>29</span></td>
+										<td><span>30</span></td>
+										<td><span>31</span></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="totop" id="totop"><a href="javascript:void(0)"></a></div>
+		</div>
+	</footer>
+	<script src="../jquery-3.1.1.min.js"></script>
+	<script src="../script.js"></script>
+	<script src="artscript.js"></script>
+</body>
+</html>

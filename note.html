@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>note</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1 style="display: none;"><a href="http://www.qingchengshanxia.com/">san gong</a></h1>
+			<div class="myhead">
+				<a href="index.html">
+					<img src="images/headimg.jpg" alt="我的头像">
+				</a>
+				<div>
+					<h2>青城山下</h2>
+					<p>初级前端工程师</p>
+				</div>
+			</div>
+			<nav class="headnav">
+				<ul class="navshow">
+					<li><a href="about.html" title="关于我">about</a><span>·</span></li>
+					<li><a href="profile.html" title="我的简历">profile</a><span>·</span></li>
+					<li><a href="demo.html" title="我的作品">demo</a><span>·</span></li>
+					<li><a href="note.html" title="文章笔记">note</a><span>·</span></li>
+					<li><a href="code.html" title="神奇的代码">code</a><span>·</span></li>
+					<li><a href="links.html" title="前端网址导航">links</a><span>·</span></li>
+					<li><a href="chat.html" title="留言板">chat</a><span>·</span></li>
+					<li><a href="contact.html" title="联系方式">contact</a></li>
+				</ul>
+			</nav>
+			<div class="navhide" id="navhide">
+				<div>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<ul class="navhide-sub">
+					<li><a href="about.html">about</a></li>
+					<li><a href="profile.html">profile</a></li>
+					<li><a href="demo.html">demo</a></li>
+					<li><a href="note.html">note</a></li>
+					<li><a href="code.html">code</a></li>
+					<li><a href="links.html">links</a></li>
+					<li><a href="chat.html">chat</a></li>
+					<li><a href="contact.html">contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<section>
+		<div class="container">
+			<h2>Code → <a href="code.html" class="pro-tip">看看这些狂炸酷炫吊炸天的代码吧！</a></h2>
+			<div class="notewrap">
+				<div class="noteleft">
+					<div class="mycenter">
+						<p class="headimage"><img src="images/sangong.jpg" alt="我的个人中心"></p>
+						<p class="whatname"><span class="myname">sangong</span><span class="myhome">个人主页</span></p>
+						<p><span>现居：</span><a href="contact.html#myaddress" class="mysite">南京</a></p>
+						<p><span>爱好：</span><span>电影、小说、lol</span></p>
+						<p class="signature">
+							<span>个性签名：</span>
+							<span class="sentence">人多守住嘴，独自守住心！</span>
+						</p>
+					</div>
+					<div class="myskill">
+						<div class="mycanvas" id="mycanvas">
+							<canvas id="leida" height="230">您的浏览器不支持canvas.</canvas>
+						</div>
+						<p class="leida">前端技能雷达图</p>
+					</div>
+					<div class="classify">
+						<div class="title">
+							<span>分类</span>
+							<em class="num" id="artnum">共 16 篇</em>
+						</div>
+						<div class="sortlist">
+							<ul>
+								<li><a href="#"><span>日常记录和感悟</span><em id="livenum">0</em></a></li>
+								<li><a href="#"><span>算法和数据结构</span><em id="mathnum">0</em></a></li>
+								<li><a href="#"><span>html</span><em id="htmlnum">0</em></a></li>
+								<li><a href="#"><span>css</span><em id="cssnum">0</em></a></li>
+								<li><a href="#"><span>javascript</span><em id="jsnum">0</em></a></li>
+								<li><a href="#"><span>mobile</span><em id="mobilenum">0</em></a></li>
+								<li><a href="#"><span>responsive</span><em id="responsivenum">0</em></a></li>
+								<li><a href="#"><span>php</span><em id="phpnum">0</em></a></li>
+								<li><a href="#"><span>mysql</span><em id="mysqlnum">0</em></a></li>
+								<li><a href="#"><span>tool</span><em id="toolnum">0</em></a></li>
+								<li><a href="#"><span>其它</span><em id="othernum">0</em></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="noteright">
+					<div class="rightwrap">
+						<ul>
+							<li class="newest-head onchoice best">最新</li>
+							<li class="hottest-head best">最热</li>
+							<li class="search-head">
+								<form action="#" method="get" id="form1">
+									<span id="searchbtn">搜索</span>
+									<input type="text" placeholder="#>搜索文章" id="search">
+								</form>
+							</li>
+						</ul>
+						<div class="newest">
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="links.html">前端网址导航</a></h3>
+										<span class="stick">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										本文参考于大前端网、前端网址导航网，仅供学习之用，如原创作者禁止转载可留言要求我删除。文中一共摘录了10类前端相关网址，包括：前端社区、UED博客、UX研究所、浏览器百宝箱、前端工具箱、图标、工具、教程、综合素材、设计和交互;
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label html">html</span>
+											<span class="label js">js</span>
+											<span class="label css">css</span>
+										</p>
+										<span class="releasetime">2016/11/07 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/website.jpg" alt="前端网址导航">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article3.html">前端完整学习路线参考</a></h3>
+										<span class="stick">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										前端要学习三个部分：HTML、CSS、JS，因此首先明确三个概念:HTML是内容层，它的目的是表示一个HTML标签在页面里是个什么角色。CSS是样式层，它的目的是表示一块内容以什么样的样式（字体、大小、颜色、宽高等）显示。JS是行为层，它要做的是当用户触发某些行为时，给内容和样式带来改变。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label html">html</span>
+											<span class="label css">css</span>
+											<span class="label js">js</span>
+										</p>
+										<span class="releasetime">2016/11/09 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/daqianduan.jpg" alt="大前端完整学习路线">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article2.html">HTML规范精要整理大全</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										文件应以“!DOCTYPE ......”首行顶格开始，推荐使用“!DOCTYPE html”。
+										必须申明文档的编码charset，且与文件本身编码保持一致，推荐使用UTF-8编码<meta charset="utf-8"/>。
+										根据页面内容和需求填写适当的keywords和description。
+										页面title是极为重要的不可缺少的一项。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label html">html</span>
+										</p>
+										<span class="releasetime">2016/11/08 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/html5.jpg" alt="HTML规范精要整理大全">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article1.html">优化CSS重排重绘与浏览器性能</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										制作中考虑浏览器的性能，减少‘重排’能够节省浏览器对其子元素及父类元素的重新渲染；避免过分的‘重绘’也能节省浏览器性能；优化动画，使用3D启用GPU硬件加速；慎重选择高消耗的样式，如box-shadow、border-radius、transform、css filters等。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label css">css</span>
+										</p>
+										<span class="releasetime">2016/11/09 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/reflow.jpg" alt="优化CSS重排重绘与浏览器性能">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article4.html">浏览器兼容性CSS处理大全</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										所谓的浏览器兼容性问题，是指因为不同的浏览器对同一段代码有不同的解析，造成页面显示效果不统一的情况。在大多数情况下，我们的需求是，无论用户用什么浏览器来查看我们的网站或者登陆我们的系统，都应该是统一的显示效果。所以浏览器的兼容性问题是前端开发人员经常会碰到和必须要解决的问题。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label css">css</span>
+										</p>
+										<span class="releasetime">2016/11/10 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/compatible.jpg" alt="浏览器兼容性CSS处理大全">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="yuanchuang">原</span>
+										<h3><a href="articles/article5.html">JS兼容写法大全</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										js兼容性没有css兼容性那么麻烦，但也是前端工程师需要面对的一个问题，它不需要你在遇到问题时去多方面的调试和研究，只需要平时记忆和理解了，就很容易运用，下面整理了js常见的兼容性写法，方便记忆和查阅。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label js">js</span>
+										</p>
+										<span class="releasetime">2016/11/12 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/jscompatible.jpg" alt="JS兼容写法大全">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article6.html">如何理解和运用闭包</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										闭包，是js中认为最难理解、最常犯错的地方之一。简单的说，闭包就是一种设计原则，它通过分析上下文，来简化用户的调用，让用户在不知晓的情况下，达到他的目的；
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label js">js</span>
+										</p>
+										<span class="releasetime">2016/11/12 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/bibao.jpg" alt="如何理解和运用闭包">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article7.html">JS实现继承的6种方式</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										由于js不像java那样是真正面向对象的语言，js是基于对象的，它没有类的概念。所以，要想实现继承，可以用js的原型prototype机制或者用apply和call方法去实现。在面向对象的语言中，我们使用类来创建一个自定义对象。然而js中所有事物都是对象，那么用什么办法来创建自定义对象呢？
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label js">js</span>
+										</p>
+										<span class="releasetime">2016/11/13 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/jicheng.jpg" alt="js实现继承的6种方式">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article8.html">移动H5前端性能优化参考</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										前端优化的途径有很多，按粒度大致可以分为两类，第一类是页面级别的优化，例如 HTTP请求数、脚本的无阻塞加载、内联脚本的位置优化等 ;第二类则是代码级别的优化，例如 Javascript中的DOM 操作优化、CSS选择符优化、图片优化以及 HTML结构优化等等。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label html">html</span>
+											<span class="label js">js</span>
+											<span class="label css">css</span>
+										</p>
+										<span class="releasetime">2016/11/13 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/h5youhua.jpg" alt="移动H5前端性能优化参考">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article9.html">20个原生JavaScript技巧</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										熟悉和掌握一些基本的原生js功能函数，对写业务的速度提高有很大的方便性，同时，也便于我们在写的过程中慢慢的深入到函数中，去理解功能函数的原理，以及设计思路。下面是一些老程序员总结的常用的20个功能函数。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label js">js</span>
+										</p>
+										<span class="releasetime">2016/11/13 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/jiqiao.jpg" alt="20个原生JavaScript技巧">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article10.html">JS性能优化知识总结</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										如果你问我网站中最影响网站打开速度的是什么？我会告诉是网站中的javascript，简称JS。记住，永远不要忽略代码优化工作，重构是一项从项目开始到结束需要持续的工作，只有不断的优化代码才能让代码的执行效率越来越好。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label js">js</span>
+										</p>
+										<span class="releasetime">2016/11/14 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/jsyouhua.jpg" alt="JS性能优化知识总结">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article11.html">编写现代CSS代码的20个建议</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										在参与规模庞大、历时漫长且参与人数众多的项目时，所有开发者遵守如下规则极为重要：保持 CSS 易于维护;保持代码清晰易懂;保持 CSS 的可拓展性;为了实现这一目标，我们要采用诸多方法。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label css">css</span>
+										</p>
+										<span class="releasetime">2016/11/14 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/cssjianyi.jpg" alt="编写现代CSS代码的20个建议">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article12.html">弹性布局display:flex</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。2009年，W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label css">css</span>
+										</p>
+										<span class="releasetime">2016/11/15 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/flex.jpg" alt="弹性布局display:flex">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article13.html">说说JSON和JSONP</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										说到AJAX就会不可避免的面临两个问题，第一个是AJAX以何种格式来交换数据？第二个是跨域的需求如何解决？这两个问题目前都有不同的解决方案，比如数据可以用自定义字符串或者用XML来描述，跨域可以通过服务器端代理来解决。但到目前为止最被推崇或者说首选的方案还是用JSON来传数据，靠JSONP来跨域。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label js">js</span>
+										</p>
+										<span class="releasetime">2016/12/01 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/jsonp.jpg" alt="说说JSON和JSONP">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article14.html">Javascript常用的10种设计模式</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										js设计模式有很多种，知道不代表会用，更不代表理解，为了更好的理解每个设计模式，对每个设计模式进行总结，以后只要看到总结，就能知道该设计模式的作用，以及模式存在的优缺点，使用范围。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label js">js</span>
+										</p>
+										<span class="releasetime">2016/12/05 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/mode.jpg" alt="Javascript常用的10种设计模式">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article15.html">css3多列布局：column</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										CSS3中新出现的多列布局(multi-column)是传统HTML网页中块状布局模式的有力扩充。这种新语法能够让WEB开发人员轻松的让文本呈现多列显示，就像报纸上的新闻排版一样。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label css">css</span>
+										</p>
+										<span class="releasetime">2016/12/06 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/column.jpg" alt="css3多列布局：column">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article16.html">iframe父页面与子页面之间的调用</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										  当你打开本页时，我猜你一定十分熟悉如何在页面上添加一段javascript代码，知道如何调用它让它正常地工作，也许你也能立即想出如何在页面上使用iframe来嵌套另一个页面，但真要让你一下子说出来如何在当前页面中调用iframe页面中的javascript代码或者修改iframe页面中的某些元素，可能你就得稍微思考一下了~
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label js">js</span>
+											<span class="label html">html</span>
+										</p>
+										<span class="releasetime">2016/12/06 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/data.jpg" alt="iframe父页面与子页面之间的调用">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article17.html">常用 Git 命令清单</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										  我每天使用 Git ，但是很多命令记不住。一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label tool">tool</span>
+										</p>
+										<span class="releasetime">2016/12/06 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/gitcommand.png" alt="常用 Git 命令清单">
+									</div>
+								</div>
+							</div>
+							<div class="art-item clearfix">
+								<div class="art-content">
+									<div class="art-head clearfix">
+										<span class="zhuangzai">转</span>
+										<h3><a href="articles/article18.html">gulp的安装和使用介绍</a></h3>
+										<span class="stick hide">::置顶</span>
+									</div>
+									<div class="art-info clearfix">
+										<ul>
+											<li><span>阅读</span><span>0</span></li>
+											<li><span>评论</span><span>0</span></li>
+											<li><span>赞</span><span>0</span></li>
+										</ul>
+									</div>
+									<div class="art-description">
+										  gulp是前端开发过程中对代码进行构建的工具，是自动化项目的构建利器；她不仅能对网站资源进行优化，而且在开发过程中很多重复的任务能够使用正确的工具自动完成；使用她，我们不仅可以很愉快的编写代码，而且大大提高我们的工作效率。
+									</div>
+									<div class="art-time clearfix">
+										<p class="labelwrap">
+											<span class="label tool">tool</span>
+										</p>
+										<span class="releasetime">2016/12/16 发布</span>
+									</div>
+								</div>
+								<div class="art-img">
+									<div>
+										<img src="articles/img/gulp.jpg" alt="gulp的安装和使用介绍">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="hottest"></div>
+						<div class="search"></div>
+						<div class="pages" id="pages">
+							<ul>
+								<li><a href="" class="firstpage forbid" id="firstpage">首页</a></li>
+								<li><a href="" class="prevpage forbid" id="prevpage">上一页</a></li>
+								<li><a href="" class="pagenum pagechoice">1</a></li>
+								<li><a href="" class="pagenum">2</a></li>
+								<li><a href="" class="pagenum">3</a></li>
+								<li><a href="" class="pagenum">4</a></li>
+								<li><a href="" class="pagenum">5</a></li>
+								<li><a href="" class="pagenum">6</a></li>
+								<li><a href="" class="nextpage" id="nextpage">下一页</a></li>
+								<li><a href="" class="endpage" id="endpage">尾页</a></li>
+								<li id="duoshaoye"> 共<i class="pagecount" id="pagecount">0</i>页 到第 <input type="text" autocomplete="off" class="duoshaoye"> 页</li>
+								<li><a href="javascript:void(0)" class="sure">确定</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="totop" id="totop"><a href="javascript:void(0)"></a></div>
+		</div>
+	</footer>
+	<script src="jquery-3.1.1.min.js"></script>
+	<script src="script.js"></script>
+	<script>
+		$(function(){
+			// noteright 功能实现；
+			$('.best').on('click',function(){
+				if (!$(this).is('.onchoice')) {
+					$(this).addClass('onchoice').siblings('.best').removeClass('onchoice');
+				}
+			})
+			$('form').on('mouseover',function(){
+				$('#search').css({width:"210px"});
+			})
+			$('form').on('mouseout',function(){
+				$('#search').css({width:"80px"});
+			})
+
+			// 分类项文章数目功能；
+			var $htmlcount = $('span.html').length,
+				$csscount = $('span.css').length,
+				$jscount = $('span.js').length,
+				$mobilecount = $('span.mobile').length,
+				$responsivecount = $('span.responsive').length,
+				$phpcount = $('span.php').length,
+				$mysqlcount = $('span.mysql').length,
+				$othercount = $('span.other').length,
+				$livecount = $('span.live').length,
+				$mathcount = $('span.math').length;
+				$toolcount = $('span.tool').length;
+				$('#htmlnum').text($htmlcount);
+				$('#cssnum').text($csscount);
+				$('#jsnum').text($jscount);
+				$('#mobilenum').text($mobilecount);
+				$('#responsivenum').text($responsivecount);
+				$('#phpnum').text($phpcount);
+				$('#mysqlnum').text($mysqlcount);
+				$('#othernum').text($othercount);
+				$('#livenum').text($livecount);
+				$('#mathnum').text($mathcount);
+				$('#toolnum').text($toolcount);
+			var $artnum = $('.art-item').length;
+				$('#artnum').text('共 '+ $artnum +' 篇');
+
+			// search功能
+			$('#searchbtn').on('click',function(){alert('抱歉！搜索功能正在努力开发中。。。');});
+			$('#search').on('keydown',function(event){
+				if (event.which == 13) {
+					alert('抱歉！搜索功能正在努力开发中。。。');
+					return false;
+				}
+			})
+
+
+
+			// page功能实现；
+			function choiced(obj){
+				obj.children().addClass('pagechoice').end().siblings().children().removeClass('pagechoice');
+			}
+			$('#pagecount').text($('.pagenum').length);
+			$('#pages').on('click','li',function(e){
+				var $this = $(this),
+					$len = $('.pagenum').length,
+					$lastnum = $('.pagenum').index($this.find('.pagenum')),
+					$index = $('#pages li').index(this);
+				if ($index > 1 && $index < $len+2) {
+					choiced($this);
+					if ($index > 2 && $index < $len+1) {
+						$('#firstpage').removeClass('forbid');
+						$('#prevpage').removeClass('forbid');
+						$('#endpage').removeClass('forbid');
+						$('#nextpage').removeClass('forbid');
+					}
+
+					if ($index == 2) {
+						$('#firstpage').addClass('forbid');
+						$('#prevpage').addClass('forbid');
+						$('#endpage').removeClass('forbid');
+						$('#nextpage').removeClass('forbid');
+					}
+					if ($index == $len+1) {
+						$('#endpage').addClass('forbid');
+						$('#nextpage').addClass('forbid');
+						$('#firstpage').removeClass('forbid');
+						$('#prevpage').removeClass('forbid');
+					}
+				}
+				var $isfirst = /pagechoice/.test($('.pagenum').eq(0).attr('class')),
+					$islast = /pagechoice/.test($('.pagenum').eq($len-1).attr('class'));
+				if ($index == 1 && !$isfirst) {
+					var $choiceindex = $('.pagenum').index($('.pagechoice'));
+					$('.pagenum').eq($choiceindex).removeClass('pagechoice').parent().prev().find('.pagenum').addClass('pagechoice');
+					$('#endpage').removeClass('forbid');
+					$('#nextpage').removeClass('forbid');
+				} 
+				if ($index == 1 && (/pagechoice/.test($('.pagenum').eq(0).attr('class')))) {
+					$('#firstpage').addClass('forbid');
+					$('#prevpage').addClass('forbid');
+				}
+
+				if ($index == $len+2 && !$islast) {
+					var $choiceindex = $('.pagenum').index($('.pagechoice'));
+					$('.pagenum').eq($choiceindex).removeClass('pagechoice').parent().next().find('.pagenum').addClass('pagechoice');
+					$('#firstpage').removeClass('forbid');
+					$('#prevpage').removeClass('forbid');
+				}
+				if ($index == $len+2 && (/pagechoice/.test($('.pagenum').eq($len-1).attr('class')))) {
+					$('#endpage').addClass('forbid');
+					$('#nextpage').addClass('forbid');
+				}
+				if (!$index) {
+					choiced($('#pages li').eq(2));
+					$('#firstpage').addClass('forbid');
+					$('#prevpage').addClass('forbid');
+					$('#endpage').removeClass('forbid');
+					$('#nextpage').removeClass('forbid');
+				}
+				if ($index == $len+3) {
+					choiced($('#pages li').eq($len+1));
+					$('#endpage').addClass('forbid');
+					$('#nextpage').addClass('forbid');
+					$('#firstpage').removeClass('forbid');
+					$('#prevpage').removeClass('forbid');
+				}
+				return false;
+			})
+
+		})
+		
+
+		// 实现图片的div等于父div高度；
+		function eqheight(){
+			var $h = $('.art-item').eq(0).height();
+			if ($(window).width() > 768 ) {
+				$('.art-img').each(function(){
+					$(this).height($h);
+				});
+			} else {
+				$('.art-img').each(function(){
+					$(this).height(126);
+				});
+			}
+		}  //注意窗口变化，获取的高度不变化的情况；
+		eqheight();
+		$(window).resize(function(){
+			eqheight();
+		});
+
+
+		
+
+		//绘制雷达图
+		window.onload = function(){
+			function rechange(){
+				var leida = document.getElementById('leida'),
+					mycanvas = document.getElementById('mycanvas'),
+					w = 0,r = 0;
+					if (mycanvas.currentStyle) {
+						w = mycanvas.currentStyle.width;
+					} else {
+						w = getComputedStyle(mycanvas,null).width;
+					}
+					w= parseInt(w);
+					leida.width = w;
+					if (w<340) {
+						r = 70;
+					} else {
+						r = 90;
+					}
+				ctx = leida.getContext('2d');
+
+				// 创建五个六边形；
+				for (var i = 0; i < 5; i++) {
+					ctx.beginPath();
+					ctx.lineJoin="miter";
+					ctx.miterLimit=3;
+					ctx.moveTo(w/2+r,115);
+					for (var j = 1; j < 7; j++) {
+						ctx.lineTo(w/2+Math.cos(j*Math.PI/3)*r,115+Math.sin(j*Math.PI/3)*r);
+					}
+					if (i%2) {
+						ctx.fillStyle= "#E7E7E7";
+						ctx.strokeStyle = '#e6e6e6';
+					} else {
+						ctx.fillStyle= "white";
+						ctx.strokeStyle = '#e6e6e6';
+					}
+					ctx.fill();
+					ctx.stroke();
+					r=r-20;
+					ctx.closePath();
+				}
+
+				// 创建一条技能线；	
+				ctx.beginPath();
+				ctx.strokeStyle = '#31B560';
+				ctx.lineWidth = 2;
+				r = r+100;
+				if (r == 70) {
+					ctx.moveTo(w/2+15,115);
+					ctx.lineTo(w/2+115*0.32/(Math.tan(Math.PI/3)), 115*0.68);
+					ctx.lineTo(w/2+115*0.43/(Math.tan(2*Math.PI/3)), 115*0.57);
+					ctx.lineTo(w/2-60, 115);
+					ctx.lineTo(w/2-115*0.32/(Math.tan(Math.PI/3)), 115*1.32);
+					ctx.lineTo(w/2+115*0.45/(Math.tan(Math.PI/3)), 115*1.45);
+					ctx.lineTo(w/2+15,115);
+				} else {
+					ctx.moveTo(w/2+20,115);
+					ctx.lineTo(w/2+115*0.52/(Math.tan(Math.PI/3)), 115*0.48);
+					ctx.lineTo(w/2+115*0.58/(Math.tan(2*Math.PI/3)), 115*0.42);
+					ctx.lineTo(w/2-80, 115);
+					ctx.lineTo(w/2-115*0.42/(Math.tan(Math.PI/3)), 115*1.42);
+					ctx.lineTo(w/2+115*0.57/(Math.tan(Math.PI/3)), 115*1.57);
+					ctx.lineTo(w/2+20,115);
+				}
+				ctx.stroke();
+				ctx.closePath();
+
+				// 创建6条射线;
+				for (var i = 0; i < 7; i++) {
+					ctx.beginPath();
+					ctx.moveTo(w/2, 115);
+					ctx.lineTo(w/2+Math.cos(i*Math.PI/3)*r, 115+Math.sin(i*Math.PI/3)*r);
+					ctx.strokeStyle="#bbb";
+					ctx.lineWidth=0.6;
+					ctx.stroke();
+					ctx.closePath();
+				}
+
+				// 创建6个文本;
+				ctx.beginPath();
+				ctx.font = '14px Verdana';
+				ctx.fillStyle = 'black';
+				ctx.scale(0.8,0.8);
+				if (r == 70) {
+					ctx.fillText("html", w/2+Math.cos(4*Math.PI/3)*r-12, 115+Math.sin(4*Math.PI/3)*r-8);
+					ctx.fillText("(html5)", w/2+Math.cos(4*Math.PI/3)*r-20, 115+Math.sin(4*Math.PI/3)*r+5);
+					ctx.fillText("css", w/2+Math.cos(3*Math.PI/3)*r-21, 115+Math.sin(3*Math.PI/3)*r+24);
+					ctx.fillText("(css3)", w/2+Math.cos(3*Math.PI/3)*r-36, 115+Math.sin(3*Math.PI/3)*r+38);
+					ctx.fillText("javascript", w/2+Math.cos(2*Math.PI/3)*r-13, 115+Math.sin(2*Math.PI/3)*r+70);
+					ctx.fillText("jquery", w/2+Math.cos(1*Math.PI/3)*r+30, 115+Math.sin(1*Math.PI/3)*r+70);
+					ctx.fillText("php", w/2+Math.cos(0*Math.PI/3)*r+60, 146);
+					ctx.fillText("responsive", w/2+Math.cos(5*Math.PI/3)*r+24, 115+Math.sin(5*Math.PI/3)*r);
+				} else {
+					ctx.fillText("html", w/2+Math.cos(4*Math.PI/3)*r+10, 115+Math.sin(4*Math.PI/3)*r-8);
+					ctx.fillText("(html5)", w/2+Math.cos(4*Math.PI/3)*r, 115+Math.sin(4*Math.PI/3)*r+10);
+					ctx.fillText("css", w/2+Math.cos(3*Math.PI/3)*r, 115+Math.sin(3*Math.PI/3)*r+24);
+					ctx.fillText("(css3)", w/2+Math.cos(3*Math.PI/3)*r-10, 115+Math.sin(3*Math.PI/3)*r+38);
+					ctx.fillText("javascript", w/2+Math.cos(2*Math.PI/3)*r-10, 115+Math.sin(2*Math.PI/3)*r+70);
+					ctx.fillText("jquery", w/2+Math.cos(1*Math.PI/3)*r+30, 115+Math.sin(1*Math.PI/3)*r+70);
+					ctx.fillText("php", w/2+Math.cos(0*Math.PI/3)*r+100, 146);
+					ctx.fillText("responsive", w/2+Math.cos(5*Math.PI/3)*r+24, 115+Math.sin(5*Math.PI/3)*r)
+				}
+				ctx.closePath();			
+			}
+			rechange();
+			if (window.addEventListener) {
+				window.addEventListener('resize', rechange, false);
+			} else {
+				window.attachEvent('onresize', rechange);
+			}
+
+			// 替换html标签；
+			var parag = document.getElementsByClassName('art-description');
+				for (var i = 0, len = parag.length; i < len; i++) {
+					var result1 = parag[i].innerHTML.replace(/</gim,'&lt;');
+					var result2 = result1.replace(/>/gim,'&gt;');
+						parag[i].innerHTML = result2;
+				}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>风景网</title>
+	<link rel="stylesheet" href="../../reset.css" type="text/css">
+	<link rel="stylesheet" href="css.css" type="text/css">
+	<script src="../../jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="header_top">
+			<div>
+				<span class="welcome">你好，欢迎来到风景网！</span>
+				<div class="f_app">
+					风景网APP
+					<a href="javascript:void(0)">
+						<div></div>
+					</a>
+				</div>
+				<div class="l_app">
+					领游APP
+					<a href="javascript:void(0)">
+						<div></div>
+					</a>
+				</div>
+				<span class="denglu">
+					<a href="javascript:void(0)">登录</a>|<a href="javascript:void(0)">注册</a>
+				</span>
+				<div class="weixin">
+					+微信
+					<div></div>
+				</div>
+				<a class="xl_blog" href="javascript:void(0)">新浪微博</a>
+				<a class="tx_blog" href="javascript:void(0)">腾讯微博</a>
+			</div>
+		</div>
+		<div class="header_middle">
+			<div class="logo"></div>
+			<div class="number"></div>
+			<div class="search">
+				<input type="text" class="search_box" id="search" value="请输入关键字查询">
+				<input type="submit" class="submit_box">
+				<div id="search_tab"><span>对不起，没有相关票务信息</span></div>
+			</div>
+			<div class="mark"></div>
+		</div>
+		<div class="header_bottom">
+			<div>
+				<div class="nav">
+					<ul>
+						<li><a href="javascript:void(0)">首页</a></li>
+						<li><a href="javascript:void(0)">旅游活动</a></li>
+						<li><a href="javascript:void(0)">旅游推荐</a></li>
+						<li><a href="javascript:void(0)">旅游攻略</a></li>
+						<li><a href="javascript:void(0)">风景美图</a></li>
+						<li><a href="javascript:void(0)">智慧旅游</a></li>
+					</ul>
+				</div>
+				<div class="tour">
+					<a href="javascript:void(0)">领游,带你去旅行</a>
+				</div>
+			</div>
+		</div>
+		<div class="header_slidebox" id="header_slidebox">
+			<div class="slide_img">
+				<ul id="slide_img">
+					<li><a href="javascript:void(0)"><img src="images/slide/01.png" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="images/slide/02.png" alt=""></a></li>
+				</ul>
+			</div>
+			<div class="slide_circle">
+				<ul id="slide_circle">
+					<li><a id="circle_one" href="javascript:void(0)" class="circle_on"></a></li>
+					<li><a id="circle_two" href="javascript:void(0)"></a></li>
+				</ul>
+			</div>
+			<a href="javascript:void(0)" class="slide_prev" id="slide_prev"></a>
+			<a href="javascript:void(0)" class="slide_next" id="slide_next"></a>
+		</div>
+	</div>
+	<div class="hot_map">
+		<div class="hot_map_title">
+			<dl>
+				<dt class="hot_scene" id="hot_scene">
+					<strong>热门风景分类</strong>
+					<span id="hot_btn"></span>
+				</dt>
+				<dd class="hot_map_con" id="hot_map_con">
+					<dl class="hot_con1">
+						<dt><strong>热门推荐</strong></dt>
+						<dd>
+							<a href="javascript:void(0)">十三陵</a>
+							<a href="javascript:void(0)">居庸关</a>
+							<a href="javascript:void(0)">颐和园</a>
+						</dd>
+						<dd class="hot_con_sub">
+							<dl class="left">
+								<dt><a href="javascript:void(0)">推荐景点</a></dt>
+								<dd>
+									<div>
+										<a href="javascript:void(0)">香格里拉</a>
+										<a href="javascript:void(0)">日月潭</a>
+										<a href="javascript:void(0)">敦煌</a>
+										<a href="javascript:void(0)">张家界</a>
+										<a href="javascript:void(0)">华山</a>
+										<a href="javascript:void(0)">泸沽湖</a>
+										<a href="javascript:void(0)">乌镇</a>
+										<a href="javascript:void(0)">杭州西湖</a>
+										<a href="javascript:void(0)">黄山</a>
+										<a href="javascript:void(0)">阳朔</a>
+									</div>
+									<p><a href="javascript:void(0)">更多>></a></p>
+								</dd>
+							</dl>
+							<dl class="left">
+								<dt><a href="javascript:void(0)">推荐目的地</a></dt>
+								<dd>
+									<div>
+										<a href="javascript:void(0)">大连</a>
+										<a href="javascript:void(0)">峨眉山</a>
+										<a href="javascript:void(0)">南宁</a>
+										<a href="javascript:void(0)">重庆</a>
+										<a href="javascript:void(0)">天津</a>
+										<a href="javascript:void(0)">武汉</a>
+										<a href="javascript:void(0)">南京</a>
+										<a href="javascript:void(0)">洛阳</a>
+										<a href="javascript:void(0)">青岛</a>
+										<a href="javascript:void(0)">三亚</a>
+										<a href="javascript:void(0)">西双版纳</a>
+										<a href="javascript:void(0)">西安</a>
+										<a href="javascript:void(0)">大理</a>
+										<a href="javascript:void(0)">丽江</a>
+										<a href="javascript:void(0)">桂林</a>
+										<a href="javascript:void(0)">嘉兴</a>
+										<a href="javascript:void(0)">黄山</a>
+										<a href="javascript:void(0)">苏州</a>
+										<a href="javascript:void(0)">广州</a>
+										<a href="javascript:void(0)">北京</a>
+									</div>
+									<p><a href="javascript:void(0)">更多>></a></p>
+								</dd>
+							</dl>
+							<dl class="right">
+								<dt><h1><a href="javascript:void(0)">泸沽湖</a></h1></dt>
+								<dd>
+									<p>我国目前少有的污染程度较低的高原深水湖之一</p>
+								</dd>
+								<dd class="sub_img"><img src="images/sub/01.jpg" alt=""></dd>
+							</dl>
+						</dd>
+					</dl>
+					<dl class="hot_con2">
+						<dt><strong>景点分类</strong></dt>
+						<dd>
+							<a href="javascript:void(0)">杭州西湖</a>
+							<a href="javascript:void(0)">北京故宫</a>
+							<a href="javascript:void(0)">九寨沟</a>
+						</dd>
+						<dd class="hot_con_sub">
+							<dl class="left">
+								<dt><a href="javascript:void(0)">热门景点</a></dt>
+								<dd>
+									<div>
+										<a href="javascript:void(0)">山岳</a>
+										<a href="javascript:void(0)">江河</a>
+										<a href="javascript:void(0)">湖泊</a>
+										<a href="javascript:void(0)">历史圣地</a>
+										<a href="javascript:void(0)">海滨海岛</a>
+										<a href="javascript:void(0)">岩洞</a>
+										<a href="javascript:void(0)">特殊地貌</a>
+										<a href="javascript:void(0)">城市风景</a>
+										<a href="javascript:void(0)">生物景观</a>
+										<a href="javascript:void(0)">壁画石窟</a>
+										<a href="javascript:void(0)">纪念地</a>
+										<a href="javascript:void(0)">陵寝</a>
+										<a href="javascript:void(0)">民俗风情</a>
+									</div>
+									<p><a href="javascript:void(0)">更多>></a></p>
+								</dd>
+							</dl>
+							<dl class="right">
+								<dt><h1><a href="javascript:void(0)">青秀山</a></h1></dt>
+								<dd>
+									<p>青秀山，因林木青翠，山势秀拔而得名，原名青山，又称泰青峰，位于南宁市东南面约五公里</p>
+								</dd>
+								<dd class="sub_img"><img src="images/sub/02.jpg" alt=""></dd>
+							</dl>
+						</dd>
+					</dl>
+					<dl class="hot_con3">
+						<dt><strong>境内游</strong></dt>
+						<dd>
+							<a href="javascript:void(0)">北京动物园</a>
+							<a href="javascript:void(0)">千岛湖</a>
+							<a href="javascript:void(0)">中央电视</a>
+						</dd>
+						<dd class="hot_con_sub">
+							<dl class="left">
+								<dt><a href="javascript:void(0)">境内精品游</a></dt>
+								<dd>
+									<div>
+										<a href="javascript:void(0)">十三陵</a>
+										<a href="javascript:void(0)">居庸关长城</a>
+										<a href="javascript:void(0)">颐和园</a>
+										<a href="javascript:void(0)">北京野生动物园</a>
+										<a href="javascript:void(0)">蓝调萱衣草庄园</a>
+										<a href="javascript:void(0)">印象西湖</a>
+										<a href="javascript:void(0)">长隆欢乐世界</a>
+										<a href="javascript:void(0)">成都欢乐谷</a>
+										<a href="javascript:void(0)">轩辕密室</a>
+										<a href="javascript:void(0)">岭南印像园</a>
+										<a href="javascript:void(0)">天池山</a>
+										<a href="javascript:void(0)">启园</a>
+										<a href="javascript:void(0)">中央电视塔</a>
+										<a href="javascript:void(0)">花都温泉</a>
+										<a href="javascript:void(0)">长风海洋世界</a>
+									</div>
+									<p><a href="javascript:void(0)">更多>></a></p>
+								</dd>
+							</dl>
+							<dl class="left">
+								<dt><a href="javascript:void(0)">热门城市</a></dt>
+								<dd>
+									<div>
+										<a href="javascript:void(0)">北京</a>
+										<a href="javascript:void(0)">上海</a>
+										<a href="javascript:void(0)">浙江</a>
+										<a href="javascript:void(0)">江苏</a>
+										<a href="javascript:void(0)">山东</a>
+										<a href="javascript:void(0)">河北</a>
+										<a href="javascript:void(0)">西安</a>
+										<a href="javascript:void(0)">安徽</a>
+										<a href="javascript:void(0)">河南</a>
+										<a href="javascript:void(0)">广州</a>
+										<a href="javascript:void(0)">重庆</a>
+										<a href="javascript:void(0)">大连</a>
+										<a href="javascript:void(0)">海南</a>
+										<a href="javascript:void(0)">秦皇岛</a>
+										<a href="javascript:void(0)">鄂尔多斯</a>
+									</div>
+									<p><a href="javascript:void(0)">更多>></a></p>
+								</dd>
+							</dl>
+							<dl class="right">
+								<dt><h1><a href="javascript:void(0)">黄山</a></h1></dt>
+								<dd>
+									<p>醉美黄山，黄山一年四季风景皆美,春夏花香遍野,夏末初秋晴朗时易观日出日落,冬季雪景最难</p>
+								</dd>
+								<dd class="sub_img"><img src="images/sub/03.jpg" alt=""></dd>
+							</dl>
+						</dd>
+					</dl>
+					<dl class="hot_con4">
+						<dt><strong>境外游</strong></dt>
+						<dd>
+							<a href="javascript:void(0)">香港海洋公园</a>
+							<a href="javascript:void(0)">威尼斯人度假村</a>
+						</dd>
+						<dd class="hot_con_sub">
+							<dl class="left">
+								<dt><a href="javascript:void(0)">境外精品游</a></dt>
+								<dd>
+									<div>
+										<a href="javascript:void(0)">香港海洋公园</a>
+										<a href="javascript:void(0)">威尼斯人度假村</a>
+										<a href="javascript:void(0)">日月潭</a>
+										<a href="javascript:void(0)">曼谷</a>
+										<a href="javascript:void(0)">夏威夷</a>
+										<a href="javascript:void(0)">北海道</a>
+										<a href="javascript:void(0)">蜜月岛</a>
+										<a href="javascript:void(0)">普罗旺斯</a>
+										<a href="javascript:void(0)">槟城</a>
+										<a href="javascript:void(0)">慕尼黑</a>
+										<a href="javascript:void(0)">伦敦</a>
+										<a href="javascript:void(0)">巴塞罗那</a>
+										<a href="javascript:void(0)">苏黎世</a>
+										<a href="javascript:void(0)">黄金海岸</a>
+										<a href="javascript:void(0)">开罗</a>
+									</div>
+									<p><a href="javascript:void(0)">更多>></a></p>
+								</dd>
+							</dl>
+							<dl class="left">
+								<dt><a href="javascript:void(0)">热门目的地</a></dt>
+								<dd>
+									<div>
+										<a href="javascript:void(0)">香港</a>
+										<a href="javascript:void(0)">澳门</a>
+										<a href="javascript:void(0)">台湾</a>
+										<a href="javascript:void(0)">泰国</a>
+										<a href="javascript:void(0)">美国</a>
+										<a href="javascript:void(0)">日本</a>
+										<a href="javascript:void(0)">马尔代夫</a>
+										<a href="javascript:void(0)">法国</a>
+										<a href="javascript:void(0)">马来西亚</a>
+										<a href="javascript:void(0)">德国</a>
+										<a href="javascript:void(0)">英国</a>
+										<a href="javascript:void(0)">西班牙</a>
+										<a href="javascript:void(0)">瑞士</a>
+										<a href="javascript:void(0)">澳大利亚</a>
+										<a href="javascript:void(0)">埃及</a>
+									</div>
+									<p><a href="javascript:void(0)">更多>></a></p>
+								</dd>
+							</dl>
+							<dl class="right">
+								<dt><h1><a href="javascript:void(0)">威尼斯人度假村</a></h1></dt>
+								<dd>
+									<p>威尼斯人度假村是全球第二大、亚洲最大的赌场度假村综合建筑。让你随时体验浪漫狂放享受</p>
+								</dd>
+								<dd class="sub_img"><img src="images/sub/04.jpg" alt=""></dd>
+							</dl>
+						</dd>
+					</dl>
+					<dl class="hot_con5">
+						<dt><strong>旅游攻略</strong></dt>
+						<dd>
+							<a href="javascript:void(0)">北京</a>
+							<a href="javascript:void(0)">丽江</a>
+							<a href="javascript:void(0)">黄山</a>
+						</dd>
+						<dd class="hot_con_sub">
+							<dl class="left">
+								<dt><a href="javascript:void(0)">热门攻略</a></dt>
+								<dd>
+									<div>
+										<a href="javascript:void(0)">丹霞山</a>
+										<a href="javascript:void(0)">八达岭长城</a>
+										<a href="javascript:void(0)">武当山</a>
+										<a href="javascript:void(0)">周庄古镇</a>
+										<a href="javascript:void(0)">香山</a>
+										<a href="javascript:void(0)">庐山</a>
+										<a href="javascript:void(0)">云台山</a>
+										<a href="javascript:void(0)">仙女湖</a>
+										<a href="javascript:void(0)">峨眉山</a>
+										<a href="javascript:void(0)">五台山</a>
+										<a href="javascript:void(0)">普陀山</a>
+										<a href="javascript:void(0)">华山</a>
+										<a href="javascript:void(0)">颐和园</a>
+										<a href="javascript:void(0)">泰山</a>
+										<a href="javascript:void(0)">故宫</a>
+										<a href="javascript:void(0)">杭州西湖</a>
+										<a href="javascript:void(0)">乌镇</a>
+										<a href="javascript:void(0)">三亚</a>
+										<a href="javascript:void(0)">九寨沟</a>
+									</div>
+									<p><a href="javascript:void(0)">更多>></a></p>
+								</dd>
+							</dl>
+							<dl class="left">
+								<dt><h1><a href="javascript:void(0)">热门城市</a></h1></dt>
+								<dd>
+									<div>
+										<a href="javascript:void(0)">海南</a>
+										<a href="javascript:void(0)">苏州</a>
+										<a href="javascript:void(0)">大连</a>
+										<a href="javascript:void(0)">武汉</a>
+										<a href="javascript:void(0)">重庆</a>
+										<a href="javascript:void(0)">天津</a>
+										<a href="javascript:void(0)">南京</a>
+										<a href="javascript:void(0)">桂林</a>
+										<a href="javascript:void(0)">青岛</a>
+										<a href="javascript:void(0)">西安</a>
+										<a href="javascript:void(0)">大理</a>
+										<a href="javascript:void(0)">丽江</a>
+										<a href="javascript:void(0)">广州</a>
+										<a href="javascript:void(0)">厦门</a>
+										<a href="javascript:void(0)">深圳</a>
+									</div>
+									<p><a href="javascript:void(0)">更多>></a></p>
+								</dd>
+							</dl>
+							<dl class="right">
+								<dt><h1><a href="javascript:void(0)">那些抹不掉的记忆 九寨沟摄影攻略</a></h1></dt>
+								<dd>
+									<p>九寨的婚纱大片也是唯美绝伦，有九寨婚纱摄影旅游线路，既可以欣赏九寨沟美丽的风景，又可</p>
+								</dd>
+								<dd class="sub_img"><img src="images/sub/05.jpg" alt=""></dd>
+							</dl>
+						</dd>
+					</dl>
+				</dd>
+			</dl>
+		</div>
+		<div class="hot_map1 hot_map_dw"><span>新疆</span></div>
+		<div class="hot_map2 hot_map_dw"><span>西藏</span></div>
+		<div class="hot_map3 hot_map_dw"><span>甘肃</span></div>
+		<div class="hot_map4 hot_map_dw"><span>青海</span></div>
+		<div class="hot_map5 hot_map_dw"><span>宁夏</span></div>
+		<div class="hot_map6 hot_map_dw"><span>四川</span></div>
+		<div class="hot_map7 hot_map_dw"><span>云南</span></div>
+		<div class="hot_map8 hot_map_dw"><span>陕西</span></div>
+		<div class="hot_map9 hot_map_dw"><span>重庆</span></div>
+		<div class="hot_map10 hot_map_dw"><span>贵州</span></div>
+		<div class="hot_map11 hot_map_dw"><span>广西</span></div>
+		<div class="hot_map12 hot_map_dw"><span>山西</span></div>
+		<div class="hot_map13 hot_map_dw"><span>河南</span></div>
+		<div class="hot_map14 hot_map_dw"><span>湖北</span></div>
+		<div class="hot_map15 hot_map_dw"><span>湖南</span></div>
+		<div class="hot_map16 hot_map_dw"><span>海南</span></div>
+		<div class="hot_map17 hot_map_dw"><span>内蒙古</span></div>
+		<div class="hot_map18 hot_map_dw"><span>北京</span></div>
+		<div class="hot_map19 hot_map_dw"><span>河北</span></div>
+		<div class="hot_map20 hot_map_dw"><span>山东</span></div>
+		<div class="hot_map21 hot_map_dw"><span>安徽</span></div>
+		<div class="hot_map22 hot_map_dw"><span>江西</span></div>
+		<div class="hot_map23 hot_map_dw"><span>广东</span></div>
+		<div class="hot_map24 hot_map_dw"><span>福建</span></div>
+		<div class="hot_map25 hot_map_dw"><span>黑龙江</span></div>
+		<div class="hot_map26 hot_map_dw"><span>吉林</span></div>
+		<div class="hot_map27 hot_map_dw"><span>辽宁</span></div>
+		<div class="hot_map28 hot_map_dw"><span>江苏</span></div>
+		<div class="hot_map29 hot_map_dw"><span>上海</span></div>
+		<div class="hot_map30 hot_map_dw"><span>浙江</span></div>
+		<div class="hot_map31 hot_map_dw"><span>台湾</span></div>
+		<div class="hot_map_dw_sub" id="dw_sub">
+			<div class="dw_sub1"><span>天山天池</span></div>
+			<div class="dw_sub2">
+				<div class="one"><span>喀纳斯湖</span></div>
+				<div class="two"><span>赛里木湖</span></div>
+			</div>
+			<div class="dw_sub3"><a href="javascript:void(0)">更多 >></a></div>
+		</div>
+	</div>
+	<div class="hot_map_season">
+		<div class="hot_map_season_title">
+			<h3>季节游</h3>
+			<a href="javascript:void(0)">更多 >></a>
+		</div>
+		<div class="hot_map_season_time">
+			<ul class="season_time_one" id="season_time_one">
+				<li><span>3月</span></li>
+				<li><span>4月</span></li>
+				<li><span>5月</span></li>
+				<li><span>6月</span></li>
+				<li><span>7月</span></li>
+				<li><span>8月</span></li>
+				<li><span>9月</span></li>
+				<li><span>10月</span></li>
+				<li><span>11月</span></li>
+				<li><span>12月</span></li>
+				<li><span>1月</span></li>
+				<li><span>2月</span></li>
+			</ul>
+			<ul class="season_time_two" id="season_time_two">
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+			</ul>
+			<div></div>
+			<ul class="sub_season">
+				<li><span class="c">春</span></li>
+				<li><span class="x">夏</span></li>
+				<li><span class="q">秋</span></li>
+				<li><span class="d">冬</span></li>
+			</ul>
+		</div>
+		<div class="hot_map_season_sights" id="season_sights">
+			<div class="sights_left">
+				<a href="javascript:void(0)"><span>黄山</span></a>
+			</div>
+			<div class="sights_right">
+				<div class="sights_right_top">
+					<a href="javascript:void(0)" class="sights_top1"><span>北京</span></a>
+					<a href="javascript:void(0)" class="sights_top2"><span>阳朔</span></a>
+				</div>
+				<div class="sights_right_bottom">
+					<a href="javascript:void(0)" class="sights_bottom1"><span>九寨沟</span></a>
+					<a href="javascript:void(0)" class="sights_bottom2"><span>武当山</span></a>
+					<a href="javascript:void(0)" class="sights_bottom3"><span>颐和园</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+		<div class="part4">
+			<div>
+				<span>游记攻略</span>
+				<ul>
+					<li><a href="javascript:void(0)">香格里拉</a></li>
+					<li><a href="javascript:void(0)">香港</a></li>
+					<li><a href="javascript:void(0)">青岛</a></li>
+					<li><a href="javascript:void(0)">厦门</a></li>
+					<li><a href="javascript:void(0)">黄山</a></li>
+					<li><a href="javascript:void(0)">丽江</a></li>
+					<li><a href="javascript:void(0)">九华山</a></li>
+					<li><a href="javascript:void(0)">乌镇</a></li>
+					<li><a href="javascript:void(0)">杭州西湖</a></li>
+					<li><a href="javascript:void(0)" class="part4_more">更多>></a></li>
+				</ul>
+			</div>
+			<ul>
+				<li class="part4_con1">
+					<h1><span>热门攻略</span></h1>
+					<div>
+						<div class="con1_focus">
+							<h1><a href="javascript:void(0)">2016年春节国内旅游推荐...</a></h1>
+							<div>
+								<img src="images/part4/1.jpg" alt="">
+								<div>
+									<h1>春节要走出家门到国内旅行，在注重风景和人文景观的同时，年味儿自然也是重要的筛选标准。庆幸我国幅员辽阔，各地的过年民俗都不</h1>
+									<a class="zan" href="javascript:void(0)">顶(3260)</a>
+									<a href="javascript:void(0)">下载(651)</a>
+								</div>
+							</div>
+						</div>
+						<div class="con1_article">
+							<ul>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">2016年广州春节逛花市最全攻略出炉...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>1111</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">2016重庆春节旅游推荐 这里一定不能错过...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>1232</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">2016年北京春节旅游好去处推荐...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>1123</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">2016苏州春节旅游全攻略...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>2313</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">冬季成都周边旅游攻略...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>2213</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">去维也纳体验一天贵族生活...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>532</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">春节旅行推荐：游海岛过别样假期...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>2314</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">2016年上海春节旅游去哪好...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>2231</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">杭州赏梅去处推荐...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>8352</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="part4_con2">
+					<h1><span>最新攻略</span></h1>
+					<div>
+						<div class="con1_focus">
+							<h1><a href="javascript:void(0)">2016年春节必去地 红螺寺过年的灯笼挂起来...</a></h1>
+							<div>
+								<img src="images/part4/2.jpg" alt="">
+								<div>
+									<h1>喜庆的灯笼挂起来!耀眼的花树舞起来!随着2016年“第二十二届红螺寺庙会”的逼近，经过两个多月的积极部署，此时的红螺寺景区内</h1>
+									<a class="zan" href="javascript:void(0)">顶(7587)</a>
+									<a href="javascript:void(0)">下载(8897)</a>
+								</div>
+							</div>
+						</div>
+						<div class="con1_article">
+							<ul>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">冬天不去这里 你还想去哪里？...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>4231</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">大理苍山雪景看醉游人 似冰封“水晶世界”...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>2333</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">寒流来了 去哪里错峰寻温暖？...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>4552</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">春节旅游达人们去哪儿玩 选择不一样的旅行...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>8432</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">猴年哪里去“耍猴”？本溪水洞“猴得”一切...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>324</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">体验地道老北京味儿，从后海走到南锣鼓巷...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>4456</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">冬季除了去岛屿还能去哪 威尼斯的冬天最好玩...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>423</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">出家门过大年 热门目的地推荐...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>9795</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">春节最热旅行地 出发泰国前注意的事情...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>3311</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="part4_con3">
+					<h1><span>达人攻略</span></h1>
+					<div>
+						<div class="con1_focus">
+							<h1><a href="javascript:void(0)">西游记...</a></h1>
+							<div>
+								<img src="images/part4/3.jpg" alt="">
+								<div>
+									<h1>这部童年记忆中的神剧，相信大家都不会陌生。除了各种造型奇特、可怕又可爱的妖魔鬼怪之外，师徒四人经过的那些神秘又诡异的地</h1>
+									<a class="zan" href="javascript:void(0)">顶(966)</a>
+									<a href="javascript:void(0)">下载(747)</a>
+								</div>
+							</div>
+						</div>
+						<div class="con1_article">
+							<ul>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">邮轮旅行带你的家人过个猴赛雷的春节...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>1333</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">海外春节 不同时区里的“年味儿”...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>5234</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">韩国中餐馆的黑暗料理：棉花糖炸酱面...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>4144</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">约会雪国亚布力 冬日里也要“燥”起来...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>4422</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">走进故宫，感受什么是历史的存在...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>3224</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">北京自助游7日线路攻略...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>423</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">厦门自助游，美食美景全寻遍...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>4324</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">2016年最任性的出游！越过大洋来看...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>4211</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">法媒盘点巴黎中国新年主题庆祝活动...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>5341</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li class="part4_con4">
+					<h1><span>驴友分享</span></h1>
+					<div>
+						<div class="con1_focus">
+							<h1><a href="javascript:void(0)">选择困难症？如何轻松绕过意大利旅游陷阱...</a></h1>
+							<div>
+								<img src="images/part4/4.jpg" alt="">
+								<div>
+									<h1>在你我的人生目的地清单上，意大利绝对是必选项：诱人的艺术、文化和美食都在向我们招手。但对于初游意大利的菜鸟，不可避免会出</h1>
+									<a class="zan" href="javascript:void(0)">顶(8547)</a>
+									<a href="javascript:void(0)">下载(8085)</a>
+								</div>
+							</div>
+						</div>
+						<div class="con1_article">
+							<ul>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">去泰国一定要做的十件事...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>4322</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">极寒体检 只有冷极才能玩出的中国范儿...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>1422</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">阿尔山，林海的童话世界...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>2413</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">冰雪旅游生存法则...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>2524</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">中国最美小城，别等人满为患才出发...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>5242</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">抚远，中国最早见到太阳的地方...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>5231</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">黄山雪景，真心美化了...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>2142</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">全球七大最销魂的观景桥 你敢试试么...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>5351</span></a>
+								</li>
+								<li>
+									<a class="part4_title" href="javascript:void(0)">国内10个人少景美古镇 春节想去吗...</a>
+									<a class="answer" href="javascript:void(0)">回复：<span>2423</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="part5">
+			<h1>中国风景名胜区协会</h1>
+			<div>
+				<a href="javascript:void(0)">黄山风景名胜区</a>|   
+				<a href="javascript:void(0)">庐山风景名胜区</a>|   
+				<a href="javascript:void(0)">华山风景名胜区</a>|   
+				<a href="javascript:void(0)">武夷山风景名胜区</a>|   
+				<a href="javascript:void(0)">九寨沟风景区</a>|   
+				<a href="javascript:void(0)">黄龙风景名胜区</a>|   
+				<a href="javascript:void(0)">五大连池风景区</a>|   
+				<a href="javascript:void(0)">云台山风景名胜区</a>|   
+				<a href="javascript:void(0)">鸭绿江风景区</a>|   
+				<a href="javascript:void(0)">丹霞山风景名胜区</a>|   
+				<a href="javascript:void(0)">鼓浪屿风景区</a>|   
+				<a href="javascript:void(0)">太阳岛风景名胜区</a>|   
+				<a href="javascript:void(0)">崆峒山风景名胜区</a>|   
+				<a href="javascript:void(0)">野三坡风景名胜区</a>|   
+				<a href="javascript:void(0)">衡山风景名胜区</a>|   
+				<a href="javascript:void(0)">西湖风景名胜区</a>  
+			</div>
+		</div>
+		<div class="part5">
+			<h1>友情链接</h1>
+			<div>
+				<a href="javascript:void(0)">中国园林博物馆</a>|   
+				<a href="javascript:void(0)">火车票</a>|   
+				<a href="javascript:void(0)">自助游攻略</a>|   
+				<a href="javascript:void(0)">80天旅游网</a>|   
+				<a href="javascript:void(0)">连锁酒店</a>|   
+				<a href="javascript:void(0)">西藏旅游</a>|   
+				<a href="javascript:void(0)">农家乐</a>|   
+				<a href="javascript:void(0)">旅游</a>|   
+				<a href="javascript:void(0)">中华网</a>|   
+				<a href="javascript:void(0)">旅游策划专家</a>|   
+				<a href="javascript:void(0)">北京国际机票</a>|   
+				<a href="javascript:void(0)">嘉华国旅</a>|   
+				<a href="javascript:void(0)">上海国旅</a>|   
+				<a href="javascript:void(0)">度假酒店</a>|   
+				<a href="javascript:void(0)">广州旅行社</a>|   
+				<a href="javascript:void(0)">十渡旅游</a>|    
+				<a href="javascript:void(0)">婺源</a>|     
+				<a href="javascript:void(0)">北京中国旅行社</a>|     
+				<a href="javascript:void(0)">重庆旅游</a>|    
+				<a href="javascript:void(0)">大连旅游</a>|     
+				<a href="javascript:void(0)">签证办理</a>|     
+				<a href="javascript:void(0)">河北旅游</a>|     
+				<a href="javascript:void(0)">台湾旅游</a>|     
+				<a href="javascript:void(0)">四川旅游</a>|     
+				<a href="javascript:void(0)">中航国旅</a>|     
+				<a href="javascript:void(0)">中国高铁</a>|     
+				<a href="javascript:void(0)">全摄影网</a> 
+			</div>
+		</div>
+		<div class="part7">
+			<h1>手机旅游应用</h1>
+			<div id="part7">
+				<div>
+					<ul id="appflow">
+						<li><a href="javascript:void(0)"><img src="images/app/01.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/02.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/03.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/04.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/05.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/06.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/07.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/08.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/09.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/10.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/11.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/12.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/13.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/14.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/15.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/01.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/02.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/03.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/04.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/05.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/06.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/07.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/08.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/09.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/10.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/11.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/12.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/13.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/14.png" alt=""></a></li>
+						<li><a href="javascript:void(0)"><img src="images/app/15.png" alt=""></a></li>
+					</ul>
+				</div>
+				<span class="part7_left" id="part7_left"></span>
+				<span class="part7_right" id="part7_right"></span>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="copyright">
+			<p class="fp1">
+				<a href="javascript:void(0)">风景网</a>
+				<a href="javascript:void(0)">领游</a>
+				<a href="javascript:void(0)">联系我们</a>
+				<a href="javascript:void(0)">关于我们</a>
+				<a href="javascript:void(0)">招贤纳士</a>
+				<a href="javascript:void(0)">网站地图</a>
+				<a href="javascript:void(0)">免责声明</a>
+			</p>
+			<p class="fp2"><a href="javascript:void(0)">深圳市风景智联科技有限公司</a></p>
+			<p class="fp3">Copyright ©2009-2015 风景网 Fengjing.com 版权所有 <a href="javascript:void(0)">ICP备案号：粤ICP备15041511号</a></p>
+			<a href="javascript:void(0)" class="count"><img src="images/pic.gif" alt=""></a>
+			<a href="javascript:void(0)" class="netp"><img src="images/govIcon.gif" alt=""></a>
+		</div>
+		<div class="theme">
+			<p>
+				<span>主题旅游：</span>
+				<a href="javascript:void(0)">古镇园林</a>
+				<a href="javascript:void(0)">温泉</a>
+				<a href="javascript:void(0)">户外拓展</a>
+				<a href="javascript:void(0)">温泉旅游</a>
+				<a href="javascript:void(0)">相约古镇</a>
+				<a href="javascript:void(0)">浪漫海岛</a>
+				<a href="javascript:void(0)">主题乐园</a>
+				<a href="javascript:void(0)">亲子情侣</a>
+			</p>
+			<p>
+				<span>热门精选：</span>
+				<a href="javascript:void(0)">大理旅游</a>
+				<a href="javascript:void(0)">泰国旅游</a>
+				<a href="javascript:void(0)">巴厘岛旅游</a>
+				<a href="javascript:void(0)">厦门旅游</a>
+				<a href="javascript:void(0)">香港旅游</a>
+				<a href="javascript:void(0)">青岛旅游</a>
+				<a href="javascript:void(0)">丽江旅游</a>
+				<a href="javascript:void(0)">马尔代夫旅游</a>
+				<a href="javascript:void(0)">三亚旅游</a>
+			</p>
+			<p>
+				<span>国内旅游：</span>
+				<a href="javascript:void(0)">西藏旅游</a>
+				<a href="javascript:void(0)">阳朔旅游</a>
+				<a href="javascript:void(0)">张家界旅游</a>
+				<a href="javascript:void(0)">武夷山旅游</a>
+				<a href="javascript:void(0)">千岛湖旅游</a>
+				<a href="javascript:void(0)">鼓浪屿旅游</a>
+				<a href="javascript:void(0)">三亚旅游</a>
+				<a href="javascript:void(0)">香格里拉旅游</a>
+				<a href="javascript:void(0)">黄山旅游</a>
+				<a href="javascript:void(0)">乌镇旅游</a>
+				<a href="javascript:void(0)">北京旅游</a>
+			</p>
+			<p>
+				<span>国外旅游：</span>
+				<a href="javascript:void(0)">加拿大旅游</a>
+				<a href="javascript:void(0)">新加坡旅游</a>
+				<a href="javascript:void(0)">俄罗斯旅游</a>
+				<a href="javascript:void(0)">澳大利亚旅游</a>
+				<a href="javascript:void(0)">毛里求斯旅游</a>
+				<a href="javascript:void(0)">马尔代夫旅游</a>
+				<a href="javascript:void(0)">马来西亚旅游</a>
+				<a href="javascript:void(0)">泰国旅游</a>
+			</p>
+		</div>
+	</div>
+	<script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>admin</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+	<!--[if lt IE 9]>
+	         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="../../reset.css">
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="iconfont.css">
+	<link rel="stylesheet" href="responsive.css">
+</head>
+<body class="theme-blue">
+	<div class="navbar navbar-default header-nav" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="index.html" class="navbar-brand">
+					<span class="icon-feiji iconfont"></span>
+					Aircraft
+				</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul id="main-menu" class="nav navbar-nav navbar-right">
+					<li class="dropdown hidden-xs">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<span class="glyphicon glyphicon-user padding-right-small"> </span> Jack Smith <span class="caret"></span>
+						 </a>
+						 <ul class="dropdown-menu">
+						 	<li><a href="">my account</a></li>
+						 	<li class="divider"></li>
+						 	<li class="dropdown-header">admin panel</li>
+						 	<li><a href="">users</a></li>
+						 	<li><a href="">security</a></li>
+						 	<li><a href="">payments</a></li>
+						 	<li class="divider"></li>
+						 	<li><a href="">logout</a></li>
+						 </ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a href="#sidebar1" data-toggle="collapse">
+							<span class="icon-dashboard iconfont"></span> 
+							dashboard 
+							<span class="glyphicon glyphicon-chevron-up pull-right"></span>
+						</a>
+					</h4>
+				</div>
+				<div id="sidebar1" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<ul class="nav nav-pills nav-stacked">
+							<li>
+								<a href="javascript:void(0)"> <span class="glyphicon glyphicon-play"></span>main</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)"> <span class="glyphicon glyphicon-play"></span>user list</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)"> <span class="glyphicon glyphicon-play"></span>user profile</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)"> <span class="glyphicon glyphicon-play"></span>media</a>
+							</li>
+							<li>
+								<a href="javascript:void(0)"> <span class="glyphicon glyphicon-play"></span>calendar</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title" data-toggle="popover" title="Items in this group require a " data-placement="right" data-content="<a href='' class='text-info'>premium license</a>">
+						<a href="#sidebar2" data-toggle="collapse">
+							<span class="iconfont icon-fighterjet"></span>
+							premium features
+							<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+						</a>
+					</h4>
+				</div>
+				<div id="sidebar2" class="collapse panel-collapse">
+					<div class="panel-body">
+						<ul class="nav nav-pills nav-stacked">
+							<li><a href=""><span class="glyphicon glyphicon-play"></span> Enhanced Profile</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-play"></span> Blog</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-play"></span> Blog Page</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-play"></span> Pricing Tables</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-play"></span> Upgrade Account</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-play"></span> Widgets</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-play"></span> Activity Timeline</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-play"></span> Enhanced Users List</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-play"></span> Enhanced Media</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-play"></span> Invoice</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-play"></span> Advanced Tools</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-play"></span> Additional Color Themes</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a href="#sidebar3" data-toggle="collapse">
+							<span class="iconfont icon-briefcase"></span>
+							account
+							<span class="label pull-right label-info">+3</span>
+						</a>
+					</h4>
+				</div>
+				<div id="sidebar3" class="panel-collapse collapse">
+					<div class="panel-body">
+						<ul class="nav nav-pills nav-stacked">
+							<li><a href=""><span class="glyphicon glyphicon-play"></span>sign in</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-play"></span>sign up</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-play"></span>reset password</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a href="#sidebar4" data-toggle="collapse">
+							<span class="iconfont icon-legal"></span>
+							legal
+							<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+						</a>
+					</h4>
+				</div>
+				<div id="sidebar4" class="collapse panel-collapse">
+					<div class="panel-body">
+						<ul class="nav nav-pills nav-stacked">
+							<li><a href=""><span class="glyphicon glyphicon-play"></span>privacy policy</a></li>
+							<li><a href=""><span class="glyphicon glyphicon-play"></span>terms and conditions</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a href="">
+							<span class="iconfont icon-questioncircle"></span>
+							help
+						</a>
+					</h4>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a href="">
+							<span class="iconfont icon-comment"></span>
+							faq
+						</a>
+					</h4>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a href="">
+							<span class="iconfont icon-heart"></span>
+							get premium
+						</a>
+					</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="header">
+			<div class="stats">
+				<p><span class="label label-info">5</span> tickets</p>
+				<p><span class="label label-success">27</span> tasks</p>
+				<p><span class="label label-danger">15</span> overdue</p>
+			</div>
+			<h1 class="page-title">dashboard</h1>
+			<ol class="breadcrumb">
+				<li><a href="#">home</a></li>
+				<li>dashboard</li>
+			</ol>
+		</div>
+		<div class="main-content panel-group">
+<!-- 		 	<div class="panel panel-default">
+				<div class="panel-heading">
+					<a class="panel-title" data-toggle="collapse" href="#panelone">latest stats</a>
+				</div>
+				<div class="collapse panel-collapse in" id="panelone">
+					<div class="panel-body">
+						<div class="row" style="padding: 20px 0;">
+							<div class="col-lg-3 col-md-6 col-sm-6">
+								<div class="knob-container">
+									<div>
+										<canvas width="200" height="200" class="mycanvas"></canvas>
+									</div>
+									<h3 class="text-muted">Accounts</h3>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6 col-sm-6">
+								<div class="knob-container">
+									<div>
+										<canvas width="200" height="200" class="mycanvas"></canvas>
+									</div>
+									<h3 class="text-muted">Subscribers</h3>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6 col-sm-6">
+								<div class="knob-container">
+									<div>
+										<canvas width="200" height="200" class="mycanvas"></canvas>
+									</div>
+									<h3 class="text-muted">Pending</h3>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6 col-sm-6">
+								<div class="knob-container">
+									<div>
+										<canvas width="200" height="200" class="mycanvas"></canvas>
+									</div>
+									<h3 class="text-muted">Completed</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row row-middle">
+				<div class="col-md-6 col-sm-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">not collapsible<span class="label label-warning pull-right">+10</span></h3>
+						</div>
+						<table class="table table-responsive table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>first name</th>
+									<th>last name</th>
+									<th>username</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>mark</td>
+									<td>tompson</td>
+									<td>the_mark7</td>
+								</tr>
+								<tr>
+									<td>ashley</td>
+									<td>jacobs</td>
+									<td>ash11927</td>
+								</tr>
+								<tr>
+									<td>audrey</td>
+									<td>ann</td>
+									<td>audann84</td>
+								</tr>
+								<tr>
+									<td>john</td>
+									<td>robinson</td>
+									<td>jr5527</td>
+								</tr>
+								<tr>
+									<td>aaron</td>
+									<td>butler</td>
+									<td>aaron_butler</td>
+								</tr>
+								<tr>
+									<td>chris</td>
+									<td>albert</td>
+									<td>cab79</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a href="#articleone" data-toggle="collapse" class="panel-title">collapsible</a>
+						</div>
+						<div class="collapse panel-collapse in article" id="articleone">
+							<div class="panel-body">
+								<h2>Here's a Tip</h2>
+								<p>This template was developed with Middleman and includes .erb layouts and views.</p>
+								<p>All of the views you see here (sign in, sign up, users, etc) are already split up so you don't have to waste your time doing it yourself!</p>
+								<p>The layout.erb file includes the header, footer, and side navigation and all of the views are broken out into their own files.</p>
+								<p>If you aren't using Ruby, there is also a set of plain HTML files for each page, just like you would expect.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> 
+			<div class="row row-bottom">
+				<div class="col-md-6 col-sm-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+							needed to close
+							<a href="javascript:void(0)" class="pull-right glyphicon glyphicon-refresh"
+							data-toggle="tooltip" title="Click to refresh" style="border-left: solid 2px #AAAAAA;padding-left: 10px;"></a href="javascript:void(0)">
+							</h3>
+						</div>
+						<div class="panel-body">
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>
+											<a href="" class="text-primary">Care Hospital</a>
+											<p>Sales Rating: 86%</p>
+										</td>
+										<td>
+											<p>Date: 7/19/2012</p>
+											<a href="" class="text-primary">View Transaction</a>
+										</td>
+										<td>
+											<p class="pull-right text-danger">$20,500</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<a href="" class="text-primary">Custom Eyesight</a>
+											<p>Sales Rating: 58%</p>
+										</td>
+										<td>
+											<p>Date: 7/19/2012</p>
+											<a href="" class="text-primary">View Transaction</a>
+										</td>
+										<td>
+											<p class="pull-right text-danger">$12,600</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<a href="" class="text-primary">Clear Dental</a>
+											<p>Sales Rating: 76%</p>
+										</td>
+										<td>
+											<p>Date: 7/19/2012</p>
+											<a href="" class="text-primary">View Transaction</a>
+										</td>
+										<td>
+											<p class="pull-right text-danger">$2,500</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<a href="" class="text-primary">Safe Insurance</a>
+											<p>Sales Rating: 82%</p>
+										</td>
+										<td>
+											<p>Date: 7/19/2012</p>
+											<a href="" class="text-primary">View Transaction</a>
+										</td>
+										<td>
+											<p class="pull-right text-danger">$22,400</p>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a href="#articletwo" class="panel-title" data-toggle="collapse">collapsible</a>
+						</div>
+						<div class="panel-collapse collapse in article" id="articletwo">
+							<div class="panel-body">
+								<h2>Built with Less</h2>
+								<p>The CSS is built with Less. There is a compiled version included if you prefer plain CSS.</p>
+								<p>Fava bean jícama seakale beetroot courgette shallot amaranth pea garbanzo carrot radicchio peanut leek pea sprouts arugula brussels sprout green bean. Spring onion broccoli chicory shallot winter purslane pumpkin gumbo cabbage squash beet greens lettuce celery. Gram zucchini swiss chard mustard burdock radish brussels sprout groundnut. Asparagus horseradish beet greens broccoli brussels.</p>
+								<button type="button" class="btn btn-primary">Learn more »</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			<div style="background: red;" class="panel panel-default">
+				<div class="panel-heading"></div>
+				<div class="panel-body"></div>
+			</div>
+			<script>
+				// 绘制canvas图形;
+				var contexts = document.getElementsByClassName('mycanvas');
+				for (var i = 0, len = contexts.length; i < len; i++) {
+					var ctx = contexts[i].getContext('2d');
+						ctx.beginPath();
+						ctx.arc(100,100,100,0,2*Math.PI);
+						ctx.fillStyle = "#eee";
+						ctx.fill();
+
+						ctx.beginPath();
+						ctx.arc(100,100,100,-0.5*Math.PI,0.5*Math.PI);
+						ctx.fillStyle = "#92A3C2";
+						ctx.fill();
+
+						ctx.beginPath();
+						ctx.arc(100,100,100,(0.2-0.1*i)*Math.PI,(1.2-0.1*i)*Math.PI);
+						ctx.fillStyle = "#92A3C2";
+						ctx.fill();
+
+						ctx.beginPath();
+						ctx.arc(100,100,65,0,2*Math.PI);
+						ctx.fillStyle = "white";
+						ctx.fill();
+
+						ctx.beginPath();
+						ctx.font = "bold 33px Aria";
+						ctx.textAlign = "center";
+						ctx.fillStyle = "#92A3C2";
+						ctx.fillText(2500+i*i*887,100,110);
+				}
+			</script>
+		</div>
+		<footer>
+			<p>© 2014 <a href="" class="text-primary">LHL</a></p>
+		</footer>
+	</div>
+	<script src="../../jquery-3.1.1.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>

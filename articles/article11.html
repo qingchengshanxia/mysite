@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>编写现代CSS代码的20个建议</title>
+	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../responsive.css">
+	<link rel="stylesheet" href="artstyle.css">
+	<style>
+		.art-wrap .left .art-middle ol li {
+			color: gray;
+			font-size: 12px;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1 style="display: none;"><a href="http://www.qingchengshanxia.com/">san gong</a></h1>
+			<div class="myhead">
+				<a href="../index.html">
+					<img src="../images/headimg.jpg" alt="我的头像">
+				</a>
+				<div>
+					<h2>青城山下</h2>
+					<p>初级前端工程师</p>
+				</div>
+			</div>
+			<nav class="headnav">
+				<ul class="navshow">
+					<li><a href="../about.html">about</a><span>·</span></li>
+					<li><a href="../profile.html">profile</a><span>·</span></li>
+					<li><a href="../demo.html">demo</a><span>·</span></li>
+					<li><a href="../note.html">note</a><span>·</span></li>
+					<li><a href="../code.html">code</a><span>·</span></li>
+					<li><a href="../links.html">links</a><span>·</span></li>
+					<li><a href="../chat.html">chat</a><span>·</span></li>
+					<li><a href="../contact.html">contact</a></li>
+				</ul>
+			</nav>
+			<div class="navhide" id="navhide">
+				<div>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<ul class="navhide-sub">
+					<li><a href="../about.html">about</a></li>
+					<li><a href="../profile.html">profile</a></li>
+					<li><a href="../demo.html">demo</a></li>
+					<li><a href="../note.html">note</a></li>
+					<li><a href="../code.html">code</a></li>
+					<li><a href="../links.html">links</a></li>
+					<li><a href="../chat.html">chat</a></li>
+					<li><a href="../contact.html">contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<section class="art-wrap">
+		<div class="container clearfix">
+			<div class="left">
+				<div class="art-top">
+					<h1>编写现代CSS代码的20个建议</h1>
+					<div class="art-meta">
+						<span class="shijian">2016-11-14</span>
+						<span class="biaoqian">标签：<a href="javascript:void(0)">css</a></span>
+						<span>阅读<i class="count" id="count1">(0)</i></span>
+						<span class="comnum">评论<i>(0)</i></span>
+					</div>
+				</div>
+				<div class="art-middle clearfix" id="art-middle">
+					<div class="art-index">
+						<h2 id="art-index-title">文章目录 <span class="bottom-icon"></span></h2>
+						<ul id="art-menu"></ul>
+					</div>
+					<p>在参与规模庞大、历时漫长且参与人数众多的项目时，所有开发者遵守如下规则极为重要：保持 CSS 易于维护;保持代码清晰易懂;保持 CSS 的可拓展性;为了实现这一目标，我们要采用诸多方法。</p>
+					<h3><span>css代码书写顺序</span></h3>
+					<p>尽量按照特定顺序编写规则，这将确保你充分发挥 CSS 中第一个 C 的意义：cascade，层叠。</p>
+					<p>一份规划良好的 CSS 应当按照如下排列：</p>
+					<ol>
+						<li>位置属性(position, top, right, z-index, display, float等)</li>
+						<li>大小(width, height, padding, margin)</li>
+						<li>文字系列(font, line-height, letter-spacing, color- text-align等)</li>
+						<li>背景(background, border等)</li>
+						<li>其他(animation, transition等)</li>
+					</ol>
+					<h3><span>CSS样式表文件命名</span></h3>
+					<ul>
+						<li>主要的 master.css</li>
+						<li>模块 module.css</li>
+						<li>基本共用 base.css</li>
+						<li>布局、版面 layout.css</li>
+						<li>主题 themes.css</li>
+						<li>专栏 columns.css</li>
+						<li>文字 font.css</li>
+						<li>表单 forms.css</li>
+						<li>补丁 mend.css</li>
+						<li>打印 print.css</li>
+					</ul>
+					<h3><span>明白何谓Margin Collapse</span></h3>
+					<p>不同于其他很多属性，盒模型中垂直方向上的Margin会在相遇时发生崩塌，也就是说当某个元素的底部Margin与另一个元素的顶部Margin相邻时，只有二者中的较大值会被保留下来，可以从下面这个简单的例子来学习:</p>
+					<div class="code">
+						<pre>
+.square {
+    width: 80px;
+    height: 80px;
+}
+.red {
+    background-color: #F44336;
+    margin-bottom: 40px;
+}
+.blue {
+    background-color: #2196F3;
+    margin-top: 30px;
+}
+						</pre>
+					</div>
+					<p>在上述例子中我们会发现，红色和蓝色方块的外边距并没有相加得到70px，而是只有红色的下外边距保留了下来。我们可以使用一些方法来避免这种行为，不过建议来说还是尽量统一使用margin-bottom属性，这样就显得和谐多了。</p>
+					<h3><span>使用Flexbox进行布局</span></h3>
+					<p>在传统的布局中我们习惯使用Floats或者inline-blocks，不过它们更适合于格式化文档，而不是整个网站。而Flexbox则是专门的用于进行布局的工具。Flexbox模型允许开发者使用很多便捷可扩展的属性来进行布局，估计你一旦用上就舍不得了:</p>
+					<div class="code">
+						<pre>
+.container {
+    display: flex;
+    /* Don't forget to add prefixes for Safari */
+    display: -webkit-flex;
+}
+						</pre>
+					</div>
+					<h3><span>使用CSS Reset</span></h3>
+					<p>虽然这些年来随着浏览器的迅速发展与规范的统一，浏览器特性碎片化的情况有所改善，但是在不同的浏览器之间仍然存在着很多的行为差异。而解决这种问题的最好的办法就是使用某个CSS Reset来为所有的元素设置统一的样式，保证你能在相对统一干净的样式表的基础上开始工作。</p>
+					<p>目前流行的Reset库有 normalize.css, minireset以及 ress ，它们都可以修正很多已知的浏览器之间的差异性。而如果你不打算用某个外在的库，那么建议可以使用如下的基本规则:</p>
+					<div class="code">
+						<pre>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+						</pre>
+					</div>
+					<p>上面的规则看起来没啥用，不过如果不同的浏览器在默认情况下为你设置了不同的外边距/内边距的默认值，还是会挺麻烦的。</p>
+					<h3><span>一切应为Border-box</span></h3>
+					<p>虽然很多初学者并不了解box-sizing这个属性，但是它确实相当的重要。而最好的理解它的方式就是看看它的两种取值:</p>
+					<ul>
+						<li><b>默认值为content-box</b>:即当我们设置某个元素的heght/width属性时，仅仅会作用于其内容尺寸。而所有的内边距与边都是在其之上的累加，譬如某个&lt;div&gt;标签设置为宽100，内边距为10，那么最终元素会占用120(100 + 2*10)的像素。
+border-box:内边距与边是包含在了width/height之内，譬如设置了width:100px的&lt;div&gt;无论其内边距或者边长设置为多少，其占有的大小都是100px。</li>
+						<li><b>border-box</b>:内边距与边是包含在了width/height之内，譬如设置了width:100px的&lt;div&gt;无论其内边距或者边长设置为多少，其占有的大小都是100px。</li>
+					</ul>
+					<p>将元素设置为border-box会很方便你进行样式布局，这样的话你就可以在父元素设置高宽限制而不担心子元素的内边距或者边打破了这种限制。</p>
+					<h3><span>以背景图方式使用Images</span></h3>
+					<p>如果需要在响应式的环境下展示图片，有个简单的小技巧就是使用该图片作为某个&lt;div&gt;的背景图而不是直接使用img标签。基于这种方式配合上 <b>background-size</b> 与 <b>background-position</b> 这两个属性，可以很方便地按比例缩放:</p>
+					<div class="code">
+						<pre>
+img {
+    width: 300px;
+    height: 200px;
+}
+div {
+    width: 300px;
+    height: 200px;
+    background: url('http://cdn.tutorialzine.com/wp-content/uploads/2016/08/bicycle.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+section{
+    float: left;
+    margin: 15px;
+}
+						</pre>
+					</div>
+					<p>不过这种方式也是存在缺陷的，譬如你无法设置图片的懒加载、图片无法被搜索引擎或者其他类似的工具抓取到，有个不错的属性叫object-fit可以解决这个问题，不过该属性目前的浏览器支持并不是很完善。</p>
+					<h3><span>Better Table Borders</span></h3>
+					<p>HTML中使用Tables进行布局一直是个很头疼的问题，它们使用起来很简单，但是无法进行响应式操作，并且也不方便进行全局样式设置。譬如，如果你打算为Table的边与单元的边添加样式，可能得到的结果如下:</p>
+					<div class="code">
+						<pre>
+table {
+    width: 600px;
+    border: 1px solid #505050;
+    margin-bottom: 15px;
+    color:#505050;
+}
+td{
+    border: 1px solid #505050;
+    padding: 10px;
+}
+						</pre>
+					</div>
+					<p>这里存在的问题是出现了很多的重复的边，会导致视觉上不协调的情况，那么我们可以通过设置border-collapse:collapse来进行处理:</p>
+					<h3><span>注释格式优化</span></h3>
+					<p>CSS虽然谈不上一门编程语言，但是其仍然需要添加注释，以保障整体代码的可读性，只要添加些简单的注释，不仅可以方便你更好地组织整个样式表，还能够让你的同事或者未来的自己，更好地理解。对于CSS中整块的注释或者使用在Media-Query中的注释，建议是使用如下形式：</p>
+					<div class="code">
+						<pre>
+/*---------------
+    #Header
+---------------*/
+header { }
+header nav { }
+/*---------------
+    #Slideshow
+---------------*/
+.slideshow { }
+						</pre>
+					</div>
+					<p>而设计的细节说明或者一些不重要的组件可以用如下单行注释的方式:</p>
+					<div class="code">
+						<pre>
+/*   Footer Buttons   */
+.footer button { }
+.footer button:hover { }
+						</pre>
+					</div>
+					<p>同时，不要忘了CSS中是没有//这种注释方式的:</p>
+					<h3><span>使用Kebab-case命名变量</span></h3>
+					<p>对于样式类名或者ID名的命名都需要在多个单词之间添加-符号，CSS本身是大小写不敏感的因此你是用不了camelCase的，另一方面，很久之前也不支持下划线，所以现在的默认的命名方式就是使用-:</p>
+					<ul>
+						<li>长名称或词组可以使用中横线来为选择器命名。</li>
+						<li>不能用“_”下划线来命名CSS选择器，为什么呢？一些浏览器已经不允许使用下划线来命名CSS选择器（就是不兼容）；能良好区分JavaScript变量命名.</li>
+					</ul>
+					<div class="code">
+						<pre>
+/*  Do     */
+.footer-column-left { }
+/*  Don't  */
+.footerColumnLeft { }
+.footer_column_left { }
+						</pre>
+					</div>
+					<p>而涉及到具体的变量命名规范时，建议是使用BEM规范，只要遵循一些简单的原则即可以保证基于组件风格的命名一致性。你也可以参考CSS Tricks来获得更多的细节描述。</p>
+					<h3><span>避免重复代码</span></h3>
+					<p>大部分元素的CSS属性都是从DOM树根部继承而来，这也是其命名为级联样式表的由来。我们以font属性为例，该属性往往是继承自父属性，因此我们并不需要再单独地为元素设置该属性。我们只需要在html或者body中添加该属性然后使其层次传递下去即可:</p>
+					<div class="code">
+						<pre>
+html {
+    font: normal 16px/1.4 sans-serif;
+}
+						</pre>
+					</div>
+					<h3><span>使用transform添加CSS Animations</span></h3>
+					<p>不建议直接改变元素的width与height属性或者left/top/bottom/right这些属性来达到动画效果，而应该优先使用transform()属性来提供更平滑的变换效果，并且能使得代码的可读性会更好:</p>
+					<div class="code">
+						<pre>
+.ball {
+    left: 50px;
+    transition: 0.4s ease-out;
+}
+/* Not Cool*/
+.ball.slide-out {
+    left: 500px;
+}
+/* Cool*/
+.ball.slide-out {
+    transform: translateX(450px);
+}
+						</pre>
+					</div>
+					<p>Transform的几个属性translate、rotate、scale都具有比较好的浏览器兼容性可以放心使用。</p>
+					<h3><span>不要重复造轮子</span></h3>
+					<p>现在CSS社区已经非常庞大，并且不断地有新的各式各样的库开源出来。这些库可以帮助我们解决从小的代码片到用于构建完整的响应式应用的全框架。所以如果下次你再碰到什么CSS问题的时候，在打算撸起袖子自己上之前可以尝试在GitHUB或者CodePen上搜索可行方案。</p>
+					<h3><span>尽可能使用低优先级的选择器</span></h3>
+					<p>并不是所有的CSS选择器的优先级都一样，很多初学者在使用CSS选择器的时候都是考虑以新的特性去复写全部的继承特性，不过这一点在某个元素多状态时就麻烦了，譬如下面这个例子:</p>
+					<div class="code">
+						<pre>
+a{
+    color: #fff;
+    padding: 15px;
+}
+a#blue-btn {
+    background-color: blue;
+}
+a.active {
+    background-color: red;
+}
+						</pre>
+					</div>
+					<p>我们本来希望将.active类添加到按钮上然后使其显示为红色，不过在上面这个例子中很明显起不了作用，因为button已经以ID选择器设置过了背景色，也就是所谓的Higher Selector Specificity。一般来说，选择器的优先级顺序为：ID(#id) > Class(.class) > Type(header)</p>
+					<h3><span>避免使用!important</span></h3>
+					<p>认真的说，千万要避免使用!important，这可能会导致你在未来的开发中无尽的属性重写，你应该选择更合适的CSS选择器。而唯一的可以使用!important属性的场景就是当你想去复写某些行内样式的时候，不过行内样式本身也是需要避免的。</p>
+					<h3><span>使用text-transform属性设置文本大写</span></h3>
+					<div class="code">
+						<pre>
+&lt;div class="movie-poster"&gt;Star Wars: The Force Awakens&lt;/div&gt;
+.movie-poster {
+    text-transform: uppercase;
+}
+						</pre>
+					</div>
+					<h3><span>em、rem、px</span></h3>
+					<p>已经有很多关于人们应该如何使用em，rem，以及px作为元素尺寸与文本尺寸的讨论，而笔者认为，这三个尺寸单位都有其适用与不适用的地方。不同的开发与项目都有其特定的设置，因此并没有通用的规则来决定应该使用哪个单位，这里是我总结的几个考虑:</p>
+					<ul>
+						<li>em – 其基本单位即为当前元素的font-size值，经常适用于media-queries中，em是特别适用于响应式开发中。</li>
+						<li>rem – 其是相对于html属性的单位，可以保证文本段落真正的响应式尺寸特性。</li>
+						<li>px – Pixels 并没有任何的动态扩展性，它们往往用于描述绝对单位，并且可以在设置值与最终的显示效果之间保留一定的一致性。</li>
+					</ul><br>
+					<h3><span>其它css建议</span></h3>
+					<p><b>在大型项目中使用预处理器</b></p>
+					<p>估计你肯定听说过 Sass, Less, PostCSS, Stylus这些预处理器与对应的语法。Preprocessors可以允许我们将未来的CSS特性应用在当前的代码开发中，譬如变量支持、函数、嵌套式的选择器以及很多其他的特性，这里我们以Sass为例:</p>
+					<div class="code">
+						<pre>
+$accent-color: #2196F3;
+a {
+    padding: 10px 15px;
+    background-color: $accent-color;
+}
+a:hover {
+    background-color: darken($accent-color,10%);
+}
+						</pre>
+					</div><br>
+					<p><b>使用Autoprefixers来提升浏览器兼容性</b></p>
+					<p>使用特定的浏览器前缀是CSS开发中常见的工作之一，不同的浏览器、不同的属性对于前缀的要求也不一样，这就使得我们无法在编码过程中记住所有的前缀规则。并且在写样式代码的时候还需要加上特定的浏览器前缀支持也是个麻烦活，幸亏现在也是有很多工具可以辅助我们进行这样的开发:</p>
+					<ul>
+						<li>Online tools: <a href="https://autoprefixer.github.io/">Autoprefixer</a></li>
+						<li>Text editor plugins: <a href="https://github.com/sindresorhus/sublime-autoprefixer">Sublime Text</a>, <a href="https://atom.io/packages/autoprefixer">Atom</a></li>
+						<li>Libraries:<a href="https://github.com/postcss/autoprefixer"> Autoprefixer</a> (PostCSS)</li>
+					</ul><br>
+					<p><b>在生产环境下使用Minified代码</b></p>
+					<p>为了提升页面的加载速度，在生产环境下我们应该默认使用压缩之后的资源代码。在压缩的过程中，会将所有的空白与重复剔除掉从而减少整个文件的体积大小。当然，经过压缩之后的代码毫无可读性，因此在开发阶段我们还是应该使用普通的版本。对于CSS的压缩有很多的现行工具:</p>
+					<ul>
+						<li>Online tools – <a href="https://cssminifier.com/">CSS Minifier</a> (API included), <a href="http://csscompressor.com/">CSS Compressor</a></li>
+						<li>Text editor plugins: <a href="https://packagecontrol.io/packages/Minify">Sublime Text</a>, <a href="https://atom.io/packages/atom-minify">Atom</a></li>
+						<li>Libraries: <a href="https://github.com/matthiasmullie/minify">Minfiy</a> (PHP), <a href="https://github.com/css/csso">CSSO</a> and <a href="http://cssnano.co/">CSSNano</a> (PostCSS, Grunt, Gulp)</li>
+					</ul><br>
+					<p><b>多参阅Caniuse</b></p>
+					<p>不同的浏览器在兼容性上差异很大，因此如果我们可以针对我们所需要适配的浏览器，在caniuse上我们可以查询某个特性的浏览器版本适配性，是否需要添加特定的前缀或者在某个平台上是否存在Bug等等。不过光光使用caniuse肯定是不够的，我们还需要使用些额外的服务来进行检测。</p><br>
+					<p><b>Validate:校验</b></p>
+					<p>对于CSS的校验可能不如HTML校验或者JavaScript校验那么重要，不过在正式发布之前用Lint工具校验一波你的CSS代码还是很有意义的。它会告诉你代码中潜在的错误，提示你一些不符合最佳实践的代码以及给你一些提升代码性能的建议。就像Minifers与Autoprefixers，也有很多可用的工具:</p>
+					<ul>
+						<li>Online tools: <a href="https://jigsaw.w3.org/css-validator/">W3 Validator</a>, <a href="http://csslint.net/">CSS Lint</a></li>
+						<li>Text editor plugins: <a href="https://packagecontrol.io/packages/Minify">Sublime Text</a>, <a href="https://atom.io/packages/atom-minify">Atom</a></li>
+						<li>Libraries: <a href="http://stylelint.io/">stylelint</a> (Node.js, PostCSS), <a href="https://www.npmjs.com/package/css-validator">css-validator</a> (Node.js)</li>
+					</ul>
+				</div>
+				<div class="art-bottom">
+					<div class="declaration">
+						<p>本文内容转载自网络，如有侵权需删除，请在<a href="../chat.html" class="chat">Chat栏</a>留言或加我QQ联系！</p>
+					</div>
+					<div class="art-zan clearfix">
+						<p class="art-dianzan" id="art-dianzan"><span class="zan" id="zan1">0</span></p>
+						<div class="art-share">
+							<div class="bdsharebuttonbox">
+								<a href="#" class="bds_more" data-cmd="more"></a>
+								<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+								<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+								<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+								<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+								<a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a>
+							</div>
+							<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","weixin","sqq","mshare"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","weixin","sqq","mshare"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+							</script>
+						</div>
+					</div>
+					<div class="art-related">
+						<h4>相关文章</h4>
+						<div>
+							<ul class="clearfix">
+								<li><a href="../links.html">前端网址导航</a></li>
+								<li><a href="article3.html">前端完整学习路线参考</a></li>
+								<li><a href="article2.html">HTML规范精要整理大全</a></li>
+								<li><a href="article4.html">Web前端浏览器兼容处理大全</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<div class="clock">
+					<div class="clockwrap">
+						<canvas width="190" height="190" id="myclock">您的浏览器不支持canvas。</canvas>
+					</div>
+				</div>
+				<div class="calendar">
+					<div class="calendar-wrap">
+						<div class="datetitle clearfix">
+							<dl class="dateyear" id="dateyear">
+								<dt>2012年</dt>
+								<dd>
+									<ul>
+										<li>2012年</li>
+										<li>2013年</li>
+										<li>2014年</li>
+										<li>2015年</li>
+										<li>2016年</li>
+										<li>2017年</li>
+										<li>2018年</li>
+										<li>2019年</li>
+										<li>2020年</li>
+										<li>2021年</li>
+										<li>2022年</li>
+									</ul>
+								</dd>
+							</dl>
+							<dl class="datemonth" id="datemonth">
+								<dt>1月</dt>
+								<dd>
+									<ul>
+										<li>1月</li>
+										<li>2月</li>
+										<li>3月</li>
+										<li>4月</li>
+										<li>5月</li>
+										<li>6月</li>
+										<li>7月</li>
+										<li>8月</li>
+										<li>9月</li>
+										<li>10月</li>
+										<li>11月</li>
+										<li>12月</li>
+									</ul>
+								</dd>
+							</dl>
+							<p class="dateday" id="dateday">1日</p>
+							<p class="curweek" id="curweek"><span>星期一</span></p>
+						</div>
+						<div class="datebox">
+							<table>
+								<thead class="dateweek" id="dateweek">
+									<tr>
+										<td id="week1">一</td>
+										<td id="week2">二</td>
+										<td id="week3">三</td>
+										<td id="week4">四</td>
+										<td id="week5">五</td>
+										<td id="week6">六</td>
+										<td id="week7">日</td>
+									</tr>
+								</thead>
+								<tbody id="dateday">
+									<tr>
+										<td></td>
+										<td></td>
+										<td><span class="choiceday">1</span></td>
+										<td><span>2</span></td>
+										<td><span>3</span></td>
+										<td><span>4</span></td>
+										<td><span>5</span></td>
+									</tr>
+									<tr>
+										<td><span>6</span></td>
+										<td><span>7</span></td>
+										<td><span>8</span></td>
+										<td><span>9</span></td>
+										<td><span>10</span></td>
+										<td><span>11</span></td>
+										<td><span>12</span></td>
+									</tr>
+									<tr>
+										<td><span>13</span></td>
+										<td><span>14</span></td>
+										<td><span>15</span></td>
+										<td><span>16</span></td>
+										<td><span>17</span></td>
+										<td><span>18</span></td>
+										<td><span>19</span></td>
+									</tr>
+									<tr>
+										<td><span>20</span></td>
+										<td><span>21</span></td>
+										<td><span>22</span></td>
+										<td><span>23</span></td>
+										<td><span>24</span></td>
+										<td><span>25</span></td>
+										<td><span>26</span></td>
+									</tr>
+									<tr>
+										<td><span>27</span></td>
+										<td><span>28</span></td>
+										<td><span>29</span></td>
+										<td><span>30</span></td>
+										<td><span>31</span></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="totop" id="totop"><a href="javascript:void(0)"></a></div>
+		</div>
+	</footer>
+	<script src="../jquery-3.1.1.min.js"></script>
+	<script src="../script.js"></script>
+	<script src="artscript.js"></script>
+</body>
+</html>

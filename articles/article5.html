@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>JS兼容写法大全</title>
+	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="../responsive.css">
+	<link rel="stylesheet" href="artstyle.css">
+	<style>
+		.subtitle {
+			font-weight: bold;
+			color: gray;
+			margin-top: 10px;
+		}
+		.art-wrap .left .art-middle ul.removeicon {
+			margin-top: 0;
+		}
+		.art-wrap .left .art-middle ul.removeicon li{
+			list-style-type: none;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1 style="display: none;"><a href="http://www.qingchengshanxia.com/">san gong</a></h1>
+			<div class="myhead">
+				<a href="../index.html">
+					<img src="../images/headimg.jpg" alt="我的头像">
+				</a>
+				<div>
+					<h2>青城山下</h2>
+					<p>初级前端工程师</p>
+				</div>
+			</div>
+			<nav class="headnav">
+				<ul class="navshow">
+					<li><a href="../about.html">about</a><span>·</span></li>
+					<li><a href="../profile.html">profile</a><span>·</span></li>
+					<li><a href="../demo.html">demo</a><span>·</span></li>
+					<li><a href="../note.html">note</a><span>·</span></li>
+					<li><a href="../code.html">code</a><span>·</span></li>
+					<li><a href="../links.html">links</a><span>·</span></li>
+					<li><a href="../chat.html">chat</a><span>·</span></li>
+					<li><a href="../contact.html">contact</a></li>
+				</ul>
+			</nav>
+			<div class="navhide" id="navhide">
+				<div>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<ul class="navhide-sub">
+					<li><a href="../about.html">about</a></li>
+					<li><a href="../profile.html">profile</a></li>
+					<li><a href="../demo.html">demo</a></li>
+					<li><a href="../note.html">note</a></li>
+					<li><a href="../code.html">code</a></li>
+					<li><a href="../links.html">links</a></li>
+					<li><a href="../chat.html">chat</a></li>
+					<li><a href="../contact.html">contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<section class="art-wrap">
+		<div class="container clearfix">
+			<div class="left">
+				<div class="art-top">
+					<h1>JS兼容写法大全</h1>
+					<div class="art-meta">
+						<span class="shijian">2016-11-12</span>
+						<span class="biaoqian">标签：<a href="javascript:void(0)" class="js">js</a></span>
+						<span>阅读<i class="count" id="count1">(0)</i></span>
+						<span class="comnum">评论<i>(0)</i></span>
+					</div>
+				</div>
+				<div class="art-middle clearfix" id="art-middle">
+					<div class="art-index">
+						<h2 id="art-index-title">文章目录 <span class="bottom-icon"></span></h2>
+						<ul id="art-menu"></ul>
+					</div>
+					<p>js兼容性没有css兼容性那么麻烦，但也是前端工程师需要面对的一个问题，它不需要你在遇到问题时去多方面的调试和研究，只需要平时记忆和理解了，就很容易运用，下面整理了js常见的兼容性写法，方便记忆和查阅。</p>
+					<h3><span>添加事件方法</span></h3>
+					<p class="subtitle">obj.addEvenetListener(type,handle,false)</p>
+					<p>作用：向指定元素添加事件句柄。</p>
+					<p>提示：使用 removeEventListener() 方法来移除 addEventListener() 方法添加的事件句柄。</p>
+					<p>参数false：指定事件是否在捕获或冒泡阶段执行。</p>
+					<p>适用：符合w3c标准的浏览器(兼容：firefox、chrome、IE、safari、opera；不兼容IE7、IE8)；</p>
+					<p class="subtitle">obj.attachEvent(‘on’ + type,handle)</p>
+					<p>适用：IE7、8 (不兼容firefox、chrome、IE9、IE10、IE11、safari、opera)</p>
+					<p>兼容性写法：</p>
+					<div class="code">
+						<pre>
+function(element,type,handle){
+ 	if(element.addEventListener){//检测是否为DOM2级方法
+  		element.addEventListener(type, handle, false);
+	 }else if (element.attachEvent){//检测是否为IE级方法
+ 		 element.attachEvent("on" + type, handle);
+	 } else {//检测是否为DOM0级方法
+ 		 element["on" + type] = handler;
+ 	}
+}
+						</pre>
+					</div>
+					<h3><span>event对象</span></h3>
+					<p class="subtitle">Event 对象</p>
+					<p>Event 对象代表事件的状态，比如事件在其中发生的元素、键盘按键的状态、鼠标的位置、鼠标按钮的状态。事件通常与函数结合使用，函数不会在事件发生前被执行！</p>
+					<p>event对象只在事件发生的过程中才有效。 </p>
+					<p>event的某些属性只对特定的事件有意义。比如，fromElement 和 toElement 属性只对onmouseover 和 onmouseout 事件有意义。 </p>
+					<p class="subtitle">Event的属性</p>
+					<p>1.type。事件类型。 用来描述这个事件是什么类型的，比如onclick的事件类型为click。</p>
+					<p>2.srcElement/target。 事件源，就是发生事件的元素； FF下是target，IE下是srcElement；</p>
+					<p>3、cancelBubble。 一个布尔属性，把它设置为true的时候，将停止事件进一步起泡到包容层次的元素；(e.cancelBubble = true; 相当于 e.stopPropagation();) 。FF下是后者。</p>
+					<p>4、returnValue。 一个布尔属性，设置为false的时候可以组织浏览器执行默认的事件动作；(e.returnValue = false; 相当于 e.preventDefault();)</p>
+					<p>5、attachEvent()/detachEvent() addEventListener()/removeEventListener。 为制定DOM对象事件类型注册多个事件处理函数的方法，它们有两个参数，第一个是事件类型，第二个是事件处理函数。在 attachEvent()</p>事件执行的时候，this关键字指向的是window对象，而不是发生事件的那个元素；</p>
+					<p>6、keyCode。 非常的常用，用来判断你按下了哪个键;</p>
+					<div class="code">
+						<pre>
+//获取事件对象的兼容性写法
+function(event){
+  	return event ? event : window.event;
+}
+//获取事件对象目标的兼容性写法
+function(event){
+  	return event.target || event.srcElement;
+}
+						</pre>
+					</div>
+					<h3><span>获取元素样式</span></h3>
+					<p class="subtitle">obj.currentStyle.css：</p>
+					<p>作用：获取计算后的样式，也叫当前样式、最终样式。</p>
+					<p>优点：可以获取元素的最终样式，包括浏览器的默认值，而不像style只能获取行间样式，所以更常用到。</p>
+					<p>注意：不能获取复合样式如background属性值，只能获取单一样式如background-color等。</p>
+					<p class="subtitle">getComputedStyle(obj,false).css：</p>
+					<p>在FF新版本中只需要第一个参数，即操作对象，第二个参数写“false”也是大家通用的写法，目的是为了兼容老版本的火狐浏览器。</p>
+					<p>兼容性写法：</p>
+					<div class="code">
+						<pre>
+var oAbc = document.getElementById("abc");
+if(oAbc.currentStyle) {
+	//IE、Opera
+	//alert("我支持currentStyle");
+	alert(oAbc.currentStyle.width);
+} else {
+	//FF、chrome、safari
+	//alert("我不支持currentStyle");
+	alert(getComputedStyle(oAbc,false).width);
+}
+						</pre>
+					</div>
+					<p>注意：最后的弹出内容，currentStyle返回浏览器的默认值“auto”，而getComputedStyle则返回具体的值“**px”。</p>
+					<h3><span>阻止浏览器默认事件</span></h3>
+					<div class="code">
+						<pre>
+function(event){
+  	if (event.preventDefault){
+   		event.preventDefault();
+  	} else {
+  		event.returnValue = false;
+ 	}
+}
+						</pre>
+					</div>
+					<h3><span>阻止事件冒泡事件</span></h3>
+					<div class="code">
+						<pre>
+function(event){
+   	if (event.stopPropagation){
+    	event.stopPropagation();
+    } else {
+    	event.cancelBubble = true;
+    }
+}
+						</pre>
+					</div>
+					<h3><span>鼠标的坐标和窗体的宽高</span></h3>
+					<p class="subtitle">获取鼠标在窗口中的坐标</p>
+					<p>IE：event.x和event.y。</p> 
+					<p>FF：event.pageX和event.pageY。 </p>
+					<p>通用：两者都有event.clientX和event.clientY属性。 </p>
+					<p class="subtitle">获取鼠标在元素中的坐标</p>
+					<p>IE：event.offsetX和event.offsetY。</p> 
+					<p>FF：event.layerX和event.layerY。 </p>
+					<p class="subtitle">获取窗体的高度和宽度</p> 
+					<p>IE：document.body.offsetWidth和document.body.offsetHeight。注意：此时页面一定要有body标签。 </p>
+					<p>FF：window.innerWidth和window.innerHegiht，以及document.documentElement.clientWidth和document.documentElement.clientHeight。</p> 
+					<p>通用：document.body.clientWidth和document.body.clientHeight。</p> 
+					<h3><span>mouseover和mouseout事件获取元素</span></h3>
+					<div class="code">
+						<pre>
+//mouseover和mouseout 事件才包含的获取相关元素的方法
+function(event){
+ 	if (event.relatedTarget){
+  		return event.relatedTarget;
+	} else if (event.toElement){
+  		return event.toElement;
+ 	} else if (event.fromElement){
+ 		 return event.fromElement;
+	} else {
+  		return null;
+ 	}
+}
+						</pre>
+					</div>
+					<h3><span>鼠标滚轮判断</span></h3>
+					<p>对于mousedown 和mouseup 事件来说，则在其event 对象存在一个button 属性，表示按下或释放的按钮。DOM的 button 属性可能有如下3 个值：0 表示主鼠标按钮，1表示中间的鼠标按钮（鼠标滚轮按钮），2表示次鼠标按钮。在常规的设置中，主鼠标按钮就是鼠标左键，而次鼠标按钮就是鼠标右键。</p>
+					<p>IE8 及之前版本也提供了button 属性，但这个属性的值与DOM 的button 属性有很大差异。</p>
+				    <ul class="removeicon">
+			    	    <li>0：表示没有按下按钮。</li>
+			    	    <li>1：表示按下了主鼠标按钮。</li>
+			    	    <li>2：表示按下了次鼠标按钮。</li>
+			    	    <li>3：表示同时按下了主、次鼠标按钮。</li>
+			    	    <li>4：表示按下了中间的鼠标按钮。</li>
+			    		<li>5：表示同时按下了主鼠标按钮和中间的鼠标按钮。</li>
+			    		<li>6：表示同时按下了次鼠标按钮和中间的鼠标按钮。</li>
+			    		<li>7：表示同时按下了三个鼠标按钮。</li>
+				    </ul>
+					<div class="code">
+						<pre>
+function(event){
+	if (document.implementation.hasFeature("MouseEvents", "2.0")){
+	  	return event.button;
+	} else {
+	  	switch(event.button){
+	   		case 0:
+	   		case 1:
+	  		case 3:
+	   		case 5:
+	   		case 7:
+	   			return 0;
+	   		case 2:
+	   		case 6:
+	   			return 2;
+	   		case 4:
+	   			return 1;
+	  	}
+	}
+}
+						</pre>
+					</div>
+					<h3><span>鼠标滚轮增量值:delta</span></h3>
+					<div class="code">
+						<pre>
+function(event){
+ 	if (event.wheelDelta){
+  		return (client.engine.opera && client.engine.opera < 9.5 ? -event.wheelDelta : event.wheelDelta);
+	} else {
+  		return -event.detail * 40;
+  		//firefox中的值为+3表示向上滚，-3表示向下滚;
+ 	}
+}
+						</pre>
+					</div>
+					<h3><span>跨浏览器的方式取得字符编码</span></h3>
+					<div class="code">
+						<pre>
+function(event){
+	if (typeof event.charCode == "number"){
+		return event.charCode;
+	} else {
+	 	return event.keyCode;
+	}
+}
+						</pre>
+					</div>
+					<h3><span>访问/设置剪贴板中的数据</span></h3>
+					<div class="code">
+						<pre>
+//访问剪贴板中的数据					
+function(event){
+  	var clipboardData = (event.clipboardData || window.clipboardData){
+  		return clipboardData.getData("text");
+  	}
+ }
+//设置剪贴板中的数据	
+function(event, value){
+  	if (event.clipboardData){
+   		return event.clipboardData.setData("text/plain", value);
+  	} else if (window.clipboardData){
+  	 	return window.clipboardData.setData("text", value);
+  	}
+}
+						</pre>
+					</div>
+					<h3><span>其它js兼容性问题</span></h3>
+					<p class="subtitle">window.location.href问题</p> 
+					<p>问题说明：IE或者Firefox2.0.x下，可以使用window.location或window.location.href；Firefox1.5.x下，只能使用window.location。 </p>
+					<p>解决方法：使用 window.location 来代替 window.location.href。当然也可以考虑使用 location.replace()方法。 </p>
+					<p class="subtitle">frame和iframe问题</p>
+					<p>(1)访问frame对象 </p>
+					<p>IE：使用window.frameId或者window.frameName来访问这个frame对象； </p>
+					<p>Firefox：使用window.frameName来访问这个frame对象； </p>
+					<p>解决方法：统一使用 window.document.getElementById(”frameId”) 来访问这个frame对象；</p> 
+					<p>(2)切换frame内容 </p>
+					<p>在IE和Firefox中都可以使用 window.document.getElementById(”frameId”).src = “webjx.com.html”或 window.frameName.location = “webjx.com.html”来切换frame的内容； </p>
+					<p>如果需要将frame中的参数传回父窗口，可以在frame中使用parent关键字来访问父窗口。</p> 
+					<p class="subtitle">innerText的问题. </p>
+					<p>问题说明：innerText在IE中能正常工作，但是innerText在FireFox中却不行。 </p>
+					<p>解决方法：在非IE浏览器中使用textContent代替innerText。 </p>
+					<p>示例： </p>
+					<div class="code">
+						<pre>
+if(navigator.appName.indexOf("Explorer") >-1){ 
+	document.getElementById('element').innerText = "my text"; 
+} else{ 
+	document.getElementById('element').textContent = ";my text"; 
+} 
+						</pre>
+					</div>
+					<p>注：innerHTML 同时被ie、firefox等浏览器支持，其他的，如outerHTML等只被ie支持，最好不用。</p>
+					<p class="subtitle">类名设置</p>
+					<p>setAttribute('class','styleClass') </p>
+					<p>FIREFOX支持，IE不支持(指定属性名为class，IE不会设置元素的class属性，相反只使用setAttribute时IE自动识CLASSNAME属性) </p>
+					<p>解决办法： </p>
+					<p>setAttribute('class','styleClass') </p>
+					<p>setAttribute('className','styleClass') </p>
+					<p>或者直接 object.className='styleClass'; </p>
+					<p>IE和FF都支持object.className。 </p>
+					<p class="subtitle">用setAttribute设置事件 </p>
+					<p>var obj = document.getElementById('objId'); </p>
+					<p>obj.setAttribute('onclick','funcitonname();');</p> 
+					<p>FIREFOX支持，IE不支持</p> 
+					<p>解决办法：</p> 
+					<p>IE中必须用点记法来引用所需的事件处理程序,并且要用赋予匿名函数</p> 
+					<p>如下：</p> 
+					<p>var obj = document.getElementById('objId');obj.onclick=function(){fucntionname();};这种方法所有浏览器都支持;</p> 
+				</div>
+				<div class="art-bottom">
+					<div class="declaration">
+						<p>本文内容转载自网络，如有侵权需删除，请在<a href="../chat.html" class="chat">Chat栏</a>留言或加我QQ联系！</p>
+					</div>
+					<div class="art-zan clearfix">
+						<p class="art-dianzan" id="art-dianzan"><span class="zan" id="zan1">0</span></p>
+						<div class="art-share">
+							<div class="bdsharebuttonbox">
+								<a href="#" class="bds_more" data-cmd="more"></a>
+								<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+								<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+								<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+								<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+								<a href="#" class="bds_mshare" data-cmd="mshare" title="分享到一键分享"></a>
+							</div>
+							<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","weixin","sqq","mshare"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","weixin","sqq","mshare"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+							</script>
+						</div>
+					</div>
+					<div class="art-related">
+						<h4>相关文章</h4>
+						<div>
+							<ul class="clearfix">
+								<li><a href="../links.html">前端网址导航</a></li>
+								<li><a href="article3.html">前端完整学习路线参考</a></li>
+								<li><a href="article2.html">HTML规范精要整理大全</a></li>
+								<li><a href="article4.html">Web前端浏览器兼容处理大全</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<div class="clock">
+					<div class="clockwrap">
+						<canvas width="190" height="190" id="myclock">您的浏览器不支持canvas。</canvas>
+					</div>
+				</div>
+				<div class="calendar">
+					<div class="calendar-wrap">
+						<div class="datetitle clearfix">
+							<dl class="dateyear" id="dateyear">
+								<dt>2012年</dt>
+								<dd>
+									<ul>
+										<li>2012年</li>
+										<li>2013年</li>
+										<li>2014年</li>
+										<li>2015年</li>
+										<li>2016年</li>
+										<li>2017年</li>
+										<li>2018年</li>
+										<li>2019年</li>
+										<li>2020年</li>
+										<li>2021年</li>
+										<li>2022年</li>
+									</ul>
+								</dd>
+							</dl>
+							<dl class="datemonth" id="datemonth">
+								<dt>1月</dt>
+								<dd>
+									<ul>
+										<li>1月</li>
+										<li>2月</li>
+										<li>3月</li>
+										<li>4月</li>
+										<li>5月</li>
+										<li>6月</li>
+										<li>7月</li>
+										<li>8月</li>
+										<li>9月</li>
+										<li>10月</li>
+										<li>11月</li>
+										<li>12月</li>
+									</ul>
+								</dd>
+							</dl>
+							<p class="dateday" id="dateday">1日</p>
+							<p class="curweek" id="curweek"><span>星期一</span></p>
+						</div>
+						<div class="datebox">
+							<table>
+								<thead class="dateweek" id="dateweek">
+									<tr>
+										<td id="week1">一</td>
+										<td id="week2">二</td>
+										<td id="week3">三</td>
+										<td id="week4">四</td>
+										<td id="week5">五</td>
+										<td id="week6">六</td>
+										<td id="week7">日</td>
+									</tr>
+								</thead>
+								<tbody id="dateday">
+									<tr>
+										<td></td>
+										<td></td>
+										<td><span class="choiceday">1</span></td>
+										<td><span>2</span></td>
+										<td><span>3</span></td>
+										<td><span>4</span></td>
+										<td><span>5</span></td>
+									</tr>
+									<tr>
+										<td><span>6</span></td>
+										<td><span>7</span></td>
+										<td><span>8</span></td>
+										<td><span>9</span></td>
+										<td><span>10</span></td>
+										<td><span>11</span></td>
+										<td><span>12</span></td>
+									</tr>
+									<tr>
+										<td><span>13</span></td>
+										<td><span>14</span></td>
+										<td><span>15</span></td>
+										<td><span>16</span></td>
+										<td><span>17</span></td>
+										<td><span>18</span></td>
+										<td><span>19</span></td>
+									</tr>
+									<tr>
+										<td><span>20</span></td>
+										<td><span>21</span></td>
+										<td><span>22</span></td>
+										<td><span>23</span></td>
+										<td><span>24</span></td>
+										<td><span>25</span></td>
+										<td><span>26</span></td>
+									</tr>
+									<tr>
+										<td><span>27</span></td>
+										<td><span>28</span></td>
+										<td><span>29</span></td>
+										<td><span>30</span></td>
+										<td><span>31</span></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="totop" id="totop"><a href="javascript:void(0)"></a></div>
+		</div>
+	</footer>
+	<script src="../jquery-3.1.1.min.js"></script>
+	<script src="../script.js"></script>
+	<script src="artscript.js"></script>
+</body>
+</html>

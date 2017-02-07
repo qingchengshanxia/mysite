@@ -1,0 +1,426 @@
+body {
+	box-sizing: border-box;
+}
+h1 {
+	color: #555;
+	font-size: 23px;
+	line-height: 36px;
+	margin-bottom: 10px;
+	font-family: 'Microsoft Yahei';
+	font-weight: normal;
+}
+section {
+	font-family: sans-serif;
+	background-color: #F6F6F6;
+}
+.art-wrap {
+	padding-top: 20px;
+}
+.art-wrap .left {
+	width: 73%;
+	float: left;
+	background-color: white;
+	border:solid 1px #EAEAEA;
+	border-radius: 4px;
+	margin-bottom: 20px;
+}
+.art-wrap .left:hover {
+	box-shadow: 0px 0px 10px #c1c1c1;
+}
+.art-wrap .right {
+	width: 25%;
+	float: right;
+}
+.art-zhuangzai {
+	text-align: center;
+}
+.art-zhuangzai a{
+	text-decoration: underline;
+	color: gray;
+	font-size: 12px;
+}
+.art-zhuangzai a:hover {
+	background: #e1e1e1;
+}
+	/*top*/
+	.art-wrap .left .art-top {
+		margin: 30px 20px 0 20px;
+		border-bottom: solid 1px #EAEAEA;
+		text-align: center;
+	}
+	.art-wrap .left .art-top i {
+		font-style: normal;
+	}
+	.art-wrap .left .art-meta {
+		margin-bottom: 30px;
+		font-size: 12px;
+		color: #999;
+		font-family: 'Microsoft yahei';
+	}
+	.art-wrap .left .art-meta span {
+		margin-right: 20px;
+	}
+	.art-wrap .left .art-meta a {
+		font-size: 12px;
+		color: gray;
+		background-color: #e1e1e1;
+		padding:0 2px;
+	}
+	.art-wrap .left .art-meta a:hover {
+		text-decoration: underline;
+	}
+	.art-wrap .left .art-meta a:active {
+		color: black;
+	}
+
+	/*middle*/
+	.art-wrap .left .art-middle {
+		margin: 20px;
+		line-height: 2;
+		font-size: 14px;
+	}
+	.art-wrap .left .art-middle p {
+		text-indent: 2em;
+		letter-spacing: .25px;
+		word-break: break-all;
+		word-wrap: break-word;
+		margin-bottom: 10px;
+	}
+	.art-wrap .left .art-index {
+		float: right;
+		margin-left: 20px;
+		border:solid 1px #DEDFE1;
+		border-radius: 3px;
+	}
+	.art-wrap .left .art-index h2 {
+		text-align: left;
+		margin-left: 10px;
+		margin-right: 20px;
+		padding-bottom:5px; 
+		cursor: pointer;
+		border-bottom: dashed 1px gray;
+		color: gray;
+		font-size: 14px;
+		outline: 0;
+		min-width: 76px;
+	}
+	.art-wrap .left .art-index h2 .bottom-icon {
+		border:solid 5px transparent;
+		border-top: solid 5px gray;
+		position: relative;
+		top: 10px;
+	}
+	.art-wrap .left .art-middle h3 {
+		margin: 30px 0 0 0;
+		font-size: 16px;
+		font-family: 'Microsoft Yahei';
+		font-weight: normal;
+	}
+	.art-wrap .left .art-middle h3 span{
+		background-color: #e1e1e1;
+		padding:0 5px;
+	}
+	.art-wrap .left .art-middle .art-index {
+	 	background-color: white;
+	 	word-break: break-all;
+	 }
+	.art-wrap .left .art-middle .art-index ul {
+		padding-bottom: 10px;
+		padding-right: 10px;
+	}
+	.art-wrap .left .art-middle li {
+		list-style-position: inside;
+	}
+	.art-wrap .left .art-middle .art-index ul li {
+		list-style-type:disc;
+		margin-left: 10px;
+		max-width: 200px;
+		text-indent: 0em;
+	}
+	.art-wrap .left .art-middle .art-index ul li a {
+		color: gray;
+		font-size: 12px;
+	}
+	.art-wrap .left .art-middle .art-index ul li a:hover {
+		color: black;
+		text-decoration: underline;
+	}
+	.art-wrap .left .art-middle ul,
+	.art-wrap .left .art-middle ol {
+		margin-top: 10px;
+	}
+	.art-wrap .left .art-middle ul li {
+		list-style-type: disc;
+		text-indent: 2em;
+	}
+	.art-wrap .left .art-middle ol li {
+		list-style-type: decimal;
+		text-indent: 2em;
+	}
+	.art-wrap .left .art-middle .art-img {
+		width: 100%;
+		margin:10px auto;
+	}
+	.art-wrap .left .art-middle img {
+		display: block;
+		border:none;
+		max-width: 100%;
+		margin: auto;
+	}
+	.art-wrap .left .art-middle strong {
+		display: block;
+		margin: 10px 0;
+	}
+	.art-wrap .left .art-middle .code {
+		border:solid 1px #e1e1e1;
+		border-left: solid 5px #e1e1e1;
+		background-color: #f9f9f9;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	pre {
+		word-wrap: break-word;
+		padding-left: 20px;
+		font-size: 14px;
+		padding-top: 10px;
+	}
+	code {
+		background-color: #FD7773;
+		border:solid 1px gray;
+		border-radius: 5px;
+		line-height: 1.5;
+		color: white;
+		padding:1px 5px;
+		display:inline-block; 
+		text-indent: 0;
+	}
+	/*bottom*/
+	.art-wrap .left .art-bottom .declaration {
+		margin:60px auto 40px auto;
+	}
+	.art-wrap .left .art-bottom .declaration p {
+		margin: 0 20px;
+		text-align: center;
+		background-color: #EEEEEE;
+		color: gray;
+		font-size: 14px;
+		padding: 5px 0px;
+	}
+	.art-wrap .left .art-bottom .art-zan {
+		padding:0 20px;
+	}
+	.art-bottom .art-dianzan {
+		float: left;
+		height: 30px;
+		width: 80px;
+		border-radius: 5px;
+		border:solid 1px gray;
+		cursor: pointer;
+		-webkit-user-select:none;
+		-moz-user-select:none;
+		-o-user-select:none;
+		user-select:none;
+	}
+	.art-bottom .art-dianzan:hover {
+		background-color: #f1f1f1;
+	}
+	.art-bottom .art-dianzan:active {
+		background-color: #e1e1e1;
+	}
+	.art-bottom .art-dianzan span {
+		display: block;
+		width: 36px;
+		height: 20px;
+		line-height: 20px;
+		text-align: right;
+		margin: 5px auto 0 auto;
+		background: url('../images/star.png') no-repeat -10px -238px;
+		color: gray;
+		font-size: 14px;
+	}
+	.art-bottom .art-share {
+		float: right;
+	}
+	/*相关文章*/
+	.art-bottom .art-related {
+		margin: 60px 20px 40px 20px;
+	}
+	.art-bottom .art-related h4 {
+		font-size: 20px;
+		color: gray;
+	}
+	.art-bottom .art-related li {
+		display: block;
+	}
+	.art-bottom .art-related a {
+		font-size: 14px;
+		color: gray;
+		padding-bottom: 2px; 
+	}
+	.art-bottom .art-related a:hover {
+		border-bottom: solid 1px gray;
+	}
+	.art-bottom .declaration a.chat {
+		color: gray;
+		border-bottom: solid 1px gray;
+		font-size: 12px;
+	}
+	.art-bottom .declaration a.chat:hover {
+		color: black;
+	}
+
+	/*right*/
+	.clock,
+	.calendar {
+		background-color: white;
+		border:solid 1px #EAEAEA;
+		border-radius: 4px;
+	}
+	.clock:hover,
+	.calendar:hover {
+		box-shadow: 0px 0px 10px #c1c1c1;
+	}
+	.calendar {
+		margin-top: 10px;
+	}
+		/*clock*/
+		.clock .clockwrap {
+			width: 190px;
+			height: 190px;
+			margin: 30px auto;
+		}
+		/*calendar*/
+		.calendar .calendar-wrap {
+			width: 90%;
+			margin: 30px auto;
+			background-color: #e1e1e1;
+			padding-bottom: 5px;
+		}
+		.calendar .calendar-wrap .datetitle {
+			text-align: center;
+			border-bottom: solid 1px gray;
+		}
+		.calendar .calendar-wrap .datetitle dl {
+			position: relative;
+		}
+		.calendar .calendar-wrap .datetitle dt {
+			display: block;
+			font-size: 14px;
+			height: 26px;
+			text-align: left;
+			line-height: 26px;
+			background-color: white;
+			border:solid 1px #e1e1e1;
+			position: relative;
+			padding-left: 5px;
+			cursor: pointer;
+		}
+		.calendar .datetitle .dateyear{
+			margin-left: 5px;
+		}
+		.calendar .datetitle .dateyear dt {
+			width: 60px;
+		}
+		.calendar .datetitle .datemonth dt {
+			width: 45px;
+		}
+		.calendar .datetitle .datemonth {
+			margin-left: 5px;
+		}
+		.calendar .calendar-wrap .datetitle dt:after {
+			content: '';
+			border:5px solid transparent;
+			border-top:5px solid gray;
+			position: absolute;
+			right: 5px;
+			top: 10px;
+		}
+		.calendar .calendar-wrap .datetitle dd {
+			display: block;
+			position: absolute;
+			font-size: 12px;
+			top: 26px;
+			left: 0;
+			border:solid 1px #e1e1e1;
+			display: none;
+		}
+		.calendar .datetitle .dateyear dd li{
+			display: block;
+			width: 65px;
+			text-indent: 5px;
+			background-color: white;
+		}
+		.calendar .datetitle .datemonth dd li{
+			display: block;
+			width: 50px;
+			text-indent: 5px;
+			background-color: white;
+		}
+		.calendar .datetitle .dateyear dd li:hover, 
+		.calendar .datetitle .datemonth dd li:hover {
+			background-color: #e1e1e1;
+			cursor: pointer;
+		}
+		.calendar .calendar-wrap .datetitle dl,
+		.calendar .calendar-wrap .datetitle p {
+			float: left;
+			margin-top: 5px;
+			color: gray;
+		}
+		.calendar .datetitle .dateday {
+			width: 36px;
+			height: 26px;
+			line-height: 26px;
+			font-size: 14px;
+			background-color: white;
+			color: gray;
+			margin-left: 5px;
+			position: relative;
+			top: 1px;
+			letter-spacing:2px;
+		}
+		.calendar .datetitle .curweek {
+			margin-left: 20px;
+		}
+		.calendar .datetitle .curweek span{
+			font-size: 12px;
+			vertical-align: baseline;
+		}
+		/*calendarbox*/
+		.calendar table {
+			border:0;
+			width: 100%;
+			text-align: center;
+			vertical-align: middle;
+			font-size: 16px;
+			color: gray;
+		}
+		.calendar table .dateweek td {
+			font-size: 14px;
+			color: gray;
+		}
+		.calendar td {
+			border:0;
+			width: 35px;
+			height: 32px;
+		}
+		.calendar .choiceday {
+			display: block;
+			border-radius: 50%;
+			background-color: #E18095;
+			color: white !important;
+		}
+		.calendar td.forbid {
+			color: #e1e1e1;
+		}
+		.calendar tr td.choiceweek {
+			font-size: 12px;
+			border-radius: 50%;
+			background-color: #d1d1d1;
+			color: white;
+			text-align: center;
+			vertical-align: middle;
+		}
+
+
+

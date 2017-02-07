@@ -1,0 +1,308 @@
+header开始*/
+	body{
+		overflow-y:scroll; 
+	}
+	header{
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	header>section{
+		display: block;
+		width: 100%;
+		font-size: 14px;
+		font-family: arial,"宋体";
+	}
+	header>section>div{
+		width: 980px;
+		margin: 0 auto;
+	}
+		/*上部开始*/
+		header>.sub_header_top{
+			height: 140px;
+			background: white;
+		}
+		header>.sub_header_top>div>div{
+			width: 100%;
+		}
+		header>.sub_header_top>div>.sub_header_top_t{
+			height: 30px;
+			line-height: 30px;
+			font-size: 12px;
+			overflow: hidden;
+		}
+		header>.sub_header_top>div>.sub_header_top_b{
+			height: 90px;
+		}
+			/*日期开始*/
+			header>.sub_header_top>div>.sub_header_top_t>.sub_date,
+			header>.sub_header_top>div>.sub_header_top_t>.sub_weather{
+				float: left;
+			}
+			header>.sub_header_top>div>.sub_header_top_t>.sub_date{
+				color: #666;
+			}
+			header>.sub_header_top>div>.sub_header_top_t>.sub_top_nav{
+				float:right;
+			}
+			header>.sub_header_top>div>.sub_header_top_t>div a{
+				display: inline-block;
+				margin: 0 10px;
+				color: #666;
+				font-size: 12px;
+			}
+			/*日期结束*/
+
+			/*天气开始*/
+			header>.sub_header_top>div>.sub_header_top_t>.sub_weather{
+				width: 200px;
+				margin-left: 20px;
+				margin-top: 2px;
+				overflow: hidden;
+			}
+			/*天气結束*/
+
+			/*logo和导航开始*/
+			header>.sub_header_top>div>.sub_header_top_b>.sub_logo{
+				float:left;
+				width: 400px;
+				height: 90px;
+				background: url('images/logo1.jpg') no-repeat 0 30px;
+				cursor: pointer;
+			}
+			header>.sub_header_top>div>.sub_header_top_b>.sub_logo>div{
+				font-size: 12px;
+				color: #336699;
+				position: relative;
+				top: 10px;
+				left: 0;
+			}
+			header>.sub_header_top>div>.sub_header_top_b>.sub_b_nav{
+				display: block;
+				float: right;
+				height: 60px;
+				line-height: 20px;
+				margin-top: 50px;
+			}
+			header>.sub_header_top>div>.sub_header_top_b>.sub_b_nav>a{
+				display: inline-block;
+				font-size: 13px;
+				color: #336699;
+				margin:0 10px;
+			}
+			header>.sub_header_top>div>.sub_header_top_b>.sub_b_nav>a:hover{
+				text-decoration: underline;
+				color: #A0522D;
+			}
+			/*logo和导航结束*/
+		/*上部结束*/
+
+		/*下部开始*/
+		header>.sub_header_bottom{
+			height: 50px;
+			background:#336699;
+		}
+		header>.sub_header_bottom>div{
+			height: 50px;
+			/*background: red;*/
+		}
+		header>.sub_header_bottom>div>.sub_bottom_image{
+			float:left;
+			width: 640px;
+			height:50px;
+			background: url('images/subpage-banner.png') no-repeat 0 5px;
+		}
+		header>.sub_header_bottom>div>.sub_bottom_search{
+			float:right;
+		}
+		header>.sub_header_bottom>div>.sub_bottom_search>[type='button']{
+			float:right;
+			border:none;
+			display: block;
+			width: 24px;
+			height: 26px;
+			margin:12px 10px 12px 0;
+			cursor: pointer;
+			background: url('images/zoom1.jpg') no-repeat 0 0;
+		}
+		header>.sub_header_bottom>div>.sub_bottom_search>[type='text']{
+			float:right;
+			border:none;
+			width: 200px;
+			margin: 13px 0;
+			padding: 4px;
+			background-color: #AED8DF;
+			outline: none;
+		}
+		/*下部结束*/
+
+/*header结束
+
+
+/*section开始*/
+	section{
+		display: block;
+		width: 1000px;
+		margin:0 auto;
+		overflow: hidden;
+		background: #EEEEDD;
+	}
+	section>.sub_con_left{
+		width: 680px;
+		float:left;
+		min-height: 1080px;
+		height: auto !important;
+		background-color: #f3f3ee;
+		overflow: visible;
+	}
+	section>.sub_con_right{
+		width: 320px;
+		float:right;
+		min-height: 1080px;
+	    height: auto !important;
+	    overflow: hidden;
+	}
+
+		/*section左边开始*/
+		section>.sub_con_left>.article{
+			margin-left: 10px;
+			margin-top: 20px;
+			width: 660px;
+		}
+		section>.sub_con_left>.article>.article_nav,
+		section>.sub_con_right>.fast_list>.title
+		{
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			border-bottom: 1px solid #999;
+		}
+		section>.sub_con_left>.article>.article_nav h3,
+		section>.sub_con_right>.fast_list>.title>h3{
+			display: block;
+			float: left;
+			color: #336699;
+			font-weight: bold;
+			font-size: 22px;
+			padding-left: 13px;
+			background: url('images/t_b2.png') no-repeat 0 16px;
+			font-family: arial,"宋体";
+		}
+		section>.sub_con_left>.article>.article_nav span{
+			display: block;
+			float: right;
+			color: #999;
+			font-size: 14px;
+			font-family: arial,"宋体";
+		}
+		section>.sub_con_left>.article>.article_title>h4{
+			display: block;
+			font-size: 16px;
+			color:#369;
+			font-weight: bold;
+			width: 100%;
+			height: auto;
+			margin:20px auto;
+			text-align: center;
+			line-height: 30px;
+		}
+		section>.sub_con_left>.article>.article_info{
+			margin: 20px auto;
+			text-align: center;
+			height: 40px;
+			line-height: 40px;
+		    font-size: 12px;
+		    text-align: center;
+		    color: #999999;
+		}
+		section>.sub_con_left>.article>.article_info .article_move{
+			margin-left: -8px;
+		}
+		section>.sub_con_left>.article>.article_info i{
+			font-style: normal;
+		}
+		section>.sub_con_left>.article>.article_info a{
+			font-size: 12px;
+			color: #999999;
+			margin-left: -2px;
+		}
+		section>.sub_con_left>.article>.article_content{
+			margin:20px;
+			line-height: 2.5em;
+			min-height: 800px;
+			height: auto !important;
+		}
+		section>.sub_con_left>.article>.article_content p{
+			text-indent: 2em;
+			color: #333;
+		    white-space: normal;
+		    text-align: justify;
+		    font-size: 14px;
+		}
+		section>.sub_con_left>.article>.article_weixinweibo{
+			text-align: center;
+			margin: 15px auto;
+		}
+		section>.sub_con_left>.article>.article_share{
+			height: 60px;
+		    width: 400px;
+		    margin: 40px auto;
+		    text-align: center;
+		}
+		/*section左边结束*/
+
+		/*section右边开始*/
+		section>.sub_con_right>.fast_list{
+			width: 300px;
+			margin-left: 10px;
+			margin-top: 20px;
+			height: auto;
+		}
+		section>.sub_con_right>.fast_list ul>li{
+			border-bottom: 1px dotted #999;
+			position: relative;
+			list-style-type: circle;
+			list-style-position: inside;
+			color: #0033FF;
+		}
+		section>.sub_con_right>.fast_list a{
+			display: block;
+			font-size: 12px;
+			color: #003366;
+			width: 300px;
+			height: 40px;
+			line-height: 40px;
+			white-space: nowrap;
+			overflow:hidden; 
+			text-overflow: ellipsis;
+		}
+		section>.sub_con_right>.fast_list .small_title .week_title a{
+			width: 220px;
+		}
+		section>.sub_con_right>.fast_list ul>li>span{
+			display: block;
+			font-size: 12px;
+			color: gray;
+			position: absolute;
+			top: 10px;
+			left: 225px;
+		}
+		/*section右边结束*/
+
+/*section結束*/
+
+/*footer开始*/
+	footer{
+		display: block;
+		width: 100%;
+		height: 100px;
+		line-height: 30px;
+		text-align: center;
+		background: #336699;
+		color: white;
+	}
+	footer p{
+		position: relative;
+		top:20px;
+	}
+/*footer结束*/

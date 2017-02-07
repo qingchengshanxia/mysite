@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>science lab</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">  
+	<link rel="stylesheet" href="style.css">
+	<!--[if lt IE 9]>
+	         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+	<script src="../../jquery-3.1.1.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>
+</head>
+<body>
+	<div class="header" id="home">
+		<div class="header-top">
+			<div class="container">
+				<div class="navbar">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle='collapse' data-target='#nav-header'>
+								<span class="sr-only">Toggle navigator</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a href="index.html" class="navbar-brand logo">
+								science
+								<span>lab</span>
+							</a>
+						</div>
+						<div class="collapse navbar-collapse navbar-right" id='nav-header' role='navigator'>
+							<ul class="nav navbar-nav" style="text-transform: capitalize;" id="first-nav">
+								<li class="active"><a class="scroll" href="#home">home</a></li>
+								<li><a class="scroll" href="#aboutus">about us</a></li>
+								<li><a class="scroll" href="#services">services</a></li>
+								<li><a class="scroll" href="#gallery">gallery</a></li>
+								<li><a class="scroll" href="#team">team</a></li>
+								<li><a class="scroll" href="#blog">blog</a></li>
+								<li><a class="scroll" href="#contact">contact</a></li>
+							</ul>
+							<script>
+								$(function(){
+									$('#first-nav a').click(function(){
+										var ele = $(this).attr('href');
+										var h = $(ele).offset().top;
+										$('html,body').stop().animate({'scrollTop': h}, 500);
+									})
+								})
+							</script>
+						</div>
+					</div>
+				</div>
+				<script>
+					$(function(){
+						var resizeW = function(){
+							var w = document.documentElememt ? document.documentElememt.clientWidth : document.body.clientWidth;
+							var s;
+							if (w*800/1970 < 420) {
+							 	s = '420px';
+							}else{
+								s = w*800/1970+ 'px';
+							}
+							return s;
+						}
+						$(window).resize(function(){
+							$('.header').css({'min-height':resizeW});
+						})
+						$(function(){
+							$('.header').css({'min-height':resizeW});
+						})
+					})
+				</script>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="about-section" id="aboutus">
+			<div class="container">
+				<h3>welcome to the laboratory !</h3>
+				<div class="about-grids row">
+					<div class="col-md-4 col-sm-4">
+						<img class="img-responsive" src="images/p1.jpg" alt="">
+						<h4>Epsum Factorial</h4>
+						<p>Epsum factorial nonp quid pro quo hic escorol. Olypian quarrels et gorcongolium onp quid sic ad nauseum. Souvlaki ignitus</p>
+					</div>
+					<div class="col-md-4 col-sm-4">
+						<img class="img-responsive" src="images/p2.jpg" alt="">
+						<h4>Olypian Quarrels</h4>
+						<p>Epsum factorial nonp quid pro quo hic escorol. Olypian quarrels et gorcongolium onp quid sic ad nauseum. Souvlaki ignitus.</p>
+					</div>
+					<div class="col-md-4 col-sm-4">
+						<img class="img-responsive" src="images/p3.jpg" alt="">
+						<h4>Epsum Factorial</h4>
+						<p>Epsum factorial nonp quid pro quo hic escorol. Olypian quarrels et gorcongolium onp quid sic ad nauseum. Souvlaki ignitus.</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="services-section" id="services">
+			<div class="container">
+				<h3>LABORATORY SERVICES AND TESTS</h3>
+				<div class="services-grids">
+					<div class="col-sm-6 service-leftgrid">
+						<div class="services1 media">
+							<div class="left-grid1 pull-left">
+								<span class="glyphicon glyphicon-glass media-object" aria-hidden='true'></span>
+							</div>
+							<div class="left-grid2 media-body">
+								<h4 class="media-heading">Adipisci velit sed </h4>
+								<p>How wonderful it is that nobody need wait a singlemoment before starting to improve the world.</p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="services2 media">
+							<div class="left-grid1 pull-left">
+								<span class="glyphicon glyphicon-user media-object" aria-hidden='true'></span>
+							</div>
+							<div class="left-grid2 media-body">
+								<h4 class="media-heading">Adipisci velit sed </h4>
+								<p>How wonderful it is that nobody need wait a singlemoment before starting to improve the world.</p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="services1 media">
+							<div class="left-grid1 pull-left">
+								<span class="glyphicon glyphicon-check media-object" aria-hidden='true'></span>
+							</div>
+							<div class="left-grid2 media-body">
+								<h4 class="media-heading">Adipisci velit sed </h4>
+								<p>How wonderful it is that nobody need wait a singlemoment before starting to improve the world.</p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="col-sm-6 service-rightgrid">
+						<div class="services1 media">
+							<div class="left-grid1 pull-left">
+								<span class="glyphicon glyphicon-pushpin media-object" aria-hidden='true'></span>
+							</div>
+							<div class="left-grid2 media-body">
+								<h4 class="media-heading">Adipisci velit sed </h4>
+								<p>How wonderful it is that nobody need wait a singlemoment before starting to improve the world.</p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="services2 media">
+							<div class="left-grid1 pull-left">
+								<span class="glyphicon glyphicon-leaf media-object" aria-hidden='true'></span>
+							</div>
+							<div class="left-grid2 media-body">
+								<h4 class="media-heading">Adipisci velit sed </h4>
+								<p>How wonderful it is that nobody need wait a singlemoment before starting to improve the world.</p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="services1 media">
+							<div class="left-grid1 pull-left">
+								<span class="glyphicon glyphicon-fire media-object" aria-hidden='true'></span>
+							</div>
+							<div class="left-grid2 media-body">
+								<h4 class="media-heading">Adipisci velit sed </h4>
+								<p>How wonderful it is that nobody need wait a singlemoment before starting to improve the world.</p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="gallery" id="gallery">
+			<div class="container">
+				<h3>Gallery</h3>
+				<div class="gallery-grids">
+					<section>
+						<ul>
+							<li class="col-xs-4 first">
+								<a href="">
+									<img class="img-responsive" src="images/g1.jpg" alt="">
+									<div class="hidden-text">
+										<h5>project</h5>
+										<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+									</div>
+								</a>
+							</li>
+							<li class="col-xs-4">
+								<a href="">
+									<img class="img-responsive" src="images/g2.jpg" alt="">
+									<div class="hidden-text">
+										<h5>project</h5>
+										<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+									</div>
+								</a>
+							</li>
+							<li class="col-xs-4">
+								<a href="">
+									<img class="img-responsive" src="images/g3.jpg" alt="">
+									<div class="hidden-text">
+										<h5>project</h5>
+										<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+									</div>
+								</a>
+							</li>
+							<li class="col-xs-4 first">
+								<a href="">
+									<img class="img-responsive" src="images/g4.jpg" alt="">
+									<div class="hidden-text">
+										<h5>project</h5>
+										<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+									</div>
+								</a>
+							</li>
+							<li class="col-xs-4">
+								<a href="">
+									<img class="img-responsive" src="images/g5.jpg" alt="">
+									<div class="hidden-text">
+										<h5>project</h5>
+										<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+									</div>
+								</a>
+							</li>
+							<li class="col-xs-4">
+								<a href="">
+									<img class="img-responsive" src="images/g6.jpg" alt="">
+									<div class="hidden-text">
+										<h5>project</h5>
+										<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+									</div>
+								</a>
+							</li>
+							<li class="col-xs-4 first">
+								<a href="">
+									<img class="img-responsive" src="images/g7.jpg" alt="">
+									<div class="hidden-text">
+										<h5>project</h5>
+										<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+									</div>
+								</a>
+							</li>
+							<li class="col-xs-4">
+								<a href="">
+									<img class="img-responsive" src="images/g8.jpg" alt="">
+									<div class="hidden-text">
+										<h5>project</h5>
+										<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+									</div>
+								</a>
+							</li>
+							<li class="col-xs-4" id="liw">
+								<a href="">
+									<img class="img-responsive" src="images/g9.jpg" alt="">
+									<div class="hidden-text">
+										<h5>project</h5>
+										<span>non suscipit leo fringilla non suscipit leo fringilla molestie</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</section>
+					<script>
+						var $imgI = $('.gallery-grids .img-responsive');
+							$imgI.each(function(){
+								$(this).on('mouseenter', enterdir);
+								$(this).parent().on('mouseleave', leavedir);
+							})
+						function dir(arg){
+							var	e = event || window.event,
+								x = e.pageX,
+								y = e.pageY,
+								w = arg.width()/2,
+								h = arg.height()/2,
+								t = arg.offset().top,
+								l = arg.offset().left,
+								posx = l + w - x,
+								posy = t + h - y,
+								tan1 = h/w,
+								tan2 = Math.abs(posy/posx),
+								num = 0;
+							if (posx < 0) {   // 右
+								if (posy > 0) {   // 上
+									if (tan1 >= tan2) {   //下
+										num = 1;     //右边
+									}else{   //上
+										num = 4;     //上边
+									}
+								}else{   //下
+									if (tan1 > tan2) {   //上
+										num = 1;     //右边
+									}else{   //下	
+										num = 2;	   //下边
+									}
+								}
+							}else{   // 左
+								if (posy > 0) {   //上
+									if (tan1 >= tan2) {   //下
+										num = 3;	   //左边
+									}else{   //上	
+										num = 4;	   //上边
+									}
+								}else{   //下
+									if (tan1 > tan2) {   //上	
+										num = 3;	   //左边
+									}else{   //下
+										num = 2;	   //下边
+									}
+								}
+							}
+							return num;
+						}
+						function enterdir(e){
+							var $this = $(this),
+								s = dir($this);
+							switch(s){
+								case 1: //右进
+									$this.next().css({'left':'100%','top':0}).show().stop(true,false).animate({'left':0},300,'easeOutCubic');
+									break;
+								case 2: //下进
+									$this.next().css({'top':'100%','left':0}).show().stop(true,false).animate({'top':0},300,'easeOutCubic');
+									break;
+								case 3: //左进
+									$this.next().css({'left':'-100%','top':0}).show().stop(true,false).animate({'left':0},300,'easeOutCubic');
+									break;
+								case 4: //上进
+									$this.next().css({'top':'-100%','left':0}).show().stop(true,false).animate({'top':0},300,'easeOutCubic');
+									break;
+								default:
+									return;
+							}
+						}
+						function leavedir(e){
+							var $this = $(this),
+								s = dir($this);
+							switch(s){
+								case 1: //右进
+									$this.find('.hidden-text').stop(true,false).animate({'left':'100%'},300,'easeOutCubic');
+									break;
+								case 2: //下进
+									$this.find('.hidden-text').stop(true,false).animate({'top':'100%'},300,'easeOutCubic');
+									break;
+								case 3: //左进
+									$this.find('.hidden-text').stop(true,false).animate({'left':'-100%'},300,'easeOutCubic');
+									break;
+								case 4: //上进
+									$this.find('.hidden-text').stop(true,false).animate({'top':'-100%'},300,'easeOutCubic');
+									break;
+								default:
+									return;
+							}
+						}
+					</script>
+				</div>
+			</div>
+		</div>
+		<div class="team" id="team">
+			<div class="container">
+				<h3>Our Team Members</h3>
+				<div class="team-info">
+					<div class="col-sm-3 col-xs-6">
+						<a href="#">
+							<img class="img-responsive" src="images/t1.jpg" alt="">
+							<div class="captn">
+								<h4>Tincidun</h4>
+								<p>Aenean pulvinar ac enimet posuere tincidunt velit Utin tincidunt</p>
+							</div>
+						</a>
+					</div>
+					<div class="col-sm-3 col-xs-6">
+						<a href="">
+							<img class="img-responsive" src="images/t2.jpg" alt="">
+							<div class="captn">
+								<h4>Tincidun</h4>
+								<p>Aenean pulvinar ac enimet posuere tincidunt velit Utin tincidunt</p>
+							</div>
+						</a>
+					</div>
+					<div class="col-sm-3 col-xs-6">
+						<a href="">
+							<img class="img-responsive" src="images/t3.jpg" alt="">
+							<div class="captn">
+								<h4>Tincidun</h4>
+								<p>Aenean pulvinar ac enimet posuere tincidunt velit Utin tincidunt</p>
+							</div>
+						</a>
+					</div>
+					<div class="col-sm-3 col-xs-6">
+						<a href="">
+							<img class="img-responsive" src="images/t4.jpg" alt="">
+							<div class="captn">
+								<h4>Tincidun</h4>
+								<p>Aenean pulvinar ac enimet posuere tincidunt velit Utin tincidunt</p>
+							</div>
+						</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="blog-section" id="blog">
+			<div class="container">
+				<h3>Blog</h3>
+				<div class="blog">
+					<div class="col-xs-4 blog-text">
+						<h5>THU 14 May, 2015</h5>
+						<h4>
+							<a href="#">EXCEPTEUR SINT OCCAECAT CUPIDATAT NON</a>
+						</h4>
+						<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					</div>
+					<div class="col-xs-8 blog-img">
+						<a href="#"><img class="img-responsive" src="images/b3.jpg" alt=""></a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="blog">
+					<div class="col-xs-4 blog-text pull-right">
+						<h5>THU 14 May, 2015</h5>
+						<h4>
+							<a href="#">EXCEPTEUR SINT OCCAECAT CUPIDATAT NON</a>
+						</h4>
+						<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					</div>
+					<div class="col-xs-8 blog-img">
+						<a href="#"><img class="img-responsive" src="images/b2.jpg" alt=""></a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="blog">
+					<div class="col-xs-4 blog-text">
+						<h5>THU 14 May, 2015</h5>
+						<h4>
+							<a href="#">EXCEPTEUR SINT OCCAECAT CUPIDATAT NON</a>
+						</h4>
+						<p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					</div>
+					<div class="col-xs-8 blog-img">
+						<a href="#"><img class="img-responsive" src="images/b1.jpg" alt=""></a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<div class="contact-section" id="contact">
+			<div class="container">
+				<h3>contact us</h3>
+				<div class="contact-grid">
+					<div class="col-xs-6">
+						<h4>contact form</h4>
+						<form action="" role='form'>
+							<div class="form-group">
+								<label for="name">NAME <span>*</span></label>
+								<input type="text" id="name" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="email">EMAIL ADDRESS <span>*</span></label>
+								<input type="email" id="email" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="subject">SUBJECT <span>*</span></label>
+								<input type="text" id="subject" class="form-control">
+							</div>
+							<div class="form-group">
+								<label for="message">MESSAGE <span>*</span></label>
+								<textarea name="" id="message" class="form-control"></textarea>
+							</div>
+							<button type="button" class="btn btn-lg pull-right">Send</button>
+						</form>
+					</div>
+					<div class="col-xs-6">
+						<div class="address">
+							<h4>Address</h4>
+							<p>500 Lorem Ipsum Dolor Sit,</p>
+							<p>22-56-2-9 Sit Amet, Lorem,</p>
+							<p>USA</p>
+							<p>Phone:(00) 222 666 444</p>
+							<p>Fax: (000) 000 00 00 0</p>
+							<p>Email: <a href="">info@mycompany.com</a></p>
+							<p>Follow on: <a href="">Facebook, </a><a href="">Twitter</a></p>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="container">
+			<p >Copyright © 2015.Company name All rights reserved. LHL 版权所有</p>
+		</div>
+		<a href="" id="toTop" class="to-top" style="display: none;">To Top</a>
+		<script>
+			$(function(){
+				var $totop = $('#toTop');
+				$(window).scroll(function(){
+					var h = $(window).scrollTop();
+					if ( h > 200) {
+						$totop.fadeIn(500);
+					}else{
+						$totop.fadeOut(500);
+					}
+				})
+				$totop.click(function(){
+					$('html,body').animate({'scrollTop':0},500);
+					return false;
+				})
+			})
+		</script>
+	</div>
+	<div id="dialog" class="dialog">
+		<div class="bg"></div>
+		<div class="box">
+			<a href="javascript:void(0)" class="close" id="close">×</a>
+			<div class="imgbox">
+				<!-- <img src="" alt=""> -->
+			</div>
+		</div>
+		<script>
+			$(function(){
+				var $dialog = $('#dialog');
+				$(document).on('click','img',function(){
+					var $this = $(this);
+					$dialog.show();
+					imgshow($this);
+				})
+				$('#dialog').on('click','a',function(){
+					$dialog.hide();
+				})
+				$('.bg').on('click',function(e){
+					$dialog.hide();
+				})
+				function imgshow($this){
+					var oldsrc = $this.attr('src');
+					var newImg = $('<img>');
+						newImg.attr('src', function(){return oldsrc;});
+						newImg.addClass('img-responsive');
+					$('.imgbox').html(newImg);
+				}
+				var divE = $('<div class="tips">点击浏览</div>');
+					$('body').append(divE);
+				$(document).on('mousemove','img',function(e){
+					var x = e.pageX + 20,
+					    y = e.pageY + 20;
+					divE.css({'left':x, 'top':y, 'display':'block'});
+				})
+				$(document).on('mouseout','img',function(e){
+					divE.css({'display':'none'});
+				})
+			})
+		</script>
+	</div>
+	<script>
+		var docE = document.documentElememt ? document.documentElememt : document.body;
+			resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			fontChange = function(){
+				docE.style.fontSize = 2.8 * (docE.clientWidth / 320) + 'px';
+			} 
+		window.addEventListener(resizeEvt, fontChange, false);
+		document.addEventListener('DOMContentLoaded', fontChange, false);
+
+		$('body').on('click','a',function(e){
+			var e = event||window.event;
+			e.preventDefault();
+			e.returnValue = false;
+		});
+	</script>
+</body>
+</html>

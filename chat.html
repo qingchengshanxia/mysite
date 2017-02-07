@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>chat</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="responsive.css">
+	<!--[if lt IE 9]>
+	         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+	<style>
+		.liuyan {
+			margin: 10px;
+			background-color: #e1e1e1;
+			font-size: 12px;
+			font-family: sans-serif;
+			background-color: white;
+		}
+		.liuyan .louceng{
+			border-bottom: dashed 1px gray;
+			clear: both;
+			margin-top: 5px;
+		}
+		.liuyan .louceng:hover {
+			background-color: #f9f9f9;
+		}
+		.liuyan .com-name {
+			font-weight: bold;
+			padding-right: 5px;
+			color: gray;
+		}
+		.liuyan p {
+			clear: both;
+			padding: 10px 0
+		}
+		.liuyan .left {
+			float: left;
+		}
+		.liuyan .right {
+			float: right;
+		}
+		.liuyan .comment {
+			text-indent: 2em;
+			padding:20px 0; 
+			font-size: 12px;
+		}
+		.liuyan .com-time {
+			text-align: right;
+		}
+		.liuyan .com-message {
+			text-decoration: underline;
+			font-size: 12px;
+			padding:0;
+		}
+		.liuyan .huifu {
+			width: 100%;
+			background-color: #f1f1f1;
+			display: none;
+			margin:6px auto 5px auto;
+			position: relative;
+			padding-top: 10px
+		}
+		.liuyan .huifu:before {
+			content:'';
+			border:transparent 10px solid;
+			border-bottom: #f1f1f1 10px solid;
+			position: absolute;
+			top: -20px;
+			right: 3%;
+		}
+		.liuyan .huifu form:after {
+			clear: both;
+			content: '';
+			display: block;
+			height: 0;
+			visibility: hidden;
+			margin-bottom: 5px;
+		}
+		.liuyan .huifu textarea {
+			width:80%;
+			height:60px;
+			margin:auto;
+			display: block;
+			resize: none;
+			text-indent: 1em;
+			outline: none;
+			padding: 5px;
+		}
+		.liuyan .huifu .btnhuifu {
+			float: right;
+			display: block;
+			margin-right: 5%;
+			margin-top: 5px;
+			border:none;
+			background-color: #d9d9d9;
+			color: gray;
+			padding: 3px 6px;
+			font-size: 12px;
+			cursor: pointer;
+			outline: none;
+		}
+		.liuyan .huifu .btnhuifu:hover {
+			background-color: #d3d3d3;
+		}
+		.liuyan .huifu .btnhuifu:active {
+			background-color: #c9c9c9;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1 style="display: none;"><a href="http://www.qingchengshanxia.com/">san gong</a></h1>
+			<div class="myhead">
+				<a href="index.html">
+					<img src="images/headimg.jpg" alt="我的头像">
+				</a>
+				<div>
+					<h2>青城山下</h2>
+					<p>初级前端工程师</p>
+				</div>
+			</div>
+			<nav class="headnav">
+				<ul class="navshow">
+					<li><a href="about.html" title="关于我">about</a><span>·</span></li>
+					<li><a href="profile.html" title="我的简历">profile</a><span>·</span></li>
+					<li><a href="demo.html" title="我的作品">demo</a><span>·</span></li>
+					<li><a href="note.html" title="文章笔记">note</a><span>·</span></li>
+					<li><a href="code.html" title="神奇的代码">code</a><span>·</span></li>
+					<li><a href="links.html" title="前端网址导航">links</a><span>·</span></li>
+					<li><a href="chat.html" title="留言板">chat</a><span>·</span></li>
+					<li><a href="contact.html" title="联系方式">contact</a></li>
+				</ul>
+			</nav>
+			<div class="navhide" id="navhide">
+				<div>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<ul class="navhide-sub">
+					<li><a href="about.html">about</a></li>
+					<li><a href="profile.html">profile</a></li>
+					<li><a href="demo.html">demo</a></li>
+					<li><a href="note.html">note</a></li>
+					<li><a href="code.html">code</a></li>
+					<li><a href="links.html">links</a></li>
+					<li><a href="chat.html">chat</a></li>
+					<li><a href="contact.html">contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<section>
+		<div class="container">
+			<h2>Contact → <a href="contact.html" class="pro-tip">聊点什么呢？周星驰说：人如果没有梦想，和咸鱼有什么分别！</a></h2>
+			<div class="formchat">
+				<p>想说什么？</p>
+				<p>What do you want to say?</p>
+				<h3>发表评论:</h3>
+				<form action="php/insert.php" method="get" target="hiddenpage" id="chatform">
+					<textarea name="content" maxlength="900" placeholder="当帅哥很痛苦的，你们这些奇形怪状是不会懂的.  ——《西游降魔篇》" id="chatword"></textarea>
+					<div class="name">
+						<input type="text" placeholder="Your name" id="username" name="username" autocomplete="off">
+						<span>报告主席，填写不正确！</span>
+					</div>
+					<div class="email">
+						<input type="text" placeholder="Your email" id="useremail" name="useremail" autocomplete="off">
+						<span>报告主席，填写不正确！</span>
+					</div>
+					<div class="choice">
+						<input type="checkbox" id="choice">
+						<label for="choice">
+							Send your comments 
+							<span class="gou"> ——主席，您还未勾选. </span>
+						</label>
+					</div>
+					<button type="button" class="send" id="btnsend" name="btnsend">Send</button>
+				</form>
+				<p class="infosuccess"><span>发表成功！</span></p>
+				<iframe src="" frameborder="0" name="hiddenpage" style="display: none;"></iframe>
+			</div>
+			<div class="comments-show" id="comments-show">
+				<h3>评论区:<span>(可发布留言)</span></h3>
+				<div class="com-wrap" id="com-wrap"></div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="totop" id="totop"><a href="javascript:void(0)"></a></div>
+		</div>
+	</footer>
+	<script src="jquery-3.1.1.min.js"></script>
+	<script src="script.js"></script>
+	<script>
+		// chat 表单验证；
+		$(function(){
+			var inputform = {};
+				inputform.name = false;
+				inputform.email = false;
+				inputform.check = false;
+				inputform.textarea = false;
+			$('#chatword').on('blur',function(){
+				if (!$('#chatword').val()) {
+					inputform.textarea = false;
+				} else {
+					inputform.textarea = true;
+				}
+			})
+			$('#username').on('keydown mouseup blur',function(){
+				var txt = $(this).val();
+				if (/^[\u4e00-\u9fa5]{2,8}$/.test(txt)||/^\w{4,16}$/.test(txt)) {
+					$(this).addClass('inputok').removeClass('inputerror');
+					$(this).next().css({'display':'none'});
+					inputform.name = true;
+				} else {
+					$(this).addClass('inputerror').removeClass('inputok');
+					$(this).next().css({'display':'inline'});
+					inputform.name = false;
+				}
+			})
+			$('#useremail').on('keydown mouseup blur',function(){
+				var txt = $(this).val();
+				if (/^\w+@\w+\.\w+$/.test(txt)) {
+					$(this).addClass('inputok').removeClass('inputerror');
+					$(this).next().css({'display':'none'});
+					inputform.email = true;
+				} else {
+					$(this).addClass('inputerror').removeClass('inputok');
+					$(this).next().css({'display':'inline'});
+					inputform.email = false;
+				}
+			})
+			$('.choice').on('click',function(){
+				if (!$('#choice').prop('checked')) {
+					$('.gou').css({'display':'inline'});
+					inputform.check = false;
+				} else {
+					$('.gou').css({'display':'none'});
+					inputform.check = true;
+				}
+			})
+			// 提交验证；
+			$('#btnsend').click(function(){
+				var $choice = $('#choice'),
+					$gou = $('.gou'),
+					$username = $('#username'),
+					$chatword = $('#chatword'),
+					$useremail = $('#useremail');
+				if (!$choice.prop('checked')) {
+					$gou.css({'display':'inline'});
+					inputform.check = false;
+				}
+				if (!$username.val()) {
+					$username.addClass('inputerror').next().css({'display':'inline'});
+					inputform.name = false;
+				}
+				if (!$useremail.val()) {
+					$useremail.addClass('inputerror').next().css({'display':'inline'});
+					inputform.email = false;
+				}
+				if (!$chatword.val()) {
+					$chatword.attr({'placeholder':'说点什么吧,不然不能提交喔!-- ^_^'});
+					$('.infosuccess').css({'display':'none'});
+					inputform.textarea = false;
+				}
+				if (inputform.textarea && inputform.name && inputform.email && inputform.check) {
+					$('#chatform').submit();
+					$('.infosuccess').css({'display':'block'});	// 显示‘发表成功’四个字;
+					// 重置；
+					$chatword.val('');
+					$username.val('').removeClass('inputok');
+					$useremail.val('').removeClass('inputok');
+					$choice.prop('checked',false);
+				}else {
+					return false;
+				}
+			})
+			// 隐藏‘发表成功’四个字;
+			$('#btnsend').on('blur',function(){
+				if ($('.infosuccess').is(':visible')) {
+					$('.infosuccess').css({'display':'none'});
+				}
+			})
+		})
+
+
+		//回复提醒；
+		function callback(){
+			$('.louceng').each(function(){
+				$(this).append($('<div class="huifu"><form><textarea placeholder="暂时不能发表回复！"></textarea><input type="button" name="btnhuifu" value="send" class="btnhuifu"></form></div>'));
+			})
+			$('.com-message').on('click',function(){
+				if (!$(this).parent().parent().find('.huifu').is(':visible')) {
+					$(this).parent().parent().find('.huifu').show();
+					$(this).text('收起评论');
+				} else {
+					$(this).text('回复(0)');
+					$(this).parent().parent().find('.huifu').hide();
+				}
+			})
+		}
+
+		// 生成回复栏；
+		window.onload=function(){
+			var wrap = document.getElementById('com-wrap'),
+			    sub = document.getElementById('btnsend'),
+			    xml = null;
+				showword();
+
+			function delay(){
+				setTimeout(function(){
+					showword();
+				},300);
+				//解决获取数据发生在插入数据之前的问题；
+			}
+			if (sub.addEventListener) {
+				sub.addEventListener('click',delay,false);
+			} else {
+				sub.attachEvent('onclick',delay);
+			}
+
+			function showword(){
+				if (window.XMLHttpRequest) {
+					xml = new XMLHttpRequest();
+				} else {
+					xml = new ActiveXObject('Microsoft.XMLHTTP');
+				}
+				xml.onreadystatechange= function(){
+					if (xml.readyState == 4 && xml.status == 200) {
+						wrap.innerHTML = xml.responseText;
+						callback();
+					}
+				}
+				xml.open("GET","php/query.php",true);
+				xml.send();
+			}
+		}
+	</script>
+</body>
+</html>
